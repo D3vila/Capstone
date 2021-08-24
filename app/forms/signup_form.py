@@ -30,10 +30,10 @@ def email_format(form, field):
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
-    firstName = StringField('First Name', validators=[DataRequired()])
-    lastName = StringField('Last Name', validators=[DataRequired()])
+    first_name = StringField('First Name')
+    last_name = StringField('Last Name')
     email = StringField('email', validators=[
         DataRequired(), user_exists, Email()
     ])
     password = PasswordField('password', validators=[DataRequired()])
-    profileImage = TextField('Picture URL')
+    profile_image = TextField('Picture URL')
