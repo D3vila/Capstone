@@ -7,12 +7,12 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    firstName = db.Column(db.String(40), nullable=True)
-    lastName = db.Column(db.String(40), nullable=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
+    first_name = db.Column(db.String(40), nullable=True)
+    last_name = db.Column(db.String(40), nullable=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    profileImage = db.Column(db.Text, nullable=True)
+    profile_image = db.Column(db.Text, nullable=True)
 
     @property
     def password(self):
@@ -28,9 +28,9 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'firstName': self.firstName,
-            'lastName': self.lastName,
             'username': self.username,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
             'email': self.email,
-            'profileImage': self.profileImage,
+            'profile_image': self.profile_image,
         }
