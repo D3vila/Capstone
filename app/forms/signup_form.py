@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, PasswordField, TextField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
@@ -20,8 +20,20 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
+def email_format(form, field):
+    # Checking if email is in email format
+    email = field.data
+    if email:
+        raise Email('Not a valid Email.')
+
+
 class SignUpForm(FlaskForm):
+    firstName = StringField('First Name', validators=[DataRequired()])
+    lastName = StringField('Last Name', validators=[DataRequired()])
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
-    password = StringField('password', validators=[DataRequired()])
+    email = StringField('email', validators=[
+        DataRequired(), user_exists, Email()
+        ])
+    password = PasswordField('password', validators=[DataRequired()])
+    profileImage = TextField('Picture URL')
