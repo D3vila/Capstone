@@ -18,7 +18,7 @@ class Location(db.Model, UserMixin):
     country = db.Column(db.String(40), nullable=False)
     month = db.Column(db.String(20), nullable=False)
     day = db.Column(db.Integer, nullable=False)
-    year = db.Column(db.Integer, nullable=False)
+    year = db.Column(db.String, nullable=False)
     price = db.Column(db.Integer, nullable=False)
 
     user = db.relationship('User', back_populates='locations')
