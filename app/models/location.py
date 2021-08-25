@@ -23,6 +23,7 @@ class Location(db.Model, UserMixin):
 
     user = db.relationship('User', back_populates='locations')
     review = db.relationship('Review', back_populates='locations')
+    reservation = db.relationship('Reservation', back_populates='locations')
 
     def to_dict(self):
         return {
