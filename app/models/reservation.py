@@ -11,8 +11,8 @@ class Reservation(db.Model, UserMixin):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     startDate = db.Column(db.Date, nullable=False)
     endDate = db.Column(db.Date, nullable=False)
-    createdAt = db.Column(db.DateTime)
-    updatedAt = db.Column(db.DateTime)
+    createdAt = db.Column(db.DateTime, nullable=True)
+    updatedAt = db.Column(db.DateTime, nullable=True)
 
     locations = db.relationship('Location', back_populates='reservation')
     user = db.relationship('User', back_populates='reservation')

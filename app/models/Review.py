@@ -10,8 +10,8 @@ class Review(db.Model, UserMixin):
     locationId = db.Column(db.Integer, db.ForeignKey(
         'locations.id'), nullable=False)
     review = db.Column(db.Text, nullable=False)
-    createdAt = db.Column(db.DateTime)
-    updatedAt = db.Column(db.DateTime)
+    createdAt = db.Column(db.DateTime, nullable=True)
+    updatedAt = db.Column(db.DateTime, nullable=True)
 
     user = db.relationship('User', back_populates='reviews')
     locations = db.relationship('Location', back_populates='review')

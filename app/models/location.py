@@ -6,11 +6,11 @@ class Location(db.Model, UserMixin):
     __tablename__ = 'locations'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(40), nullable=False, unique=True)
-    img1 = db.Column(db.Text, nullable=False)
-    img2 = db.Column(db.Text, nullable=False)
-    img3 = db.Column(db.Text, nullable=False)
-    img4 = db.Column(db.Text, nullable=False)
+    name = db.Column(db.String(40), nullable=False)
+    img1 = db.Column(db.Text, nullable=True)
+    img2 = db.Column(db.Text, nullable=True)
+    img3 = db.Column(db.Text, nullable=True)
+    img4 = db.Column(db.Text, nullable=True)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     description = db.Column(db.Text, nullable=False)
     city = db.Column(db.String(40), nullable=False)

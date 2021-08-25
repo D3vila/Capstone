@@ -2,7 +2,7 @@ from app.models import db, Location
 
 
 # Adds a demo user, you can add other users here if you want
-def seed_comments():
+def seed_locations():
     seedArray = []
 
     seedArray.append(Location(name='The day human kind defeats the aliens in Independence Day', img1='https://vignette4.wikia.nocookie.net/id4/images/e/ec/Ending_10.png/revision/latest/scale-to-width-down/640?cb=20160522071223', img2='https://i.pinimg.com/originals/db/9c/07/db9c075859c30dd361e9b7c1f971871b.jpg', img3='https://static.onecms.io/wp-content/uploads/sites/20/2015/07/bill-pullman-01-800.jpg', img4='https://simotron.files.wordpress.com/2012/04/screenshot-lrg-37.png', user_id=1, description='In this Roland Emmerich flick, aliens invade earth on July 2, 1996. This results in the destruction of numerous buildings and landmarks, including the White House. Humanity fires back on July 3, although resistance appears futile. Then on the Fourth of July, David Levinson discovers that the alien mothership is no match for a computer virus. Thus, our heroes make one last stand for humankind. It sure is convenient that this final showdown takes place on Independence Day, which U.S. President Thomas J. Whitmore ties into his rousing speech. His inspirational words not only speak to Americans, but the rest of the world as well, ultimately encouraging every person to fight for their freedom on the most patriotic of U.S. holidays.', city='Area 51', state='Nevada', country='USA', month='July', day=4, year=1996, price=200))
