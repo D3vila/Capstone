@@ -38,7 +38,7 @@ def upgrade():
     op.create_table(
         'locations',
         sa.Column('id', sa.Integer(), nullable=False),
-        sa.Column('name', sa.String(length=40), nullable=False),
+        sa.Column('name', sa.String(), nullable=False),
         sa.Column('img1', sa.Text(), nullable=True),
         sa.Column('img2', sa.Text(), nullable=True),
         sa.Column('img3', sa.Text(), nullable=True),

@@ -1,5 +1,5 @@
 from app.models import db, Review
-import datetime
+from datetime import datetime
 
 
 # Adds a demo user, you can add other users here if you want

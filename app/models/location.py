@@ -6,7 +6,7 @@ class Location(db.Model, UserMixin):
     __tablename__ = 'locations'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(40), nullable=False)
+    name = db.Column(db.String, nullable=False)
     img1 = db.Column(db.Text, nullable=True)
     img2 = db.Column(db.Text, nullable=True)
     img3 = db.Column(db.Text, nullable=True)
