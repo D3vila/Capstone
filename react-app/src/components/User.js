@@ -29,7 +29,13 @@ function User() {
         <strong>Username</strong> {user.username}
       </li>
       <li>
-        <strong>Email</strong> {user.email}
+        <strong>first Name</strong> {user.first_name}
+      </li>
+      <li>
+        <strong>Last Name</strong> {user.last_name}
+      </li>
+      <li>
+        <img src={user.profile_image} className='profilePic' alt='profilePic'/>
       </li>
     </ul>
   );
