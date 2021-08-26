@@ -49,6 +49,11 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div>
+        <NavLink to='/locations' exact={true} activeClassName='active'>
+          locations
+        </NavLink>
+      </div>
+      <div>
         {sessionLinks}
       </div>
     </nav>
