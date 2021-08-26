@@ -2,7 +2,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from '../auth/LogoutButton';
+import './NavBar.css';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -14,6 +15,8 @@ const NavBar = () => {
         <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active' className='user__profile__link'>
           My Profile
         </NavLink>
+        <div>Hello, {sessionUser.username} <img src={sessionUser.profile_image} className='navbar__profilePic' alt='profilePic'/></div>
+
         <LogoutButton user={sessionUser} className='logout__button' />
       </div>
     )
