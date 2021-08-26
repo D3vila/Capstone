@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 function Location() {
     const location = useSelector((state) => state.locations)
+
     const dispatch = useDispatch()
     const { locationId } = useParams();
     console.log(location.reviews)
@@ -36,8 +37,8 @@ function Location() {
                         </div>
                         <div>
                             <h1>Reviews</h1>
-                            {location.reviews && location.reviews.map(review => (
-                                <div>
+                            {location.reviews.map(review => (
+                                <div key={review.id}>
                                     <div>User: {review.userId}</div>
                                     <div>{review.createdAt}</div>
                                     <div>{review.review}</div>
