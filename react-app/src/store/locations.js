@@ -1,9 +1,17 @@
 const GET_LOCATIONS = 'locations/GET_LOCATIONS'
+const ONE_LOCATION = 'location/ONE_LOCATION'
 
 const loadLocations = (locations) => {
     return {
         type: GET_LOCATIONS,
         locations
+    }
+}
+
+const getLocation = (location) => {
+    return {
+        type: ONE_LOCATION,
+        location
     }
 }
 
@@ -17,6 +25,14 @@ export const getLocations = () => async (dispatch) => {
     }
 }
 
+export const getOneLocation = (locationId) => async (dispatch) => {
+    const response = await fetch(`/api/location/${locationId}/`)
+    if (response.ok) {
+        const location = await response.json()
+        await dispatch(getLocation(location))
+        return response
+    }
+}
 
 const initialState = {}
 
@@ -33,6 +49,13 @@ export default function locations(state = initialState, action) {
             newState = { ...allLocations }
             return newState;
         }
+
+        case ONE_LOCATION: {
+            newState = Object.assign({}, state);
+            newState = action.location;
+            return newState
+        }
+
         default:
             return state
     }
