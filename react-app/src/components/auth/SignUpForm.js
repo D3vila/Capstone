@@ -61,7 +61,7 @@ const SignUpForm = () => {
     <form onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className='signup__errors' key={ind}> {error} </div>
         ))}
       </div>
       <div>
@@ -71,6 +71,7 @@ const SignUpForm = () => {
           name='username'
           onChange={updateUsername}
           value={username}
+          
         ></input>
       </div>
       <div>
@@ -80,6 +81,7 @@ const SignUpForm = () => {
           name='first_name'
           onChange={updateFirst_name}
           value={first_name}
+
         ></input>
       </div>
       <div>
@@ -89,6 +91,7 @@ const SignUpForm = () => {
           name='last_name'
           onChange={updateLast_name}
           value={last_name}
+
         ></input>
       </div>
       <div>
@@ -98,6 +101,7 @@ const SignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+
         ></input>
       </div>
       <div>
@@ -107,6 +111,7 @@ const SignUpForm = () => {
           name='password'
           onChange={updatePassword}
           value={password}
+
         ></input>
       </div>
       <div>
@@ -116,7 +121,7 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
+
         ></input>
       </div>
       <div>

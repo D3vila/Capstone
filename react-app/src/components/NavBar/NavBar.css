@@ -1,0 +1,9 @@
+.navbar__profilePic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-position: 50% 20%;
+    margin: 10px;
+    image-rendering: crisp-edges;
+    object-fit: cover;
+}
