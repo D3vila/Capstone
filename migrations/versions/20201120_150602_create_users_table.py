@@ -79,6 +79,8 @@ def upgrade():
         sa.PrimaryKeyConstraint('id'),
         sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
         sa.ForeignKeyConstraint(['locationId'], ['locations.id'], ),
+        sa.Column('price', sa.Integer(), nullable=True),
+        sa.Column('days', sa.Integer(), nullable=True),
     )
     # ### end Alembic commands ###qqqqqqqqq
 

@@ -11,8 +11,10 @@ class Reservation(db.Model, UserMixin):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     startDate = db.Column(db.Date, nullable=False)
     endDate = db.Column(db.Date, nullable=False)
-    createdAt = db.Column(db.DateTime, nullable=True)
-    updatedAt = db.Column(db.DateTime, nullable=True)
+    createdAt = db.Column(db.DateTime, default=db.func.now(), nullable=True)
+    updatedAt = db.Column(db.DateTime, default=db.func.now(), server_onupdate=db.func.now(), nullable=True)
+    price = db.Column(db.Integer)
+    days = db.Column(db.Integer)
 
     locations = db.relationship('Location', back_populates='reservation')
     user = db.relationship('User', back_populates='reservation')
@@ -26,4 +28,6 @@ class Reservation(db.Model, UserMixin):
             'endDate': self.endDate,
             'createdAt': self.createdAt,
             'updatedAt': self.updatedAt,
+            'price': self.price,
+            'days': self.days
         }
