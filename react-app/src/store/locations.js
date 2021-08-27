@@ -3,7 +3,7 @@ const ONE_LOCATION = 'location/ONE_LOCATION'
 
 const ADD_REVIEW = 'review/ADD_REVIEW';
 const DELETE_REVIEW = 'review/DELETE_REVIEW';
-const EDIT_REVIEW = 'review/DELETE_REVIEW';
+const EDIT_REVIEW = 'review/EDIT_REVIEW';
 
 const loadLocations = (locations) => {
     return {
@@ -72,20 +72,20 @@ export const createReviewThunk = review => async (dispatch) => {
     return response
 }
 
-export const editReviewThunk = (payload) => async (dispatch) => {
-    const response = await fetch(`/api/review/${payload.id}/`, {
+export const editReviewThunk = (review) => async (dispatch) => {
+    const response = await fetch(`/api/review/${review.id}/`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(review)
     })
     if (response.ok) {
         const editedReview = await response.json();
         dispatch(editReview(editedReview))
 
     }
-    // console.log('editThunk', response)
+    console.log('editThunk', response)
     return response
 }
 
@@ -98,7 +98,7 @@ export const deleteReviewThunk = id => async (dispatch) => {
     if (response.ok) {
         const removedReview = await response.json();
         dispatch(deleteReview(removedReview))
-        console.log('deleteThunk', removedReview)
+        // console.log('deleteThunk', removedReview)
         // await response.json();
         // dispatch(deleteReview(id))
         return removedReview
@@ -143,12 +143,13 @@ export default function locations(state = initialState, action) {
 
         case EDIT_REVIEW: {
             newState = { ...state };
+            console.log(newState)
             for (let i = 0; i < newState.reviews.length; i++) {
                 if (newState.reviews[i] && (newState.reviews[i].id === action.review.id))
                     newState.reviews[i] = action.review
             }
             alert('Review edited successfully')
-            // console.log('editReducer', newState)
+            console.log('editReducer', newState)
             return newState;
         }
 

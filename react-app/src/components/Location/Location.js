@@ -93,9 +93,9 @@ function Location() {
                     {sessionReview}
                     {location.reviews?.map(review => (
                         <div className='review_box' key={review.id}>
-                            <div className='review__userId'>User: {review?.userId}</div>
-                            <div className='review__createdAt'>{review?.createdAt}</div>
-                            <div className='review__review'>{review?.review}</div>
+                            <div className='review__userId'>User: {review.userId}</div>
+                            <div className='review__createdAt'>{review.createdAt}</div>
+                            <div className='review__review'>{review.review}</div>
                             {userReviewOptions(sessionUser, review)}
                         </div>
                     ))}
