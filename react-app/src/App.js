@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/User/UsersList';
 import User from './components/User/User';
 import Locations from './components/LocationList/Locations'
+import Location from './components/Location/Location';
 import { authenticate } from './store/session';
 
 function App() {
@@ -44,8 +45,8 @@ function App() {
         <Route path='/locations' exact={true}>
           <Locations />
         </Route>
-        <Route path='/locations/:id'>
-          <h2>location page</h2>
+        <Route path='/locations/:locationId'>
+          <Location />
         </Route>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>

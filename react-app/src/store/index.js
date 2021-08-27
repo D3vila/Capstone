@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import session from './session'
 import locations from './locations';
 
+
 const rootReducer = combineReducers({
   session,
   locations,

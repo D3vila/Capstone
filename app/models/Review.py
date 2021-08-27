@@ -1,5 +1,7 @@
 from .db import db
 from flask_login import UserMixin
+from sqlalchemy.sql import func
+from datetime import datetime
 
 
 class Review(db.Model, UserMixin):
@@ -10,8 +12,8 @@ class Review(db.Model, UserMixin):
     locationId = db.Column(db.Integer, db.ForeignKey(
         'locations.id'), nullable=False)
     review = db.Column(db.Text, nullable=False)
-    createdAt = db.Column(db.DateTime, nullable=True)
-    updatedAt = db.Column(db.DateTime, nullable=True)
+    createdAt = db.Column(db.DateTime, default=db.func.now(), nullable=True)
+    updatedAt = db.Column(db.DateTime, default=db.func.now(), server_onupdate=db.func.now(), nullable=True)
 
     user = db.relationship('User', back_populates='reviews')
     locations = db.relationship('Location', back_populates='review')
