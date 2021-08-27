@@ -71,17 +71,19 @@ export const createReviewThunk = review => async (dispatch) => {
     return response
 }
 
-export const editReviewThunk = review => async (dispatch) => {
-    const response = await fetch(`/api/review/${review.id}/`, {
+export const editReviewThunk = (payload) => async (dispatch) => {
+    console.log(payload)
+    const response = await fetch(`/api/review/${payload.id}/`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(review)
+        body: JSON.stringify(payload)
     })
     if (response.ok) {
         const editedReview = await response.json();
         dispatch(editReview(editedReview))
+
     }
     return response
 }
@@ -114,13 +116,13 @@ export default function locations(state = initialState, action) {
 
         case ONE_LOCATION: {
             // newState = Object.assign({}, state);
-            newState = {...state};
+            newState = { ...state };
             newState = action.location;
             return newState;
         }
 
         case ADD_REVIEW: {
-            newState = {...state};
+            newState = { ...state };
             // newState[action.review.id] = action.review;
             newState.reviews.push(action.review);
             // alert('Review posted')
@@ -128,18 +130,18 @@ export default function locations(state = initialState, action) {
         }
 
         case EDIT_REVIEW: {
-            newState = {...state};
-            for(let i=0; i<newState.reviews.length; i++){
+            newState = { ...state };
+            for (let i = 0; i < newState.reviews.length; i++) {
                 if (newState.reviews[i] && (newState.reviews[i].id === action.review.id))
-                newState.reviews[i] = action.review
+                    newState.reviews[i] = action.review
             }
             alert('Review edited successfully')
             return newState;
         }
 
         case DELETE_REVIEW: {
-            newState = {...state};
-            for(let i=0; i<newState.reviews.length; i++){
+            newState = { ...state };
+            for (let i = 0; i < newState.reviews.length; i++) {
                 if (newState.reviews[i] && (newState.reviews[i].id === action.review.id))
                     delete newState.reviews[i];
             }

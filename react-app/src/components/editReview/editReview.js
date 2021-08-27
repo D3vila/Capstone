@@ -16,6 +16,7 @@ const EditReviewForm = (review) => {
         e.preventDefault();
         review = review.review
         const editedNewReview = {
+            id: review.id,
             userId: sessionUser.id,
             locationId: location.location.id,
             review: editedReview + ' (edited)',
