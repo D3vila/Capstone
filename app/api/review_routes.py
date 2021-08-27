@@ -25,8 +25,30 @@ def postReview():
         db.session.add(new_review)
         db.session.commit()
         return new_review.to_dict()
-    else:
-        return {'errors': validation_errors(form.errors)}, 401
+    return {'error': 'WRROONNGOO'}
+    # else:
+    #     return {'errors': validation_errors(form.errors)}, 401
 
 
-# PUT and Delete todo
+@review_route.route('/<int:id>', methods=['PUT'])
+def editReview(id):
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        oldReview = Review.query.get(id)
+        form.populate_obj(oldReview)
+
+        db.session.commit()
+
+        return oldReview.to_dict()
+    return {'error': 'still wrong'}
+
+
+@review_route.route('/<int:id>/', methods=['DELETE'])
+def deleteReview(id):
+
+    review = Review.query.get(id)
+    db.session.delete(review)
+    db.session.commit()
+
+    return review.to_dict()
