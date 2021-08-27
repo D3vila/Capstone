@@ -5,6 +5,14 @@ from app.forms.review_form import ReviewForm
 review_route = Blueprint('review', __name__)
 
 
+def validation_errors(validation_errors):
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
+
 @review_route.route('/', methods=['POST'])
 def postReview():
     form = ReviewForm()
@@ -17,7 +25,8 @@ def postReview():
         db.session.add(new_review)
         db.session.commit()
         return new_review.to_dict()
-    return {'error': 'WROONNGO'}
+    else:
+        return {'errors': validation_errors(form.errors)}, 401
 
 
 # PUT and Delete todo

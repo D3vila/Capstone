@@ -86,7 +86,7 @@ export default function locations(state = initialState, action) {
         case ADD_REVIEW: {
             newState = {...state};
             newState.reviews.push(action.review);
-            alert('Review posted')
+            // alert('Review posted')
             return newState;
         }
 

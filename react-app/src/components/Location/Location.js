@@ -19,7 +19,7 @@ function Location() {
 
     let sessionReview;
 
-    if(sessionUser) {
+    if (sessionUser) {
         sessionReview = (
             <>
                 <AddReviewForm />
@@ -33,52 +33,41 @@ function Location() {
         )
     }
 
-    function locationListing() {
-        if (location.location) {
-            return (
-                <>
-                    <div>
-                        <div>
-                            {<h1>{location.location.name}</h1>}
-                        </div>
-                        <div>
-                            <img src={location.location.img4} alt='locationPic'/>
-                            <img src={location.location.img3} alt='locationPic'/>
-                            <img src={location.location.img2} alt='locationPic'/>
-                            <img src={location.location.img1} alt='locationPic'/>
-                        </div>
-                        <div>
-                            <h3>{location.location.description}</h3>
-                        </div>
-                        <div>
 
-                        </div>
-                        <div>
-                            <h1>Reviews</h1>
-                            {sessionReview}
-                            {location.reviews.map(review => (
-                                <div key={review.id}>
-                                    <div>User: {review.userId}</div>
-                                    <div>{review.createdAt}</div>
-                                    <div>{review.review}</div>
-                                </div>
-                            ))}
-                        </div>
-
-                    </div>
-
-                </>
-
-            )
-
-        }
-    }
     return (
         <>
             <div>
-                {locationListing()}
+                <div>
+                    {<h1>{location.location?.name}</h1>}
+                </div>
+                <div>
+                    <img src={location.location?.img4} alt='locationPic' />
+                    <img src={location.location?.img3} alt='locationPic' />
+                    <img src={location.location?.img2} alt='locationPic' />
+                    <img src={location.location?.img1} alt='locationPic' />
+                </div>
+                <div>
+                    <h3>{location.location?.description}</h3>
+                </div>
+                <div>
+
+                </div>
+                <div>
+                    <h1>Reviews</h1>
+                    {sessionReview}
+                    {location.reviews?.map(review => (
+                        <div key={review.id}>
+                            <div>User: {review?.userId}</div>
+                            <div>{review?.createdAt}</div>
+                            <div>{review?.review}</div>
+                        </div>
+                    ))}
+                </div>
+
             </div>
+
         </>
+
     )
 
 }
