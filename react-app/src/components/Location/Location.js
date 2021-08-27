@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getOneLocation } from '../../store/locations'
+import { getOneLocation, deleteReviewThunk } from '../../store/locations'
 import { useParams } from 'react-router-dom';
 import AddReviewForm from '../addReview/addReviewForm';
+import EditReviewForm from '../editReview/editReview';
 
 
 function Location() {
@@ -18,6 +19,25 @@ function Location() {
     }, [dispatch, locationId]);
 
     let sessionReview;
+
+    function handleDeleteReview(e, reviewIdToDelete) {
+        e.preventDefault();
+        return dispatch(deleteReviewThunk(reviewIdToDelete))
+            .catch(async (res) => {
+                await res.json();
+            });
+    }
+
+    function userReviewOptions(sessionUser, review) {
+        if (sessionUser && (sessionUser.id === review.userId)) {
+            return (
+                <>
+                    <EditReviewForm review={review}/>
+                    <button onClick={(e) => handleDeleteReview(e, review.id)}>Delete</button>
+                </>
+            )
+        }
+    }
 
     if (sessionUser) {
         sessionReview = (
@@ -60,6 +80,7 @@ function Location() {
                             <div>User: {review?.userId}</div>
                             <div>{review?.createdAt}</div>
                             <div>{review?.review}</div>
+                            {userReviewOptions(sessionUser, review)}
                         </div>
                     ))}
                 </div>

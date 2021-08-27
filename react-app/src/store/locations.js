@@ -24,6 +24,16 @@ const addReview = (review) => ({
     review
 })
 
+const editReview = (review) => ({
+    type: EDIT_REVIEW,
+    review
+})
+
+const deleteReview = (review) => ({
+    type: DELETE_REVIEW,
+    review
+})
+
 //--------Location THUNKS--------//
 export const getLocations = () => async (dispatch) => {
     const response = await fetch('/api/location/')
@@ -61,6 +71,31 @@ export const createReviewThunk = review => async (dispatch) => {
     return response
 }
 
+export const editReviewThunk = review => async (dispatch) => {
+    const response = await fetch(`/api/review/${review.id}/`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(review)
+    })
+    if (response.ok) {
+        const editedReview = await response.json();
+        dispatch(editReview(editedReview))
+    }
+    return response
+}
+
+export const deleteReviewThunk = id => async (dispatch) => {
+    const response = await fetch(`/api/review/${id}/`, {
+        method: "DELETE",
+    })
+    if (response.ok) {
+        const removedReview = await response.json()
+        dispatch(deleteReview(removedReview))
+    }
+    return response
+}
 
 //----------REDUCER-------------//
 const initialState = {}
@@ -78,15 +113,37 @@ export default function locations(state = initialState, action) {
         }
 
         case ONE_LOCATION: {
-            newState = Object.assign({}, state);
+            // newState = Object.assign({}, state);
+            newState = {...state};
             newState = action.location;
-            return newState
+            return newState;
         }
 
         case ADD_REVIEW: {
             newState = {...state};
+            // newState[action.review.id] = action.review;
             newState.reviews.push(action.review);
             // alert('Review posted')
+            return newState;
+        }
+
+        case EDIT_REVIEW: {
+            newState = {...state};
+            for(let i=0; i<newState.reviews.length; i++){
+                if (newState.reviews[i] && (newState.reviews[i].id === action.review.id))
+                newState.reviews[i] = action.review
+            }
+            alert('Review edited successfully')
+            return newState;
+        }
+
+        case DELETE_REVIEW: {
+            newState = {...state};
+            for(let i=0; i<newState.reviews.length; i++){
+                if (newState.reviews[i] && (newState.reviews[i].id === action.review.id))
+                    delete newState.reviews[i];
+            }
+            alert('Review Deleted')
             return newState;
         }
 

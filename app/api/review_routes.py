@@ -30,11 +30,12 @@ def postReview():
     #     return {'errors': validation_errors(form.errors)}, 401
 
 
-@review_route.route('/<int:id>', methods=['PUT'])
+@review_route.route('/<int:id>/', methods=['PUT'])
 def editReview(id):
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+
         oldReview = Review.query.get(id)
         form.populate_obj(oldReview)
 

@@ -5,7 +5,10 @@ import { createReviewThunk } from '../../store/locations';
 const AddReviewForm = () => {
     const sessionUser = useSelector(state => state.session.user)
     const location = useSelector((state) => state.locations)
+
     const dispatch = useDispatch();
+
+
     const [review, setReview] = useState();
     const createReview = (e) => setReview(e.target.value);
 
@@ -24,7 +27,7 @@ const AddReviewForm = () => {
     return (
         <div className='review__div'>
             <form onSubmit={handleSubmit}>
-                <textarea type='text' onChange={createReview} value={review} placeholder='What did you think of your visit?' />
+                <textarea type='text' onChange={createReview} placeholder='What did you think of your visit?' />
                 <button type='submit'>Submit</button>
             </form>
         </div>
