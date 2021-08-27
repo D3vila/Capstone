@@ -7,7 +7,7 @@ Create Date: 2020-11-20 15:06:02.230689
 """
 from alembic import op
 import sqlalchemy as sa
-import datetime
+
 
 from sqlalchemy.sql.sqltypes import DateTime
 
@@ -61,8 +61,8 @@ def upgrade():
         sa.Column('userId', sa.Integer(), nullable=False),
         sa.Column('locationId', sa.Integer(), nullable=False),
         sa.Column('review', sa.Text(), nullable=False),
-        sa.Column('createdAt', sa.DateTime(), nullable=True, default=datetime.datetime.utcnow),
-        sa.Column('updatedAt', sa.DateTime(), nullable=True, default=datetime.datetime.utcnow),
+        sa.Column('createdAt', sa.DateTime(), nullable=True),
+        sa.Column('updatedAt', sa.DateTime(), nullable=True),
         sa.PrimaryKeyConstraint('id'),
         sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
         sa.ForeignKeyConstraint(['locationId'], ['locations.id'], ),

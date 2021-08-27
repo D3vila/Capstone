@@ -2,18 +2,36 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOneLocation } from '../../store/locations'
 import { useParams } from 'react-router-dom';
+import AddReviewForm from '../addReview/addReviewForm';
 
 
 function Location() {
     const location = useSelector((state) => state.locations)
+    const sessionUser = useSelector(state => state.session.user)
 
     const dispatch = useDispatch()
     const { locationId } = useParams();
-    console.log(location.reviews)
+    // console.log(location.reviews)
 
     useEffect(() => {
         dispatch(getOneLocation(locationId))
     }, [dispatch, locationId]);
+
+    let sessionReview;
+
+    if(sessionUser) {
+        sessionReview = (
+            <>
+                <AddReviewForm />
+            </>
+        )
+    } else {
+        sessionReview = (
+            <>
+                <h2>Login to leave a comment</h2>
+            </>
+        )
+    }
 
     function locationListing() {
         if (location.location) {
@@ -37,6 +55,7 @@ function Location() {
                         </div>
                         <div>
                             <h1>Reviews</h1>
+                            {sessionReview}
                             {location.reviews.map(review => (
                                 <div key={review.id}>
                                     <div>User: {review.userId}</div>
