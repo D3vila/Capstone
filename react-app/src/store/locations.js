@@ -72,7 +72,6 @@ export const createReviewThunk = review => async (dispatch) => {
 }
 
 export const editReviewThunk = (payload) => async (dispatch) => {
-    console.log(payload)
     const response = await fetch(`/api/review/${payload.id}/`, {
         method: 'PUT',
         headers: {
