@@ -33,7 +33,7 @@ function Location() {
         if (sessionUser && (sessionUser.id === review.userId)) {
             return (
                 <>
-                    <EditReviewForm review={review}/>
+                    <EditReviewForm review={review} />
                     <button onClick={(e) => handleDeleteReview(e, review.id)}>Delete</button>
                 </>
             )
@@ -44,17 +44,29 @@ function Location() {
         return (
             <>
                 <div className='locationPic__div'>
-                    <div className='locPic4'>
-                        <img src={location.location.img4}  alt='locationPic' />
-                    </div>
-                    <div className='locPic3'>
-                        <img src={location.location.img3}  alt='locationPic' />
-                    </div>
-                    <div className='locPic2'>
-                        <img src={location.location.img2}  alt='locationPic' />
-                    </div>
-                    <div className='locPic1'>
-                        <img src={location.location.img1}  alt='locationPic' />
+                    <div className='slides'>
+                        <input type='radio' name='r' id='r1' defaultChecked />
+                        <input type='radio' name='r' id='r2' />
+                        <input type='radio' name='r' id='r3' />
+                        <input type='radio' name='r' id='r4' />
+                        <div className='pics s1'>
+                            <img src={location.location.img4} alt='locationPic' />
+                        </div>
+                        <div className='pics'>
+                            <img src={location.location.img3} alt='locationPic' />
+                        </div>
+                        <div className='pics'>
+                            <img src={location.location.img2} alt='locationPic' />
+                        </div>
+                        <div className='pics'>
+                            <img src={location.location.img1} alt='locationPic' />
+                        </div>
+                        <div className='navigation'>
+                            <label for='r1' className='bar'></label>
+                            <label for='r2' className='bar'></label>
+                            <label for='r3' className='bar'></label>
+                            <label for='r4' className='bar'></label>
+                        </div>
                     </div>
                 </div>
                 <div className='locationTitle__div'>

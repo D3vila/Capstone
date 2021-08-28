@@ -2,8 +2,115 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    object-position: 50% 20%;
-    margin: 10px;
+    /* object-position: 50% 20%; */
+    /* margin: 10px; */
     image-rendering: crisp-edges;
     object-fit: cover;
 }
+
+.nav__links {
+    display: flex;
+}
+
+.left__nav a {
+    position: absolute;
+    left: 2%;
+    text-decoration: none;
+    bottom: .91em;
+}
+
+.right__nav a {
+    text-decoration: none;
+    font-size: 25px;
+    margin-bottom: 0;
+}
+
+.navbar__container a {
+    text-decoration: none;
+    font-size: 25px;
+    margin-bottom: 0;
+}
+
+.navbar__container {
+    background: linear-gradient(5deg, #01024b 35%, rgb(45, 156, 206) 80%);
+    height: 80px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+
+
+.signup__link {
+    margin-right: 30px;
+}
+
+.login__link {
+    margin-right: 70px;
+}
+
+.location__link {
+    margin-right: 295px;
+}
+
+.right__nav {
+    position: absolute;
+    right: 4%;
+    bottom: 1.35em;
+
+}
+
+.users__link {
+    margin-right: 30px;
+}
+
+.nonUser__div {
+    position: relative;
+}
+
+.logout__button {
+    /* border: none; */
+    height: 25px;
+    width: 6em;
+    border-radius: 15px;
+    background-color: rgb(173, 173, 173);
+    top: 2.75em;
+    position: relative;
+    background-image: url(https://png2.cleanpng.com/sh/c7437c78d86bac85506d711618d8e1e2/L0KzQYm3UsA4N5dvfZH0aYP2gLBuTgN1epp1fZ91aX7oPbrqjB4ufpZojNH7LYDkebB7hfQub5DxfJ9vcnHwdX68gcdjapRqfKhrNHO1QXA3U8U0OmY9SaMAMUizRYmAU8M1O2o6RuJ3Zx==/kisspng-stripe-line-icon-vector-painted-gold-frame-5a7bbced6b4c21.0353258115180587334395.png);
+    animation: animateCloud 15s linear infinite;
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: 60%;
+}
+
+.logout__button:hover {
+    cursor: pointer;
+}
+
+.home__link {
+   font-size: 15px;
+   bottom: 1.25em;
+}
+
+@keyframes animateCloud  {0% {background-position: 0 0;}100% {background-position: 1280px 0;}}
+
+.logo {
+    width: 350px;
+    height: 35px;
+    filter: drop-shadow(5px 5px 10px rgb(0, 0, 0));
+}
+
+.DLlogo {
+    width: 125px;
+    height: 120px;
+    bottom: -1.4em;
+    position: absolute;
+    left: 337px;
+    filter: drop-shadow(5px 5px 10px rgb(0, 0, 0));
+}
+/* background-image: url(https://png2.cleanpng.com/sh/c7437c78d86bac85506d711618d8e1e2/L0KzQYm3UsA4N5dvfZH0aYP2gLBuTgN1epp1fZ91aX7oPbrqjB4ufpZojNH7LYDkebB7hfQub5DxfJ9vcnHwdX68gcdjapRqfKhrNHO1QXA3U8U0OmY9SaMAMUizRYmAU8M1O2o6RuJ3Zx==/kisspng-stripe-line-icon-vector-painted-gold-frame-5a7bbced6b4c21.0353258115180587334395.png);
+    animation: animateCloud 1s linear infinite;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-size: 80%; */
