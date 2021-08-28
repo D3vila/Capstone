@@ -3,7 +3,7 @@ const ONE_LOCATION = 'location/ONE_LOCATION'
 
 const ADD_REVIEW = 'review/ADD_REVIEW';
 const DELETE_REVIEW = 'review/DELETE_REVIEW';
-const EDIT_REVIEW = 'review/DELETE_REVIEW';
+const EDIT_REVIEW = 'review/EDIT_REVIEW';
 
 const loadLocations = (locations) => {
     return {
@@ -65,37 +65,46 @@ export const createReviewThunk = review => async (dispatch) => {
         body: JSON.stringify(review)
     })
     if (response.ok) {
-        const newReview = await response
+        const newReview = await response.json()
         dispatch(addReview(newReview))
     }
+    // console.log("CreateThunk", response)
     return response
 }
 
-export const editReviewThunk = (payload) => async (dispatch) => {
-    const response = await fetch(`/api/review/${payload.id}/`, {
+export const editReviewThunk = (review) => async (dispatch) => {
+    const response = await fetch(`/api/review/${review.id}/`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(review)
     })
     if (response.ok) {
         const editedReview = await response.json();
         dispatch(editReview(editedReview))
 
     }
+    console.log('editThunk', response)
     return response
 }
 
 export const deleteReviewThunk = id => async (dispatch) => {
+    // console.log(id)
     const response = await fetch(`/api/review/${id}/`, {
         method: "DELETE",
-    })
+    });
+
     if (response.ok) {
-        const removedReview = await response.json()
+        const removedReview = await response.json();
         dispatch(deleteReview(removedReview))
+        // console.log('deleteThunk', removedReview)
+        // await response.json();
+        // dispatch(deleteReview(id))
+        return removedReview
     }
-    return response
+    // console.log('deleteThunk', response)
+    // return response
 }
 
 //----------REDUCER-------------//
@@ -104,9 +113,10 @@ const initialState = {}
 export default function locations(state = initialState, action) {
     let newState;
     switch (action.type) {
+
         case GET_LOCATIONS: {
             const allLocations = {};
-            action.locations.locations.forEach(location => {
+            action.locations.locations?.forEach(location => {
                 allLocations[location.id] = location;
             });
             newState = { ...allLocations }
@@ -121,30 +131,41 @@ export default function locations(state = initialState, action) {
         }
 
         case ADD_REVIEW: {
-            newState = { ...state };
-            // newState[action.review.id] = action.review;
-            newState.reviews.push(action.review);
+            newState = { ...state }
+
+            // const newState = { ...state, [action.review?.id]: action.review };
+            // newState[action.review.id] = action.review
+            newState.reviews?.push(action.review);
+            // console.log("CreateReducer", newState)
             // alert('Review posted')
             return newState;
         }
 
         case EDIT_REVIEW: {
             newState = { ...state };
+            console.log(newState)
             for (let i = 0; i < newState.reviews.length; i++) {
                 if (newState.reviews[i] && (newState.reviews[i].id === action.review.id))
                     newState.reviews[i] = action.review
             }
             alert('Review edited successfully')
+            console.log('editReducer', newState)
             return newState;
         }
 
         case DELETE_REVIEW: {
             newState = { ...state };
+            console.log(newState)
             for (let i = 0; i < newState.reviews.length; i++) {
-                if (newState.reviews[i] && (newState.reviews[i].id === action.review.id))
+                if (newState.reviews[i] && (newState.reviews[i].id === action.review.id)) {
                     delete newState.reviews[i];
+                    console.log('reducer', newState)
+                }
+                // alert('Review Deleted')
+                // return newState;
             }
             alert('Review Deleted')
+            console.log('REDUCER', newState)
             return newState;
         }
 

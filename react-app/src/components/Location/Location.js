@@ -4,6 +4,7 @@ import { getOneLocation, deleteReviewThunk } from '../../store/locations'
 import { useParams } from 'react-router-dom';
 import AddReviewForm from '../addReview/addReviewForm';
 import EditReviewForm from '../editReview/editReview';
+import './Location.css';
 
 
 function Location() {
@@ -32,11 +33,51 @@ function Location() {
         if (sessionUser && (sessionUser.id === review.userId)) {
             return (
                 <>
-                    <EditReviewForm review={review}/>
+                    <EditReviewForm review={review} />
                     <button onClick={(e) => handleDeleteReview(e, review.id)}>Delete</button>
                 </>
             )
         }
+    }
+
+    function locationDescription() {
+        return (
+            <>
+                <div className='locationPic__div'>
+                    <div className='slides'>
+                        <input type='radio' name='r' id='r1' defaultChecked />
+                        <input type='radio' name='r' id='r2' />
+                        <input type='radio' name='r' id='r3' />
+                        <input type='radio' name='r' id='r4' />
+                        <div className='pics s1'>
+                            <img src={location.location.img4} alt='locationPic' />
+                        </div>
+                        <div className='pics'>
+                            <img src={location.location.img3} alt='locationPic' />
+                        </div>
+                        <div className='pics'>
+                            <img src={location.location.img2} alt='locationPic' />
+                        </div>
+                        <div className='pics'>
+                            <img src={location.location.img1} alt='locationPic' />
+                        </div>
+                        <div className='navigation'>
+                            <label for='r1' className='bar'></label>
+                            <label for='r2' className='bar'></label>
+                            <label for='r3' className='bar'></label>
+                            <label for='r4' className='bar'></label>
+                        </div>
+                    </div>
+                </div>
+                <div className='locationTitle__div'>
+                    {<h1>{location.location.name}</h1>}
+                </div>
+                <div className='locationDes__div'>
+                    <h3>{location.location.description}</h3>
+                </div>
+
+            </>
+        )
     }
 
     if (sessionUser) {
@@ -56,30 +97,17 @@ function Location() {
 
     return (
         <>
-            <div>
-                <div>
-                    {<h1>{location.location?.name}</h1>}
-                </div>
-                <div>
-                    <img src={location.location?.img4} alt='locationPic' />
-                    <img src={location.location?.img3} alt='locationPic' />
-                    <img src={location.location?.img2} alt='locationPic' />
-                    <img src={location.location?.img1} alt='locationPic' />
-                </div>
-                <div>
-                    <h3>{location.location?.description}</h3>
-                </div>
-                <div>
+            <div className='locationDescription__div'>
+                {location.location && locationDescription()}
 
-                </div>
-                <div>
+                <div className='reviews__div'>
                     <h1>Reviews</h1>
                     {sessionReview}
                     {location.reviews?.map(review => (
-                        <div key={review.id}>
-                            <div>User: {review?.userId}</div>
-                            <div>{review?.createdAt}</div>
-                            <div>{review?.review}</div>
+                        <div className='review_box' key={review.id}>
+                            <div className='review__userId'>User: {review.userId}</div>
+                            <div className='review__createdAt'>{review.createdAt}</div>
+                            <div className='review__review'>{review.review}</div>
                             {userReviewOptions(sessionUser, review)}
                         </div>
                     ))}
