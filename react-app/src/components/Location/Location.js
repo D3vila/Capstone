@@ -62,10 +62,10 @@ function Location() {
                             <img src={location.location.img1} alt='locationPic' />
                         </div>
                         <div className='navigation'>
-                            <label for='r1' className='bar'></label>
-                            <label for='r2' className='bar'></label>
-                            <label for='r3' className='bar'></label>
-                            <label for='r4' className='bar'></label>
+                            <label htmlFor='r1' className='bar'></label>
+                            <label htmlFor='r2' className='bar'></label>
+                            <label htmlFor='r3' className='bar'></label>
+                            <label htmlFor='r4' className='bar'></label>
                         </div>
                     </div>
                 </div>
@@ -99,20 +99,23 @@ function Location() {
         <>
             <div className='locationDescription__div'>
                 {location.location && locationDescription()}
-
-                <div className='reviews__div'>
-                    <h1>Reviews</h1>
-                    {sessionReview}
-                    {location.reviews?.map(review => (
-                        <div className='review_box' key={review.id}>
-                            <div className='review__userId'>User: {review.userId}</div>
-                            <div className='review__createdAt'>{review.createdAt}</div>
-                            <div className='review__review'>{review.review}</div>
-                            {userReviewOptions(sessionUser, review)}
-                        </div>
-                    ))}
+                <div className='review__reserve'>
+                    <div className='reviews__div'>
+                        <h1>Reviews</h1>
+                        {sessionReview}
+                        {location.reviews?.map(review => (
+                            <div className='review_box' key={review.id}>
+                                <div className='review__userId'>User: {review.userId}</div>
+                                <div className='review__createdAt'>{review.createdAt}</div>
+                                <div className='review__review'>{review.review}</div>
+                                {userReviewOptions(sessionUser, review)}
+                            </div>
+                        ))}
+                    </div>
+                    <div className='reserve__container'>
+                        <h1>Reserve the DeLorean</h1>
+                    </div>
                 </div>
-
             </div>
 
         </>
