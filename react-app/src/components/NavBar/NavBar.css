@@ -97,17 +97,17 @@
 @keyframes animateCloud  {0% {background-position: 0 0;}100% {background-position: 1280px 0;}}
 
 .logo {
-    width: 350px;
-    height: 35px;
+    width: 355px;
+    height: 40px;
     filter: drop-shadow(5px 5px 10px rgb(0, 0, 0));
 }
 
 .DLlogo {
     width: 125px;
-    height: 120px;
+    height: 125px;
     bottom: -1.4em;
     position: absolute;
-    left: 337px;
+    left: 340px;
     filter: drop-shadow(5px 5px 10px rgb(0, 0, 0));
 }
 
