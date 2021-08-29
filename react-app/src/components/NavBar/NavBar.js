@@ -11,9 +11,10 @@ const NavBar = () => {
   let sessionLinks
   if (sessionUser) {
     sessionLinks = (
-      <div className='nav__links'>
+      <div className='nav__links profile__items'>
+        <img src={sessionUser.profile_image} className='navbar__profilePic' alt='profilePic'/>
         <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active' className='user__profile__link'>
-          <div>Hello, {sessionUser.username} <img src={sessionUser.profile_image} className='navbar__profilePic' alt='profilePic'/></div>
+          <div className='profile__link'>{sessionUser.username} </div>
         </NavLink>
         <LogoutButton user={sessionUser} className='logout__button' />
       </div>
@@ -42,12 +43,12 @@ const NavBar = () => {
           <img src="https://png2.cleanpng.com/sh/9698774adcd19fbfde6b8eddbf1d34fb/L0KzQYq3UsA6N6V9jpH0aYP2gLBuTfRua15pfd54cnXkfn7qggIubKMyfd92ZYT3PbP5jCdvNZVqhNH7ZXHxPcXwjfUudZIyfNHsYX3zccH2kCMubJZxhARuYX6wf7A0kCR2bJZzjJ98aHB6PYbqVfYyO2k6TKo7MkizPom3VsUxP2U2Sac9OUe2RIiBWcI6PWYziNDw/kisspng-dmc-delorean-car-dr-emmett-brown-delorean-time-ma-docampaposs-delorean-on-student-show-5c5f1385482280.8065074115497347892955.png" alt="DeLoreanTraveler" className="DLlogo"/>
         </NavLink>
       </div>
-      <div className='right__nav'>
+      <div className='right__nav steady'>
         <NavLink to='/users' exact={true} activeClassName='active' className='users__link'>
           Users
         </NavLink>
         <NavLink to='/locations' exact={true} activeClassName='active' className='location__link'>
-          locations
+          Locations
         </NavLink>
       </div>
       <div className='right__nav'>

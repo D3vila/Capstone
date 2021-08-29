@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getLocations } from '../../store/locations'
+import { getLocations } from '../../store/locations';
+import './Locations.css';
 
 
 function Locations() {
@@ -14,13 +15,19 @@ function Locations() {
 
     return (
         <>
-            <div>
+            <div className='locations__container'>
                 {locations.map(location => (
-                    <div>
-                        <a href={`/locations/${location.id}`} id={location.id}>
-                            <h2>{location.name}</h2>
-                            <img src={location.img1} className='splash__img' alt='locationPic' />
-                        </a>
+                    <div className='box'>
+                        <div className='imgBox'>
+                            <img src={location.img1} className='splash__img' alt='locationPic'/>
+                        </div>
+                        <div className='details'>
+                            <div className='content'>
+                                <a href={`/locations/${location.id}`} id={location.id}>
+                                    <h2>{location.name}</h2>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>
