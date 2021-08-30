@@ -15,6 +15,7 @@ function Locations() {
 
     return (
         <>
+            <h1 className='locations__title'>Travel to any movie location and time you want experience</h1>
             <div className='locations__container'>
                 {locations.map(location => (
                     <div className='box'>

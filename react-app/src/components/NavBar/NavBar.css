@@ -49,6 +49,7 @@
 
 .navbar__container {
     background: linear-gradient(0deg, #00263d 50%, rgb(48, 171, 228) 90%);
+    border-bottom: 3px solid rgb(0, 0, 0);
     height: 80px;
     padding: 10px 10px;
     width: 100%;
@@ -127,11 +128,11 @@
 }
 
 .DLlogo {
-    width: 125px;
-    height: 125px;
-    bottom: -1.8em;
+    width: 150px;
+    height: 60px;
+    bottom: -0.4em;
     position: absolute;
-    left: 343px;
+    left: 360px;
     filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
 }
 

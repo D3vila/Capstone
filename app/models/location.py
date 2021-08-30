@@ -20,6 +20,7 @@ class Location(db.Model, UserMixin):
     day = db.Column(db.Integer, nullable=False)
     year = db.Column(db.String, nullable=False)
     price = db.Column(db.Integer, nullable=False)
+    movieName = db.Column(db.String, nullable=False)
 
     user = db.relationship('User', back_populates='locations')
     review = db.relationship('Review', back_populates='locations')
@@ -42,4 +43,5 @@ class Location(db.Model, UserMixin):
             'day': self.day,
             'year': self.year,
             'price': self.price,
+            'movieName': self.movieName,
         }

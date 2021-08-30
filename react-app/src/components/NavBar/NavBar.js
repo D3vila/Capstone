@@ -40,7 +40,7 @@ const NavBar = () => {
       <div className='left__nav'>
         <NavLink to='/' exact={true} activeClassName='active' className='home__link'>
           <img src="https://fontmeme.com/permalink/210828/43ccaeb2b7f7e9b65a8a7493f308f5a6.png" alt="DeLoreanTraveler" className="logo"/>
-          <img src="https://png2.cleanpng.com/sh/9698774adcd19fbfde6b8eddbf1d34fb/L0KzQYq3UsA6N6V9jpH0aYP2gLBuTfRua15pfd54cnXkfn7qggIubKMyfd92ZYT3PbP5jCdvNZVqhNH7ZXHxPcXwjfUudZIyfNHsYX3zccH2kCMubJZxhARuYX6wf7A0kCR2bJZzjJ98aHB6PYbqVfYyO2k6TKo7MkizPom3VsUxP2U2Sac9OUe2RIiBWcI6PWYziNDw/kisspng-dmc-delorean-car-dr-emmett-brown-delorean-time-ma-docampaposs-delorean-on-student-show-5c5f1385482280.8065074115497347892955.png" alt="DeLoreanTraveler" className="DLlogo"/>
+          <img src="https://www.pinclipart.com/picdir/big/184-1848230_back-to-the-future-delorean-clipart-cartoon-car.png" alt="DeLoreanTraveler" className="DLlogo"/>
         </NavLink>
       </div>
       <div className='right__nav steady'>

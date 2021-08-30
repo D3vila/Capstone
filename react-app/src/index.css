@@ -2,7 +2,9 @@ body {
     margin:0;
     padding:0;
     height: 100%;
-    /* font-family: 'IBM Plex Mono', monospace; */
+    /* font-family: 'Fredoka One', cursive; */
+
+    font-family: 'IBM Plex Mono', monospace;
     /* font-family: 'Cute Font', cursive; */
     /* background-image: url(https://images.pexels.com/photos/379419/pexels-photo-379419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
     background-image: url(https://images.pexels.com/photos/3374210/pexels-photo-3374210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
