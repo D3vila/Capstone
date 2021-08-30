@@ -24,7 +24,7 @@
     0 0 15px #ffbb4f,
     0 0 11px #ffbb4f;
     text-align: center;
-    transform: translate(-2.4%, 50%)
+    transform: translate(0, 50%)
 
 }
 
@@ -42,8 +42,8 @@
     border: 3px solid rgb(255, 255, 255);
     box-shadow:
     0 0 10px 1px #fff,
-    0 0 15px 2px rgb(255, 31, 255),
-    0 0 35px 3px rgb(25, 255, 255);
+    0 0 10px 2px rgb(255, 31, 255),
+    0 0 25px 3px rgb(25, 255, 255);
 
 }
 
@@ -72,9 +72,10 @@
     left: 10px;
     bottom: 10px;
     right: 10px;
-    background: rgba(0,0,0,.8);
+    background: rgba(0, 225, 255, 0.308);
     transform: scaleY(0);
     transition: .5s;
+    border-radius: 45%;
 }
 
 .box:hover .details {
@@ -87,11 +88,24 @@
     transform: translateY(-50%);
     text-align: center;
     padding: 15px;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .content a {
     margin: 0;
     padding: 0;
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.content a h2 {
+    text-shadow: 2px 2px #000000;
+    color: rgb(255, 255, 255);
+}
+
+.content a h3 {
+    text-shadow: -1px 1px 2px rgb(255, 238, 0),
+				  1px 1px 2px rgb(233, 0, 0),
+				  1px -1px 0 rgb(207, 4, 4),
+				  -1px -1px 0 rgb(177, 1, 1);
 }
