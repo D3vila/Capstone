@@ -85,7 +85,7 @@ export const editReviewThunk = (review) => async (dispatch) => {
         dispatch(editReview(editedReview))
 
     }
-    console.log('editThunk', response)
+    // console.log('editThunk', response)
     return response
 }
 
@@ -137,7 +137,7 @@ export default function locations(state = initialState, action) {
             // newState[action.review.id] = action.review
             newState.reviews?.push(action.review);
             // console.log("CreateReducer", newState)
-            // alert('Review posted')
+            alert('Review posted')
             return newState;
         }
 
@@ -149,7 +149,7 @@ export default function locations(state = initialState, action) {
                     newState.reviews[i] = action.review
             }
             alert('Review edited successfully')
-            console.log('editReducer', newState)
+            // console.log('editReducer', newState)
             return newState;
         }
 
@@ -159,13 +159,13 @@ export default function locations(state = initialState, action) {
             for (let i = 0; i < newState.reviews.length; i++) {
                 if (newState.reviews[i] && (newState.reviews[i].id === action.review.id)) {
                     delete newState.reviews[i];
-                    console.log('reducer', newState)
+                    // console.log('reducer', newState)
                 }
                 // alert('Review Deleted')
                 // return newState;
             }
             alert('Review Deleted')
-            console.log('REDUCER', newState)
+            // console.log('REDUCER', newState)
             return newState;
         }
 

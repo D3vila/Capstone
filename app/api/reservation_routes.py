@@ -13,7 +13,7 @@ def validation_errors(validation_errors):
     return errorMessages
 
 
-@reservation_route.route('/<int:userId>/', methods=['GET'])
+@reservation_route.route('/user/<int:userId>/', methods=['GET'])
 def get_reservation_by_userId(userId):
     reservations = Reservation.query.filter_by(userId=userId).all()
     return {'reservations': [reservation.to_dict() for reservation in reservations]}
@@ -37,7 +37,7 @@ def createReservation():
     return {'errors': validation_errors(form.errors)}, 401
 
 
-@reservation_route.route('/<int:id>', methods=['PUT'])
+@reservation_route.route('/<int:id>/', methods=['PUT'])
 def edit_reservation(id):
     form = ReservationForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -51,7 +51,7 @@ def edit_reservation(id):
     return {'errors': validation_errors(form.errors)}, 401
 
 
-@reservation_route.route('/<int:id>', methods=['DELETE'])
+@reservation_route.route('/<int:id>/', methods=['DELETE'])
 def deleteReservation(id):
     reservation = Reservation.query.get(id)
     db.session.delete(reservation)
