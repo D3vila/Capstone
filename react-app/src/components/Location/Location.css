@@ -13,7 +13,7 @@
 
 .navigation {
     position: absolute;
-    bottom: 275px;
+    top: 640px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -22,7 +22,7 @@
 .bar {
     width: 50px;
     height: 10px;
-    border: 2px solid red;
+    border: 2px solid rgb(0, 255, 221);
     margin: 6px;
     cursor: pointer;
     transition: 0.4s;
@@ -30,7 +30,7 @@
 }
 
 .bar:hover {
-    background: indianred;
+    background: rgb(0, 162, 255);
 }
 
 input[name='r'] {
@@ -102,4 +102,22 @@ input[name='r'] {
     background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     text-shadow: 0 0 15px rgb(0, 0, 0);
+}
+
+.review__reserve {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 4fr, 4fr;
+    grid-row: 100%, 100%;
+    column-gap: 2%;
+}
+
+.reviews__div {
+    background-color: white;
+    grid-column: 1 / 2;
+}
+
+.reserve__container {
+    grid-column: 2 / 3;
+    background-color: white;
 }

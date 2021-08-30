@@ -52,6 +52,7 @@ def upgrade():
         sa.Column('day', sa.Integer(), nullable=False),
         sa.Column('year', sa.String(), nullable=False),
         sa.Column('price', sa.Integer(), nullable=False),
+        sa.Column('movieName', sa.String(), nullable=False),
         sa.PrimaryKeyConstraint('id'),
         sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     )
