@@ -76,12 +76,12 @@ def upgrade():
         sa.Column('startDate', sa.Date(), nullable=False),
         sa.Column('endDate', sa.Date(), nullable=False),
         sa.Column('createdAt', sa.DateTime(), nullable=True),
-        sa.Column('createdAt', sa.DateTime(), nullable=True),
+        sa.Column('updatedAt', sa.DateTime(), nullable=True),
+        sa.Column('price', sa.Integer(), nullable=True),
+        sa.Column('days', sa.Integer(), nullable=True),
         sa.PrimaryKeyConstraint('id'),
         sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
         sa.ForeignKeyConstraint(['locationId'], ['locations.id'], ),
-        sa.Column('price', sa.Integer(), nullable=True),
-        sa.Column('days', sa.Integer(), nullable=True),
     )
     # ### end Alembic commands ###qqqqqqqqq
 

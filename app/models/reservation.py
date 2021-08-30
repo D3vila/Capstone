@@ -1,5 +1,7 @@
 from .db import db
 from flask_login import UserMixin
+from sqlalchemy.sql import func
+from datetime import datetime
 
 
 class Reservation(db.Model, UserMixin):
@@ -13,11 +15,11 @@ class Reservation(db.Model, UserMixin):
     endDate = db.Column(db.Date, nullable=False)
     createdAt = db.Column(db.DateTime, default=db.func.now(), nullable=True)
     updatedAt = db.Column(db.DateTime, default=db.func.now(), server_onupdate=db.func.now(), nullable=True)
-    price = db.Column(db.Integer)
-    days = db.Column(db.Integer)
+    price = db.Column(db.Integer, nullable=True)
+    days = db.Column(db.Integer, nullable=True)
 
-    locations = db.relationship('Location', back_populates='reservation')
-    user = db.relationship('User', back_populates='reservation')
+    locations = db.relationship('Location', back_populates='reservations')
+    user = db.relationship('User', back_populates='reservations')
 
     def to_dict(self):
         return {
