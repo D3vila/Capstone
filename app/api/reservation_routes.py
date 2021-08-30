@@ -49,3 +49,12 @@ def edit_reservation(id):
 
         return oldReservation.to_dict()
     return {'errors': validation_errors(form.errors)}, 401
+
+
+@reservation_route.route('/<int:id>', methods=['DELETE'])
+def deleteReservation(id):
+    reservation = Reservation.query.get(id)
+    db.session.delete(reservation)
+    db.session.commit()
+
+    return reservation.to_dict()
