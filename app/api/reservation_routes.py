@@ -12,17 +12,28 @@ def validation_errors(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
+#get all reservations with Location table attached
 
 @reservation_route.route('/', methods=['GET'])
 def getAll_reservations():
-    reservations = Reservation.query.all()
-    return {'reservations': [reservation.to_dict() for reservation in reservations]}
+    reservations_query = Reservation.query.all()
+    reservations = [reservation.to_dict() for reservation in reservations_query]
+    for reservation in reservations:
+        reservation['location'] = Location.query.get(
+            reservation['locationId']).to_dict()
+    return {'reservations': reservations}
+    # return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
 
 @reservation_route.route('/user/<int:userId>/', methods=['GET'])
 def get_reservation_by_userId(userId):
-    reservations = Reservation.query.filter_by(userId=userId).all()
-    return {'reservations': [reservation.to_dict() for reservation in reservations]}
+    reservations_query = Reservation.query.filter_by(userId=userId).all()
+    reservations = [reservation.to_dict() for reservation in reservations_query]
+    for reservation in reservations:
+        reservation['location'] = Location.query.get(reservation['locationId']).to_dict()
+    return {'reservations': reservations}
+
+    # return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
 
 @reservation_route.route('/', methods=['POST'])

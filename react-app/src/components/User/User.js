@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { deleteReservationThunk, getReservationsThunk } from '../../store/reservations'
@@ -62,8 +62,13 @@ function User() {
         <h2>Your Reservations</h2>
         {userReservation.map(reservation => (
           <div key={reservation.id}>
-            <div>{reservation.startDate}</div>
-            <div></div>
+            <div>{reservation.location.movieName}</div>
+            <div>Location: {reservation.location.city}, {reservation.location.state} ({reservation.location.country})</div>
+            <div>Time traveling to: {reservation.location.month}, {reservation.location.day} {reservation.location.year}</div>
+            <img src={reservation.location.img1} />
+            <div>Start Date: {reservation.startDate}</div>
+            <div>End Date: {reservation.endDate}</div>
+            <div>Price: ${reservation.location.price}</div>
             <div></div>
           </div>
         ))}

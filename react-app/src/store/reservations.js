@@ -52,7 +52,7 @@ export const getReservationsThunk = (userId) => async (dispatch) => {
 
         const reservations = await response.json()
         await dispatch(getReservations(reservations))
-        // console.log('GET_THUNK', reservations)
+        
         return response
     }
 }
