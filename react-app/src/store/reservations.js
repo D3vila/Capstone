@@ -51,7 +51,7 @@ export const addReservationThunk = (reservation) => async (dispatch) => {
 }
 
 
-export const editReservationThunk = (reservation) => (dispatch) => {
+export const editReservationThunk = (reservation) => async (dispatch) => {
     const response = await fetch(`/api/reservation/${reservation.id}/`, {
         method: 'PUT',
         headers: {
