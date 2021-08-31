@@ -26,11 +26,14 @@ const deleteReview = (reservation) => ({
 })
 
 export const getReservationsThunk = (userId) => async (dispatch) => {
+    // console.log(userId)
     const response = await fetch(`/api/reservation/user/${userId}/`)
+    // console.log(response)
     if (response.ok) {
+
         const reservations = await response.json()
-        // await
-        dispatch(getReservations(reservations))
+        await dispatch(getReservations(reservations))
+        // console.log('GET_THUNK', reservations)
         return response
     }
 }
@@ -87,7 +90,7 @@ export default function reservations(state = initialState, action) {
 
         case GET_RESERVATIONS: {
             const allReservations = {};
-            action.reservations.forEach(reservation => {
+            action.reservations.reservations.forEach(reservation => {
                 allReservations[reservation.userId] = reservation;
             })
             return allReservations;

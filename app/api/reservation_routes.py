@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Reservation, db
+from app.models import Reservation, Location, db
 from app.forms.reservation_form import ReservationForm
 
 reservation_route = Blueprint('reservation', __name__)
