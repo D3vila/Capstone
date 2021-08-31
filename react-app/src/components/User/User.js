@@ -8,9 +8,9 @@ function User() {
   const dispatch = useDispatch()
   const { userId } = useParams();
   const profileUser = useSelector(state => state.session.user)
-  const userReservation = useSelector(state => state.reservations)
+  const userReservation = useSelector(state => Object.values(state.reservations))
   // const locations = useSelector((state) => Object.values(state.locations))
-
+  // console.log(userReservation)
 
   useEffect(() => {
     dispatch(getReservationsThunk(userId));
@@ -60,9 +60,9 @@ function User() {
       </ul>
       <div>
         <h2>Your Reservations</h2>
-        {userReservation.reservations?.map(reservation => (
-          <div>
-            <div></div>
+        {userReservation.map(reservation => (
+          <div key={reservation.id}>
+            <div>{reservation.startDate}</div>
             <div></div>
             <div></div>
           </div>

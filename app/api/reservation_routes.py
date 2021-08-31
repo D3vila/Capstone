@@ -13,6 +13,12 @@ def validation_errors(validation_errors):
     return errorMessages
 
 
+@reservation_route.route('/', methods=['GET'])
+def getAll_reservations():
+    reservations = Reservation.query.all()
+    return {'reservations': [reservation.to_dict() for reservation in reservations]}
+
+
 @reservation_route.route('/user/<int:userId>/', methods=['GET'])
 def get_reservation_by_userId(userId):
     reservations = Reservation.query.filter_by(userId=userId).all()

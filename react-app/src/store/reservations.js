@@ -1,7 +1,16 @@
+const GET_ALL_RESERVATIONS = 'reservations/GET_ALL_RESERVATIONS'
 const GET_RESERVATIONS = 'reservations/GET_RESERVATIONS'
 const ADD_RESERVATION = 'reservation/ADD_RESERVATION'
 const EDIT_RESERVATION = 'reservation/EDIT_RESERVATION'
 const DELETE_RESERVATION = 'reservation/DELETE_RESERVATION'
+
+
+const getAllReservations = (reservations) => {
+    return {
+        type: GET_ALL_RESERVATIONS,
+        reservations
+    }
+}
 
 const getReservations = (reservations) => {
     return {
@@ -24,6 +33,16 @@ const deleteReview = (reservation) => ({
     type: DELETE_RESERVATION,
     reservation
 })
+
+
+export const allReservationThunk = () => async (dispatch) => {
+    const response = await fetch('/api/reservation/')
+    if (response.ok) {
+        const reservations = await response.json()
+        await dispatch(getAllReservations(reservations))
+        return response
+    }
+}
 
 export const getReservationsThunk = (userId) => async (dispatch) => {
     // console.log(userId)
@@ -85,13 +104,23 @@ export const deleteReservationThunk = (id) => async (dispatch) => {
 let initialState = {}
 
 export default function reservations(state = initialState, action) {
-    if(!action) return state;
+    let newState;
+    // if(!action) return state;
     switch (action.type) {
+
+        case GET_ALL_RESERVATIONS:{
+            const allReservations = {};
+            action.reservations.reservations.forEach(reservation => {
+                allReservations[reservation.id] = reservation;
+            });
+            newState = {...allReservations}
+            return newState
+        }
 
         case GET_RESERVATIONS: {
             const allReservations = {};
-            action.reservations.reservations.forEach(reservation => {
-                allReservations[reservation.userId] = reservation;
+            action.reservations.reservations?.forEach(reservation => {
+                allReservations[reservation.id] = reservation;
             })
             return allReservations;
         }
