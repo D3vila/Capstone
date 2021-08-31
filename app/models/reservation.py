@@ -11,10 +11,10 @@ class Reservation(db.Model, UserMixin):
     locationId = db.Column(db.Integer, db.ForeignKey(
         'locations.id'), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    startDate = db.Column(db.Date, nullable=False)
-    endDate = db.Column(db.Date, nullable=False)
+    startDate = db.Column(db.DateTime, nullable=False)
+    endDate = db.Column(db.DateTime, nullable=False)
     createdAt = db.Column(db.DateTime, default=db.func.now(), nullable=True)
-    updatedAt = db.Column(db.DateTime, default=db.func.now(), server_onupdate=db.func.now(), nullable=True)
+    updatedAt = db.Column(db.DateTime, server_onupdate=db.func.now(), nullable=True)
     price = db.Column(db.Integer, nullable=True)
     days = db.Column(db.Integer, nullable=True)
 

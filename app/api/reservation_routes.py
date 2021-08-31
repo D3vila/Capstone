@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Reservation, Location, db
+from app.models import Reservation, Location, Review, User, db
 from app.forms.reservation_form import ReservationForm
 
 reservation_route = Blueprint('reservation', __name__)
@@ -21,7 +21,10 @@ def getAll_reservations():
     for reservation in reservations:
         reservation['location'] = Location.query.get(
             reservation['locationId']).to_dict()
-    return {'reservations': reservations}
+    for location in reservations:
+        location['reviews'] = Review.query.get(
+            location['userId']).to_dict()
+    return {'reservations': location}
     # return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
 
