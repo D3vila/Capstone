@@ -59,15 +59,16 @@ const SignUpForm = () => {
   }
 
   return (
-    <div>
-      <div>
-        <form onSubmit={onSignUp}>
-          <div>
+    <div className='signup__page'>
+      <div className='signup__div'>
+        <h1>Sign up</h1>
+        <form className='signin__form__container' onSubmit={onSignUp}>
+          <div className='errors_div' >
             {errors.map((error, ind) => (
               <div className='signup__errors' key={ind}> {error} </div>
             ))}
           </div>
-          <div>
+          <div className='username__div' >
             <label>User Name</label>
             <input
               type='text'
@@ -77,7 +78,7 @@ const SignUpForm = () => {
 
             ></input>
           </div>
-          <div>
+          <div className='firstN__div' >
             <label>First Name</label>
             <input
               type='text'
@@ -87,7 +88,7 @@ const SignUpForm = () => {
 
             ></input>
           </div>
-          <div>
+          <div className='lastN__div' >
             <label>Last Name</label>
             <input
               type='text'
@@ -97,7 +98,7 @@ const SignUpForm = () => {
 
             ></input>
           </div>
-          <div>
+          <div className='email__div' >
             <label>Email</label>
             <input
               type='text'
@@ -107,7 +108,7 @@ const SignUpForm = () => {
 
             ></input>
           </div>
-          <div>
+          <div className='password__div' >
             <label>Password</label>
             <input
               type='password'
@@ -117,8 +118,8 @@ const SignUpForm = () => {
 
             ></input>
           </div>
-          <div>
-            <label>Repeat Password</label>
+          <div className='passwordC__div' >
+            <label>Confirm Password</label>
             <input
               type='password'
               name='repeat_password'
@@ -127,7 +128,7 @@ const SignUpForm = () => {
 
             ></input>
           </div>
-          <div>
+          <div className='profile__imageinput' >
             <label>Profile Image</label>
             <input
               type='text'
@@ -136,8 +137,12 @@ const SignUpForm = () => {
               value={profile_image}
             ></input>
           </div>
-          <button type='submit'>Sign Up</button>
+          <button className='signUp__button' type='submit'>Sign Up</button>
         </form>
+        <div className='signup__link__member'>
+              <p>Already a member, <a href='/login'>login</a></p>
+
+        </div>
       </div>
     </div>
   );

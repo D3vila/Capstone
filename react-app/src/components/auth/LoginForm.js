@@ -67,11 +67,11 @@ const LoginForm = () => {
         </form>
         <div className='signUp__link'>
               <p>Not a member?</p>
-              <a href='/sign-up'>SignUp!</a>
+              <a href='/sign-up'>SignUp</a>
         </div>
         <div className='signUp__link'>
-              <p>Login as a Demo user</p>
-              <a href='/sign-up'>Demo</a>
+              <p>Login as a <a href='/sign-up'>DemoUser</a></p>
+
         </div>
       </div>
     </div>
