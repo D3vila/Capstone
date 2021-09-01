@@ -29,9 +29,9 @@ const editReservation = (reservation) => ({
     reservation
 })
 
-const deleteReservation = (locationId) => ({
+const deleteReservation = (reservation) => ({
     type: DELETE_RESERVATION,
-    locationId
+    reservation
 })
 
 
@@ -145,7 +145,7 @@ export default function reservations(state = initialState, action) {
         case DELETE_RESERVATION: {
             // return { ...state, [action.id]: action.id }??????????
             newState = {...state};
-            delete newState.reservations[action.locationId];
+            delete newState.[action.id];
             console.log('NEWSTATE', newState)
 
             return newState;

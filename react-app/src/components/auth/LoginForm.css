@@ -1,7 +1,10 @@
-body {
+.login__page {
     background-position: 50% 30%;
     background-size: cover;
     background-attachment: fixed;
+    position: absolute;
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/7459424/pexels-photo-7459424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
@@ -11,7 +14,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    border: 2px solid green;
+    border: 2px solid rgb(255, 255, 255);
     transform: translate(-50%, -50%);
     width: 400px;
     border-radius: 10px;
@@ -36,6 +39,7 @@ body {
 }
 
 .email__div input {
+    font-family: 'IBM Plex Mono', monospace;
     width: 100%;
     padding: 0;
     color: white;
@@ -53,6 +57,7 @@ body {
 }
 
 .password__div input {
+    font-family: 'IBM Plex Mono', monospace;
     width: 100%;
     padding: 0;
     color: white;

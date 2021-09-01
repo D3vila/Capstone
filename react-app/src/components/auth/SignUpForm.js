@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './SignUpForm.css';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -58,83 +59,87 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <div>
       <div>
-        {errors.map((error, ind) => (
-          <div className='signup__errors' key={ind}> {error} </div>
-        ))}
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-          
-        ></input>
-      </div>
-      <div>
-        <label>First Name</label>
-        <input
-          type='text'
-          name='first_name'
-          onChange={updateFirst_name}
-          value={first_name}
+        <form onSubmit={onSignUp}>
+          <div>
+            {errors.map((error, ind) => (
+              <div className='signup__errors' key={ind}> {error} </div>
+            ))}
+          </div>
+          <div>
+            <label>User Name</label>
+            <input
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
 
-        ></input>
-      </div>
-      <div>
-        <label>Last Name</label>
-        <input
-          type='text'
-          name='last_name'
-          onChange={updateLast_name}
-          value={last_name}
+            ></input>
+          </div>
+          <div>
+            <label>First Name</label>
+            <input
+              type='text'
+              name='first_name'
+              onChange={updateFirst_name}
+              value={first_name}
 
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
+            ></input>
+          </div>
+          <div>
+            <label>Last Name</label>
+            <input
+              type='text'
+              name='last_name'
+              onChange={updateLast_name}
+              value={last_name}
 
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
+            ></input>
+          </div>
+          <div>
+            <label>Email</label>
+            <input
+              type='text'
+              name='email'
+              onChange={updateEmail}
+              value={email}
 
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
+            ></input>
+          </div>
+          <div>
+            <label>Password</label>
+            <input
+              type='password'
+              name='password'
+              onChange={updatePassword}
+              value={password}
 
-        ></input>
+            ></input>
+          </div>
+          <div>
+            <label>Repeat Password</label>
+            <input
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+
+            ></input>
+          </div>
+          <div>
+            <label>Profile Image</label>
+            <input
+              type='text'
+              name='profile_image'
+              onChange={updateProfile_image}
+              value={profile_image}
+            ></input>
+          </div>
+          <button type='submit'>Sign Up</button>
+        </form>
       </div>
-      <div>
-        <label>Profile Image</label>
-        <input
-          type='text'
-          name='profile_image'
-          onChange={updateProfile_image}
-          value={profile_image}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    </div>
   );
 };
 

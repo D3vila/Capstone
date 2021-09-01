@@ -12,12 +12,11 @@ function User() {
   // const profileUser = useSelector(state => state.session.user)
   const userReservation = useSelector(state => Object.values(state.reservations))
   // const locations = useSelector((state) => Object.values(state.locations))
-  // console.log(userReservation)
+  // console.log(userReservation.length)
 
   useEffect(() => {
     dispatch(getReservationsThunk(userId));
-  }, [dispatch, userId])
-
+  }, [dispatch, userId, userReservation.length])
 
   useEffect(() => {
     if (!userId) {

@@ -78,5 +78,5 @@ def deleteReservation(id):
     db.session.delete(reservation)
     db.session.commit()
 
-    # return reservation.to_dict()
-    return {'location': reservation.locationId }
+    return reservation.to_dict()
+    # return {'location': reservation.locationId }
