@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { deleteReservationThunk, getReservationsThunk } from '../../store/reservations'
+import { getReservationsThunk } from '../../store/reservations'
+import DeleteReservationModal from '../deleteReservation';
+import './User.css'
 
 function User() {
-  // const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
   const dispatch = useDispatch()
   const { userId } = useParams();
-  const profileUser = useSelector(state => state.session.user)
+  // const profileUser = useSelector(state => state.session.user)
   const userReservation = useSelector(state => Object.values(state.reservations))
   // const locations = useSelector((state) => Object.values(state.locations))
   // console.log(userReservation)
@@ -16,60 +18,57 @@ function User() {
     dispatch(getReservationsThunk(userId));
   }, [dispatch, userId])
 
-  function handleDeleteReservation(e, reservationToDelete) {
-    e.preventDefault();
-    return dispatch(deleteReservationThunk(reservationToDelete))
-      .catch (async (res) => {
-        await res.json();
-    });
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    (async () => {
+      const response = await fetch(`/api/users/${userId}`);
+      const user = await response.json();
+      setUser(user);
+    })();
+  }, [userId]);
+
+  if (!user) {
+    return null;
   }
-
-  // useEffect(() => {
-  //   if (!userId) {
-  //     return;
-  //   }
-  //   (async () => {
-  //     const response = await fetch(`/api/users/${userId}`);
-  //     const user = await response.json();
-  //     setUser(user);
-  //   })();
-  // }, [userId]);
-
-  // if (!user) {
-  //   return null;
-  // }
 
   return (
     <>
-      <ul>
+      <ul className='userProfile__info'>
         <li>
           <strong>User Id</strong> {userId}
         </li>
         <li>
-          <strong>Username</strong> {profileUser.username}
+          <strong>User Name</strong> {user.username}
+          {/*<strong>Username</strong> {profileUser.username}*/}
         </li>
         <li>
-          <strong>first Name</strong> {profileUser.first_name}
+          <strong>first Name</strong> {user.first_name}
         </li>
         <li>
-          <strong>Last Name</strong> {profileUser.last_name}
+          <strong>Last Name</strong> {user.last_name}
         </li>
         <li>
-          <img src={profileUser.profile_image} className='profilePic' alt='profilePic' />
+          <img src={user.profile_image} className='profilePic' alt='profilePic' />
         </li>
       </ul>
-      <div>
+      <div className='reservation__div'>
         <h2>Your Reservations</h2>
-        {userReservation.map(reservation => (
+        {userReservation?.map(reservation => (
           <div key={reservation.id}>
-            <div>{reservation.location.movieName}</div>
-            <div>Location: {reservation.location.city}, {reservation.location.state} ({reservation.location.country})</div>
-            <div>Time traveling to: {reservation.location.month}, {reservation.location.day} {reservation.location.year}</div>
-            <img src={reservation.location.img1} alt='resPic'/>
-            <div>Start Date: {reservation.startDate}</div>
-            <div>End Date: {reservation.endDate}</div>
-            <div>Price: ${reservation.location.price}</div>
-            <div></div>
+            <div>{reservation.location?.movieName}</div>
+            <div>Location: {reservation.location?.city}, {reservation.location?.state} ({reservation.location?.country})</div>
+            <div>Time traveling to: {reservation.location?.month}, {reservation.location?.day} {reservation.location?.year}</div>
+            <img src={reservation.location?.img1} className='resPic' alt='resPic'/>
+            <div>Start Date: {reservation?.startDate}</div>
+            <div>End Date: {reservation?.endDate}</div>
+            <div>Price: ${reservation.location?.price}</div>
+            <div>
+              <DeleteReservationModal id={reservation?.id}/>
+            </div>
+
           </div>
         ))}
       </div>

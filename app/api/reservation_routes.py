@@ -12,19 +12,20 @@ def validation_errors(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
-#get all reservations with Location table attached
 
-@reservation_route.route('/', methods=['GET'])
-def getAll_reservations():
-    reservations_query = Reservation.query.all()
-    reservations = [reservation.to_dict() for reservation in reservations_query]
-    for reservation in reservations:
-        reservation['location'] = Location.query.get(
-            reservation['locationId']).to_dict()
-    for location in reservations:
-        location['reviews'] = Review.query.get(
-            location['userId']).to_dict()
-    return {'reservations': location}
+
+
+# @reservation_route.route('/', methods=['GET'])
+# def getAll_reservations():
+#     reservations_query = Reservation.query.all()
+#     reservations = [reservation.to_dict() for reservation in reservations_query]
+#     for reservation in reservations:
+#         reservation['location'] = Location.query.get(
+#             reservation['locationId']).to_dict()
+    # for location in reservations:
+    #     location['reviews'] = Review.query.get(
+    #         location['userId']).to_dict()
+    # return {'reservations': location}
     # return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
 
@@ -71,10 +72,11 @@ def edit_reservation(id):
     return {'errors': validation_errors(form.errors)}, 401
 
 
-@reservation_route.route('/<int:id>/', methods=['DELETE'])
+@reservation_route.route('/user/<int:id>/', methods=['DELETE'])
 def deleteReservation(id):
     reservation = Reservation.query.get(id)
     db.session.delete(reservation)
     db.session.commit()
 
-    return reservation.to_dict()
+    # return reservation.to_dict()
+    return {'location': reservation.locationId }
