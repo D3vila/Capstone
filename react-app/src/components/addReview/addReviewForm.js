@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { createReviewThunk } from '../../store/locations';
 
+
 const AddReviewForm = () => {
     const sessionUser = useSelector(state => state.session.user)
     const location = useSelector((state) => state.locations)

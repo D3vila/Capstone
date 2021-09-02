@@ -4,6 +4,7 @@ import { getOneLocation, deleteReviewThunk } from '../../store/locations'
 import { useParams } from 'react-router-dom';
 import AddReviewForm from '../addReview/addReviewForm';
 import EditReviewForm from '../editReview/editReview';
+import ReservationForm from '../addReservation/addReservation'
 import './Location.css';
 
 
@@ -86,12 +87,14 @@ function Location() {
                 <AddReviewForm />
             </>
         )
+
     } else {
         sessionReview = (
             <>
                 <h2>Login to leave a comment</h2>
             </>
         )
+
     }
 
 
@@ -114,6 +117,7 @@ function Location() {
                     </div>
                     <div className='reserve__container'>
                         <h1>Reserve the DeLorean</h1>
+                        <ReservationForm/>
                     </div>
                 </div>
             </div>

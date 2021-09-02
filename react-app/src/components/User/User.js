@@ -56,21 +56,21 @@ function User() {
       <div className='reservation__div'>
         <h2>Your Reservations</h2>
         {userReservation?.map(reservation => (
-          <div key={reservation.id}>
-            <a href={`/locations/${reservation.locationId}`}>
-              <img src={reservation.location.img1} alt='locationPic'></img>
+          <div key={reservation?.id}>
+            <a href={`/locations/${reservation?.locationId}`}>
+              <img src={reservation?.location?.img1} alt='locationPic'></img>
             </a>
-            <div>{reservation.location.movieName}</div>
-            <div>Time traveling to: {reservation.location.month}, {reservation.location.day} {reservation.location.year}</div>
-            <div>Location: {reservation.location.city}, {reservation.location.state} ({reservation.location.country})</div>
+            <div>{reservation?.location.movieName}</div>
+            <div>Time traveling to: {reservation?.location?.month}, {reservation?.location?.day} {reservation?.location?.year}</div>
+            <div>Location: {reservation?.location?.city}, {reservation?.location?.state} ({reservation?.location?.country})</div>
             <div></div>
             <div></div>
-            <div>${reservation.location.price}</div>
-            <div>ReservationId: {reservation.id}</div>
-            <div>LocationId: {reservation.locationId}</div>
+            <div>${reservation?.location?.price}</div>
+            <div>ReservationId: {reservation?.id}</div>
+            <div>LocationId: {reservation?.locationId}</div>
             <div>Start Date: {reservation?.startDate}</div>
             <div>End Date: {reservation?.endDate}</div>
-            <div>Price: ${reservation.location?.price}</div>
+            <div>Price: ${reservation?.location?.price}</div>
             <div>
               <DeleteReservationModal reservationId={reservation?.id}/>
             </div>
