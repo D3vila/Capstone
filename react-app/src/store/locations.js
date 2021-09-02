@@ -85,7 +85,7 @@ export const editReviewThunk = (review) => async (dispatch) => {
         dispatch(editReview(editedReview))
 
     }
-    console.log('editThunk', response)
+    // console.log('editThunk', response)
     return response
 }
 
@@ -98,12 +98,12 @@ export const deleteReviewThunk = id => async (dispatch) => {
     if (response.ok) {
         const removedReview = await response.json();
         dispatch(deleteReview(removedReview))
-        // console.log('deleteThunk', removedReview)
+        console.log('deleteThunk', removedReview)
         // await response.json();
         // dispatch(deleteReview(id))
         return removedReview
     }
-    // console.log('deleteThunk', response)
+    console.log('deleteThunk', response)
     // return response
 }
 
@@ -137,25 +137,25 @@ export default function locations(state = initialState, action) {
             // newState[action.review.id] = action.review
             newState.reviews?.push(action.review);
             // console.log("CreateReducer", newState)
-            // alert('Review posted')
+            alert('Review posted')
             return newState;
         }
 
         case EDIT_REVIEW: {
             newState = { ...state };
-            console.log(newState)
+            // console.log(newState)
             for (let i = 0; i < newState.reviews.length; i++) {
                 if (newState.reviews[i] && (newState.reviews[i].id === action.review.id))
                     newState.reviews[i] = action.review
             }
             alert('Review edited successfully')
-            console.log('editReducer', newState)
+            // console.log('editReducer', newState)
             return newState;
         }
 
         case DELETE_REVIEW: {
             newState = { ...state };
-            console.log(newState)
+            console.log('NEWSTATE', newState)
             for (let i = 0; i < newState.reviews.length; i++) {
                 if (newState.reviews[i] && (newState.reviews[i].id === action.review.id)) {
                     delete newState.reviews[i];

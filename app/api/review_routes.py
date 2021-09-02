@@ -25,7 +25,7 @@ def postReview():
         db.session.add(new_review)
         db.session.commit()
         return new_review.to_dict()
-    return {'error': 'WRROONNGOO'}
+    return {'errors': validation_errors(form.errors)}, 401
     # else:
     #     return {'errors': validation_errors(form.errors)}, 401
 
@@ -42,7 +42,7 @@ def editReview(id):
         db.session.commit()
 
         return oldReview.to_dict()
-    return {'error': 'still wrong'}
+    return {'errors': validation_errors(form.errors)}, 401
 
 
 @review_route.route('/<int:id>/', methods=['DELETE'])

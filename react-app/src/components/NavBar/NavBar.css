@@ -49,7 +49,8 @@
 
 .navbar__container {
     background: linear-gradient(0deg, #00263d 50%, rgb(48, 171, 228) 90%);
-    border-bottom: 3px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(2, 183, 255);
+    box-shadow:0px 1px 5px #de1dde;
     height: 80px;
     padding: 10px 10px;
     width: 100%;
@@ -99,7 +100,7 @@
     font-weight: 600;
     ;
     position: relative;
-    background-image: url(https://png2.cleanpng.com/sh/c7437c78d86bac85506d711618d8e1e2/L0KzQYm3UsA4N5dvfZH0aYP2gLBuTgN1epp1fZ91aX7oPbrqjB4ufpZojNH7LYDkebB7hfQub5DxfJ9vcnHwdX68gcdjapRqfKhrNHO1QXA3U8U0OmY9SaMAMUizRYmAU8M1O2o6RuJ3Zx==/kisspng-stripe-line-icon-vector-painted-gold-frame-5a7bbced6b4c21.0353258115180587334395.png);
+    background-image: url(https://thumbs.dreamstime.com/b/neon-yellow-lights-abstract-background-glowing-vertical-line-181023437.jpg);
     animation: animateCloud 15s linear infinite;
     background-repeat: repeat-x;
     background-position: bottom;

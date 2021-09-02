@@ -13,7 +13,7 @@ class Review(db.Model, UserMixin):
         'locations.id'), nullable=False)
     review = db.Column(db.Text, nullable=False)
     createdAt = db.Column(db.DateTime, default=db.func.now(), nullable=True)
-    updatedAt = db.Column(db.DateTime, default=db.func.now(), server_onupdate=db.func.now(), nullable=True)
+    updatedAt = db.Column(db.DateTime, server_onupdate=db.func.now(), nullable=True)
 
     user = db.relationship('User', back_populates='reviews')
     locations = db.relationship('Location', back_populates='review')
