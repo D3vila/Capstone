@@ -54,8 +54,11 @@ def createReservation():
                                       days=data['days'])
         db.session.add(new_reservation)
         db.session.commit()
+        # return {'message': "let's go to the FUTURE!"}
         return new_reservation.to_dict()
-    return {'errors': validation_errors(form.errors)}, 401
+    errors = form.errors
+    return {'errors': validation_errors(errors)}, 401
+    # return {'errors': validation_errors(form.errors)}, 401
 
 
 @reservation_route.route('/<int:id>/', methods=['PUT'])

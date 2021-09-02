@@ -12,7 +12,7 @@ class ReservationForm(FlaskForm):
     locationId = IntegerField('locationId', v)
     userId = IntegerField('userId', v)
     startDate = DateField('startDate', v)
-    endDate = DateField('startDate', v)
+    endDate = DateField('endDate', v)
     price = IntegerField('price')
     days = IntegerField('days')
     submit = SubmitField('Submit')
