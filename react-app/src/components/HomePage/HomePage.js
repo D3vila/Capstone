@@ -136,9 +136,9 @@ function HomePage() {
                         </div>
                         <div className='_div_'>
                             <p className='sticker__label'>AM</p>
-                            <p className='on'></p>
-                            <p className='sticker__label'>PM</p>
                             <p className='off'></p>
+                            <p className='sticker__label'>PM</p>
+                            <p className='on'></p>
                         </div>
                         <div className='_div_ padding'>
                             <p className='sticker__label'>Hour</p>
