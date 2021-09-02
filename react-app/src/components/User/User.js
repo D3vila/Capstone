@@ -56,9 +56,9 @@ function User() {
       <div className='reservation__div'>
         <h2>Your Reservations</h2>
         {userReservation?.map(reservation => (
-          <div key={reservation?.id}>
+          <div className='reservation__container' key={reservation?.id}>
             <a href={`/locations/${reservation?.locationId}`}>
-              <img src={reservation?.location?.img1} alt='locationPic'></img>
+              <img className='reservation__pic' src={reservation?.location?.img2} alt='locationPic'></img>
             </a>
             <div>{reservation?.location.movieName}</div>
             <div>Time traveling to: {reservation?.location?.month}, {reservation?.location?.day} {reservation?.location?.year}</div>

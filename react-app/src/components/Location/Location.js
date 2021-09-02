@@ -22,12 +22,28 @@ function Location() {
 
     let sessionReview;
 
+
     function handleDeleteReview(e, reviewIdToDelete) {
         e.preventDefault();
         return dispatch(deleteReviewThunk(reviewIdToDelete))
             .catch(async (res) => {
                 await res.json();
             });
+    }
+
+    let sessionReservation;
+    if (sessionUser) {
+        sessionReservation = (
+            <>
+                <ReservationForm user={sessionUser} location={locationId}/>
+            </>
+        )
+    } else {
+        sessionReservation = (
+            <>
+                <h2>⏰Must be Login to make a reservation⏰</h2>
+            </>
+        )
     }
 
     function userReviewOptions(sessionUser, review) {
@@ -91,7 +107,7 @@ function Location() {
     } else {
         sessionReview = (
             <>
-                <h2>Login to leave a comment</h2>
+                <h2>⏲Login to leave a comment⏲</h2>
             </>
         )
 
@@ -117,7 +133,7 @@ function Location() {
                     </div>
                     <div className='reserve__container'>
                         <h1>Reserve the DeLorean</h1>
-                        <ReservationForm/>
+                        {sessionReservation}
                     </div>
                 </div>
             </div>

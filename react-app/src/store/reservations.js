@@ -95,7 +95,7 @@ export const deleteReservationThunk = (reservationId) => async (dispatch) => {
     if (response) {
         // const removedReservation = await response.json();
         dispatch(deleteReservation(reservationId))
-        console.log('THUNK', response)
+        // console.log('THUNK', response)
         // return removedReservation;
         return response
     }
@@ -132,6 +132,7 @@ export default function reservations(state = initialState, action) {
                 ...state,
                 [action.reservations?.id]: action.reservations
             }
+            alert('Reservation created, go to profile page to see reservations')
             return newState;
         }
 

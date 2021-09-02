@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { addReservationThunk } from '../../store/reservations';
 
 
 
-const ReservationForm = () => {
+const ReservationForm = ({user, location}) => {
     const dispatch = useDispatch();
 
     // const [errors, setErrors] = useState([])
     // const [locationId, setLocationId] = useState('')
     // const [userId, setUserId] = useState('')
 
-    const user = useSelector(state => state.session.user)
-    const location = useSelector((state) => state.locations)
+    // const user = useSelector(state => state.session.user)
+    // const location = useSelector((state) => state.locations)
     // console.log(user)
 
     // const userId = user.id
@@ -32,7 +32,8 @@ const ReservationForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const addReservation = {
-            locationId: location.location.id,
+            // locationId: location.location.id,
+            locationId: +location,
             userId: user.id,
             startDate,
             endDate
