@@ -6,13 +6,14 @@ import './HomePage.css';
 
 function HomePage() {
     const location = useSelector((state) => state.locations)
+    const dispatch = useDispatch()
 
     const [cMonth, setcMonth] = useState('')
     const [cDay, setcDay] = useState('')
     const [cYear, setcYear] = useState('')
     const [cHour, setcHour] = useState('')
     const [cMin, setcMin] = useState('')
-    console.log(cHour)
+
 
     useEffect(() => {
 
@@ -38,10 +39,8 @@ function HomePage() {
         setcMin(min)
     }, []);
 
+
     const randomNumber = Math.floor(Math.random() * 15) + 1
-
-    const dispatch = useDispatch()
-
     useEffect(() => {
         dispatch(getOneLocation(randomNumber))
     }, [dispatch, randomNumber]);
