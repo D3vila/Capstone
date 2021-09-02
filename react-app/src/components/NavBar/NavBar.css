@@ -125,8 +125,10 @@
 .logo {
     width: 355px;
     height: 40px;
-    filter: drop-shadow(3px 3px 0 rgb(0, 0, 0));
+    /* filter: drop-shadow(3px 3px 0 rgb(0, 217, 255)); */
     transform: rotate(2deg);
+    filter: drop-shadow(1px 1px 0 rgb(0, 0, 0))
+          drop-shadow(-1px -1px 5px rgb(0, 174, 255));
 }
 
 .DLlogo {
@@ -135,7 +137,10 @@
     bottom: -0.4em;
     position: absolute;
     left: 360px;
-    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
+    /* filter: drop-shadow(5px 5px 8px rgb(0, 0, 0)); */
+    filter: drop-shadow(1px 1px 3px rgb(231, 65, 246))
+            drop-shadow(-1px -1px 2px rgb(255, 255, 255))
+            drop-shadow(-1px -1px 7px rgb(0, 174, 255));
 }
 
 /* background-image: url(https://png2.cleanpng.com/sh/c7437c78d86bac85506d711618d8e1e2/L0KzQYm3UsA4N5dvfZH0aYP2gLBuTgN1epp1fZ91aX7oPbrqjB4ufpZojNH7LYDkebB7hfQub5DxfJ9vcnHwdX68gcdjapRqfKhrNHO1QXA3U8U0OmY9SaMAMUizRYmAU8M1O2o6RuJ3Zx==/kisspng-stripe-line-icon-vector-painted-gold-frame-5a7bbced6b4c21.0353258115180587334395.png);
