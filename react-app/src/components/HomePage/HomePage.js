@@ -162,7 +162,9 @@ function HomePage() {
                         </div>
                     </a>
                 </div>
-                <h3 className='click__link'>click on location name to visit</h3>
+                <div>
+                    <h3 className='click__link'>click on location name to visit</h3>
+                </div>
             </div>
         </>
     )
