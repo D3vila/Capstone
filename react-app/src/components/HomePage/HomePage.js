@@ -52,113 +52,115 @@ function HomePage() {
         <>
             <div className='HomePage'>
                 <h1>Featured location</h1>
-                <div className='timeCircuit__div'>
-                    <div className='_div_spacer'> </div>
-                    <div className='circuitBox box1'>
-                        <div className='_div_'>
-                            <p className='sticker__label'>MONTH</p>
-                            <p className='circuitDisplay'>{location.location?.month}</p>
+                <a href={`/locations/${location.location?.id}`}>
+                    <div className='timeCircuit__div'>
+                        <div className='_div_spacer'> </div>
+                        <div className='circuitBox box1'>
+                            <div className='_div_'>
+                                <p className='sticker__label'>MONTH</p>
+                                <p className='circuitDisplay'>{location.location?.month}</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>DAY</p>
+                                <p className='circuitDisplay'>{location.location?.day}</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>YEAR</p>
+                                <p className='circuitDisplay'>{location.location?.year}</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>AM</p>
+                                <p className='on'></p>
+                                <p className='sticker__label'>PM</p>
+                                <p className='off'></p>
+                            </div>
+                            <div className='_div_ padding'>
+                                <p className='sticker__label'>Hour</p>
+                                <p className='circuitDisplay'>12</p>
+                            </div>
+                            <div className='_div_ padding'>
+                                <p className='on time'></p>
+                                <p className='on time'></p>
+                            </div>
+                            <div className='_div_ padding'>
+                                <p className='sticker__label'>Min</p>
+                                <p className='circuitDisplay'>55</p>
+                            </div>
+                            <p className='large__label'>Destination Time</p>
                         </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>DAY</p>
-                            <p className='circuitDisplay'>{location.location?.day}</p>
+                        <div className='circuitBox box2'>
+                            <div className='_div_'>
+                                <p className='sticker__label'>MONTH</p>
+                                <p className='circuitDisplay'>{cMonth}</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>DAY</p>
+                                <p className='circuitDisplay'>{cDay}</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>YEAR</p>
+                                <p className='circuitDisplay'>{cYear}</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>AM</p>
+                                <p className='on'></p>
+                                <p className='sticker__label'>PM</p>
+                                <p className='off'></p>
+                            </div>
+                            <div className='_div_ padding'>
+                                <p className='sticker__label'>Hour</p>
+                                <p className='circuitDisplay'>{cHour}</p>
+                            </div>
+                            <div className='_div_ padding'>
+                                <p className='on time'></p>
+                                <p className='on time'></p>
+                            </div>
+                            <div className='_div_ padding'>
+                                <p className='sticker__label'>Min</p>
+                                <p className='circuitDisplay'>{cMin}</p>
+                            </div>
+                            <p className='large__label'>Present Time</p>
                         </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>YEAR</p>
-                            <p className='circuitDisplay'>{location.location?.year}</p>
+                        <div className='circuitBox box3'>
+                            <div className='_div_'>
+                                <p className='sticker__label'>MONTH</p>
+                                <p className='circuitDisplay'>Nov</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>DAY</p>
+                                <p className='circuitDisplay'>5</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>YEAR</p>
+                                <p className='circuitDisplay'>1955</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>AM</p>
+                                <p className='on'></p>
+                                <p className='sticker__label'>PM</p>
+                                <p className='off'></p>
+                            </div>
+                            <div className='_div_ padding'>
+                                <p className='sticker__label'>Hour</p>
+                                <p className='circuitDisplay'>6</p>
+                            </div>
+                            <div className='_div_ padding'>
+                                <p className='on time'></p>
+                                <p className='on time'></p>
+                            </div>
+                            <div className='_div_ padding'>
+                                <p className='sticker__label'>Min</p>
+                                <p className='circuitDisplay'>00</p>
+                            </div>
+                            <p className='large__label'>Last Time Departed</p>
                         </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>AM</p>
-                            <p className='on'></p>
-                            <p className='sticker__label'>PM</p>
-                            <p className='off'></p>
+                        <div className='_div_1'>
+                            <p className='large__label'>{location.location?.movieName}</p>
+                            <p className='large__label'>{location.location?.city}</p>
+                            <p className='large__label'>{location.location?.state}</p>
                         </div>
-                        <div className='_div_ padding'>
-                            <p className='sticker__label'>Hour</p>
-                            <p className='circuitDisplay'>12</p>
-                        </div>
-                        <div className='_div_ padding'>
-                            <p className='on time'></p>
-                            <p className='on time'></p>
-                        </div>
-                        <div className='_div_ padding'>
-                            <p className='sticker__label'>Min</p>
-                            <p className='circuitDisplay'>55</p>
-                        </div>
-                        <p className='large__label'>Destination Time</p>
                     </div>
-                    <div className='circuitBox box2'>
-                        <div className='_div_'>
-                            <p className='sticker__label'>MONTH</p>
-                            <p className='circuitDisplay'>{cMonth}</p>
-                        </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>DAY</p>
-                            <p className='circuitDisplay'>{cDay}</p>
-                        </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>YEAR</p>
-                            <p className='circuitDisplay'>{cYear}</p>
-                        </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>AM</p>
-                            <p className='on'></p>
-                            <p className='sticker__label'>PM</p>
-                            <p className='off'></p>
-                        </div>
-                        <div className='_div_ padding'>
-                            <p className='sticker__label'>Hour</p>
-                            <p className='circuitDisplay'>{cHour}</p>
-                        </div>
-                        <div className='_div_ padding'>
-                            <p className='on time'></p>
-                            <p className='on time'></p>
-                        </div>
-                        <div className='_div_ padding'>
-                            <p className='sticker__label'>Min</p>
-                            <p className='circuitDisplay'>{cMin}</p>
-                        </div>
-                        <p className='large__label'>Present Time</p>
-                    </div>
-                    <div className='circuitBox box3'>
-                        <div className='_div_'>
-                            <p className='sticker__label'>MONTH</p>
-                            <p className='circuitDisplay'>Nov</p>
-                        </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>DAY</p>
-                            <p className='circuitDisplay'>5</p>
-                        </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>YEAR</p>
-                            <p className='circuitDisplay'>1955</p>
-                        </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>AM</p>
-                            <p className='on'></p>
-                            <p className='sticker__label'>PM</p>
-                            <p className='off'></p>
-                        </div>
-                        <div className='_div_ padding'>
-                            <p className='sticker__label'>Hour</p>
-                            <p className='circuitDisplay'>6</p>
-                        </div>
-                        <div className='_div_ padding'>
-                            <p className='on time'></p>
-                            <p className='on time'></p>
-                        </div>
-                        <div className='_div_ padding'>
-                            <p className='sticker__label'>Min</p>
-                            <p className='circuitDisplay'>00</p>
-                        </div>
-                        <p className='large__label'>Last Time Departed</p>
-                    </div>
-                    <div className='_div_1'>
-                        <p className='large__label'>{location.location?.movieName}</p>
-                        <p className='large__label'>{location.location?.city}</p>
-                        <p className='large__label'>{location.location?.state}</p>
-                    </div>
-                </div>
+                </a>
             </div>
         </>
     )
