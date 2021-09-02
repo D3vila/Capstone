@@ -16,7 +16,7 @@ function User() {
 
   useEffect(() => {
     dispatch(getReservationsThunk(userId));
-  }, [dispatch, userId, userReservation.length])
+  }, [dispatch, userId])
 
   useEffect(() => {
     if (!userId) {
@@ -57,15 +57,16 @@ function User() {
         <h2>Your Reservations</h2>
         {userReservation?.map(reservation => (
           <div key={reservation.id}>
-            <div>{reservation.location?.movieName}</div>
-            <div>Location: {reservation.location?.city}, {reservation.location?.state} ({reservation.location?.country})</div>
-            <div>Time traveling to: {reservation.location?.month}, {reservation.location?.day} {reservation.location?.year}</div>
-            <img src={reservation.location?.img1} className='resPic' alt='resPic'/>
+            <a href={`/locations/${reservation.locationId}`}>
+              <div>ReservationId: {reservation.id}</div>
+              <div>LocationId: {reservation.locationId}</div>
+            </a>
+            <div>{reservation.location.movieName}</div>
             <div>Start Date: {reservation?.startDate}</div>
             <div>End Date: {reservation?.endDate}</div>
             <div>Price: ${reservation.location?.price}</div>
             <div>
-              <DeleteReservationModal id={reservation?.id}/>
+              <DeleteReservationModal reservationId={reservation?.id}/>
             </div>
 
           </div>

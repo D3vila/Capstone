@@ -29,9 +29,9 @@ const editReservation = (reservation) => ({
     reservation
 })
 
-const deleteReservation = (reservation) => ({
+const deleteReservation = (reservationId) => ({
     type: DELETE_RESERVATION,
-    reservation
+    reservationId
 })
 
 
@@ -88,15 +88,16 @@ export const editReservationThunk = (reservation) => async (dispatch) => {
     return response
 }
 /////////????????????????????????????
-export const deleteReservationThunk = (id) => async (dispatch) => {
-    const response = await fetch(`/api/reservation/user/${id}/`, {
+export const deleteReservationThunk = (reservationId) => async (dispatch) => {
+    const response = await fetch(`/api/reservation/user/${reservationId}/`, {
         method: 'DELETE',
     });
     if (response) {
-        const removedReservation = await response.json();
-        await dispatch(deleteReservation(removedReservation))
-        console.log('THUNK', removedReservation)
-        return removedReservation;
+        // const removedReservation = await response.json();
+        dispatch(deleteReservation(reservationId))
+        console.log('THUNK', response)
+        // return removedReservation;
+        return response
     }
 }
 
@@ -145,7 +146,7 @@ export default function reservations(state = initialState, action) {
         case DELETE_RESERVATION: {
             // return { ...state, [action.id]: action.id }??????????
             newState = {...state};
-            delete newState.[action.id];
+            delete newState[action.reservationId];
             console.log('NEWSTATE', newState)
 
             return newState;

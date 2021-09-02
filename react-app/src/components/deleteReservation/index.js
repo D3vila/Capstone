@@ -4,7 +4,7 @@ import DeleteReservation from './DeleteReservation';
 
 
 
-function DeleteReservationModal({id}) {
+function DeleteReservationModal({reservationId}) {
     const [showModal, setShowModal] = useState(false);
 
 	return (
@@ -12,7 +12,7 @@ function DeleteReservationModal({id}) {
             <button className='deleteReservation__button' onClick={() => setShowModal(true)}>Delete</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <DeleteReservation id={id} setShowModal={setShowModal} />
+                    <DeleteReservation reservationId={reservationId} setShowModal={setShowModal} />
                 </Modal>
             )}
         </>

@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import { deleteReservationThunk } from '../../store/reservations';
 
 
-function DeleteReservation({id, setShowModal}) {
+function DeleteReservation({reservationId, setShowModal}) {
     const dispatch = useDispatch();
 
     const handleDelete = (e) => {
-        const success = dispatch(deleteReservationThunk(id));
+        const success = dispatch(deleteReservationThunk(reservationId));
         if (success) {
             e.preventDefault();
             setShowModal(false);
