@@ -1,0 +1,16 @@
+.footer__div {
+    /* display: grid; */
+    /* grid: 2em 2em 2em 2em 2em / repeat(6, 1fr); */
+    /* clear: both; */
+    position: relative;
+    height: 100px;
+    margin: 0;
+    /* bottom: -100px; */
+    top: 100%;
+
+    width: 100%;
+    z-index:100;
+    background: rgb(83,79,77);
+    background: linear-gradient(0deg, rgba(83,79,77,1) 30%, rgba(255,255,255,1) 100%);
+
+}

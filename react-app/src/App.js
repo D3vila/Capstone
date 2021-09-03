@@ -10,6 +10,7 @@ import User from './components/User/User';
 import Locations from './components/LocationList/Locations'
 import Location from './components/Location/Location';
 import HomePage from './components/HomePage/HomePage';
+import Footer from './components/Footer/Footer'
 import { authenticate } from './store/session';
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
           <HomePage/>
         </Route>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }

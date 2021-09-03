@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { editReservationThunk } from "../../store/reservations";
 
 
-function EditReservationForm ({ reservationId, locationId, userId, setShowModal }) {
+function EditReservationForm ({reservationId, locationId, userId, setShowModal}) {
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState('')
     const [endDate, setEndDate] = useState('')
@@ -19,18 +19,19 @@ function EditReservationForm ({ reservationId, locationId, userId, setShowModal 
 
     const handleEdit = async (e) => {
         e.preventDefault();
+        console.log(startDate)
         const editedReservation = {
-            reservationId,
-            locationId,
-            userId,
-            startDate,
-            endDate,
+            id: reservationId,
+            locationId: locationId,
+            userId: userId,
+            startDate: startDate,
+            endDate: endDate,
         }
         await dispatch(editReservationThunk(editedReservation))
 
         setShowModal(false)
         if (editedReservation) {
-            alert('Reservation has been updated')
+            // alert('Reservation has been updated')
         }
     }
 
@@ -47,7 +48,7 @@ function EditReservationForm ({ reservationId, locationId, userId, setShowModal 
                         <input type='date' name='endDate' onChange={updateEndDate} required={true} value={endDate}></input>
                     </div>
                     <div>
-                        <button type='submit'>Edit</button>
+                        <button type='submit'>Update Reservation</button>
                     </div>
                 </form>
             </div>

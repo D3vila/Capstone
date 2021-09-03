@@ -7,11 +7,12 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    z-index: -1;
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/7459424/pexels-photo-7459424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
 }
 
 .signup__div {
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 50%;
     border: 2px solid rgb(255, 255, 255);

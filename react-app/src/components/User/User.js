@@ -10,12 +10,19 @@ import './User.css'
 function User() {
   const [user, setUser] = useState({});
 
+  // const [endDate, setEndDate] = useState({})
+
   const dispatch = useDispatch()
   const { userId } = useParams();
   // const profileUser = useSelector(state => state.session.user)
   const userReservation = useSelector(state => Object.values(state?.reservations))
   // const locations = useSelector((state) => Object.values(state.locations))
   // console.log(userReservation)
+  // const endingDays = userReservation.map(x => x.endDate)
+
+  useEffect(()=> {
+
+  })
 
   useEffect(() => {
     dispatch(getReservationsThunk(userId));
@@ -58,8 +65,8 @@ function User() {
       </ul>
       <div className='reservation__div'>
         <h2>Your Reservations</h2>
-        {userReservation?.map((reservation, Sup) => (
-          <div className='reservation__container' key={Sup}>
+        {userReservation?.map((reservation) => (
+          <div className='reservation__container' key={Math.floor(Math.random() * 1000)}>
             <a href={`/locations/${reservation?.locationId}`}>
               <img className='reservation__pic' src={reservation?.location?.img2} alt='locationPic'></img>
             </a>
