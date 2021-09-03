@@ -49,12 +49,12 @@ const ReservationForm = ({user, location}) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label for='startDate'>Enter a start date for your reservation:</label>
-                    <input type='date' name='startDate' onChange={updateStartDate} value={startDate}></input>
+                    <label htmlFor='startDate'>Enter a start date for your reservation:</label>
+                    <input type='date' name='startDate' onChange={updateStartDate} required={true} value={startDate}></input>
                 </div>
                 <div>
-                    <label for='endDate'>Enter a end date for your reservation:</label>
-                    <input type='date' name='endDate' onChange={updateEndDate} value={endDate}></input>
+                    <label htmlFor='endDate'>Enter a end date for your reservation:</label>
+                    <input type='date' name='endDate' onChange={updateEndDate} required={true} value={endDate}></input>
                 </div>
                 <div>
                     <button type='submit'>Reserve</button>

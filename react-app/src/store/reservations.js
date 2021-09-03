@@ -24,9 +24,9 @@ const addReservation = (reservation) => ({
     reservation
 })
 
-const editReservation = (reservation) => ({
+const editReservation = (reservationId) => ({
     type: EDIT_RESERVATION,
-    reservation
+    reservationId
 })
 
 const deleteReservation = (reservationId) => ({
@@ -72,19 +72,24 @@ export const addReservationThunk = (reservation) => async (dispatch) => {
     return response
 }
 
-
+// EDIT THUNK
 export const editReservationThunk = (reservation) => async (dispatch) => {
-    const response = await fetch(`/api/reservation/${reservation.id}/`, {
+    // console.log('THUNK', reservation)
+    const response = await fetch(`/api/reservation/${reservation.reservationId}/`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(reservation)
     })
+
     if (response.ok) {
-        const editedReservation = await response.json();
+        const editedReservation = response.json();
+        // console.log(editedReservation)
         dispatch(editReservation(editedReservation))
     }
+    // console.log("response", response)
+    // console.log("editedReservation", editedReservation)
     return response
 }
 /////////????????????????????????????
@@ -122,7 +127,7 @@ export default function reservations(state = initialState, action) {
         case GET_RESERVATIONS: {
             const allReservations = {};
             action.reservations.reservations?.forEach(reservation => {
-                allReservations[reservation.id] = reservation;
+                allReservations[reservation?.id] = reservation;
             })
             return allReservations;
         }
@@ -139,8 +144,9 @@ export default function reservations(state = initialState, action) {
         case EDIT_RESERVATION: {
             const newState = {
                 ...state,
-                [action.reservations.id]: action.reservations
+                [action.reservations?.id]: action.reservations
             };
+            console.log("newState", newState)
             return newState
         }
 

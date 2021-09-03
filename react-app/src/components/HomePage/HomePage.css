@@ -45,6 +45,12 @@
     color: white;
 }
 
+._div_1 p:hover {
+    filter: drop-shadow(1px 1px 8px rgb(250, 142, 2))
+            drop-shadow(-1px -1px 1px rgb(255, 255, 255))
+            drop-shadow(-1px -1px 20px rgb(255, 38, 0));
+}
+
 .timeCircuit__div {
     filter: drop-shadow(1px 1px 8px rgb(250, 142, 2))
             drop-shadow(-1px -1px 1px rgb(255, 255, 255))

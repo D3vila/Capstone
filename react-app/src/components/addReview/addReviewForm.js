@@ -10,7 +10,7 @@ const AddReviewForm = () => {
     const dispatch = useDispatch();
 
 
-    const [review, setReview] = useState();
+    const [review, setReview] = useState('');
     const createReview = (e) => setReview(e.target.value);
 
     const handleSubmit = async (e) => {
@@ -22,13 +22,13 @@ const AddReviewForm = () => {
             review
         };
         await dispatch(createReviewThunk(addReview))
-        // setReview('');
+        setReview('');
     };
 
     return (
         <div className='review__div'>
             <form onSubmit={handleSubmit}>
-                <textarea type='text' onChange={createReview} placeholder='What did you think of your visit?' />
+                <textarea type='text' onChange={createReview} required={true} placeholder='What did you think of your visit?' />
                 <button type='submit'>Submit</button>
             </form>
         </div>

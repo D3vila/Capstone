@@ -51,8 +51,8 @@ function HomePage() {
     return (
         <>
             <div className='HomePage'>
-                <h1>Travel in movie time with the Delorean to experience movie events in real-life!</h1>
-                <h2>check out our featured location</h2>
+                <h1>TRAVEL IN MOVIE TIME WITH THE DELOREAN TO EXPERIENCE MOVIE EVENTS IN REAL LIFE!</h1>
+                <h2>Featured Movie Event:</h2>
                 <div className='timeCircuit__div'>
                     <div className='_div_spacer'> </div>
                     <div className='circuitBox box1'>

@@ -8,7 +8,7 @@ const EditReviewForm = (review) => {
 
     const dispatch = useDispatch();
 
-    const [editedReview, setEditedReview] = useState();
+    const [editedReview, setEditedReview] = useState('');
 
     const createEditedReview = (e) => setEditedReview(e.target.value);
 
@@ -22,13 +22,14 @@ const EditReviewForm = (review) => {
             review: editedReview + ' (edited)',
         };
         await dispatch(editReviewThunk(editedNewReview))
+        setEditedReview('')
     };
 
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <textarea type='text' onChange={createEditedReview} placeholder='Edit your review' />
+                <textarea type='text' onChange={createEditedReview} required={true} placeholder='Edit your review' />
                 <button type='submit'>Submit</button>
             </form>
         </div>

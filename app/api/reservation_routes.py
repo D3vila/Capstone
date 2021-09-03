@@ -40,7 +40,7 @@ def get_reservation_by_userId(userId):
     # return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
 
-@reservation_route.route('/', methods=['POST'])
+@reservation_route.route('/', methods=['GET', 'POST'])
 def createReservation():
     form = ReservationForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -63,12 +63,23 @@ def createReservation():
 
 @reservation_route.route('/<int:id>/', methods=['PUT'])
 def edit_reservation(id):
+    # data = request.json
+    # reservation = Reservation.query.get(id)
+    # reservation.locationId = data['locationId']
+    # reservation.userId = data['userId']
+    # reservation.startDate = data['startDate']
+    # reservation.endDate = data['endDate']
+    # reservation.price = data['price']
+    # reservation.days = data['days']
+
+    # db.session.commit()
+    # reservation_dict = reservation.to_dict()
+    # return {**reservation_dict}
     form = ReservationForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         oldReservation = Reservation.query.get(id)
         form.populate_obj(oldReservation)
-
         db .session.commit()
 
         return oldReservation.to_dict()
