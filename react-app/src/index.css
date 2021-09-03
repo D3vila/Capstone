@@ -3,6 +3,7 @@ body {
     padding:0;
     /* height: 100%; */
     /* font-family: 'Fredoka One', cursive; */
+    overflow-x: hidden;
 
     font-family: 'IBM Plex Mono', monospace;
     /* font-family: 'Cute Font', cursive; */

@@ -6,8 +6,9 @@
     /* margin: 10px; */
     image-rendering: crisp-edges;
     object-fit: cover;
+    margin-left: 70px;
 
-    padding-left: 30px;
+    padding-left: 10px;
     /* padding-top: 10px; */
     /* padding-right: 10px; */
 }
@@ -65,8 +66,8 @@
     margin-right: 40px;
 }
 
-.login__link {
-
+.profile__link {
+    margin-left: 15px;
 }
 
 
@@ -98,7 +99,7 @@
     /* top: 3.2em; */
     color: white;
     font-weight: 600;
-    ;
+    margin-left: 15px;
     position: relative;
     background-image: url(https://thumbs.dreamstime.com/b/neon-yellow-lights-abstract-background-glowing-vertical-line-181023437.jpg);
     animation: animateCloud 15s linear infinite;
