@@ -17,15 +17,23 @@
     border-radius: 15px;
 }
 .movie__title {
+    margin-bottom: 0;
+    padding: 0;
     font-size: 25px;
     text-transform: uppercase;
+    height: 85px;
     color:rgb(255, 255, 255); text-shadow: 0.5px 1px 0px rgb(0, 0, 0), 0px 0px 5px red, 1px 1px 5px orange, 2px 2px 10px yellow;
-    
+
+}
+
+.reserve__container {
+    grid-column: 2 / 3;
+    background-color: white;
 }
 
 .navigation {
     position: absolute;
-    top: 640px;
+    top: 860px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -88,11 +96,11 @@ input[name='r'] {
     flex-direction: column;
     align-items: center;
     justify-self: center;
-    width: 90%;
+    width: calc(98% + 10px);
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 0px;
 }
 
 .locationDes__div h3 {
@@ -100,20 +108,44 @@ input[name='r'] {
     margin-left: 10%;
     margin-right: 10%;
     color: rgb(255, 255, 255);
-    font-size: 28px;
+    font-size: 20px;
     text-shadow: 2px 0 0 #000,
 }
 
-.locationTitle__div h1 {
+.review__reviewDiv {
+    width: 500px;
+    text-align: center;
+}
 
+.locationTitle__div h2 {
     width: 100%;
-    /* margin-left: 25%;
-    margin-right: 25%; */
-
-    padding: 0.2em;
-
     color: rgb(255, 255, 255);
-    text-shadow: 0 0 15px rgb(0, 0, 0);
+    text-shadow: 0 0 15px rgb(0, 0, 0), 0px 0px 15px rgb(255, 236, 68),;
+}
+
+.locationTitle__div {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.trip__details{
+    height: 60px;
+    margin-top: 40px;
+    color: white;
+    color:rgb(255, 255, 255); text-shadow: 0.5px 1px 0px rgb(0, 0, 0), 0px 0px 5px red, 1px 1px 5px orange, 2px 2px 10px yellow;
+}
+
+.timeTravel__div {
+    color:white
+}
+
+.location__place {
+    color: white;
+}
+
+.movieInfo__div {
+    height: 40px;
+    color:rgb(255, 255, 255); text-shadow: 0.5px 1px 0px rgb(0, 0, 0), 0px 0px 5px red, 1px 1px 5px orange, 2px 2px 10px yellow;
 }
 
 .review__reserve {
@@ -122,14 +154,53 @@ input[name='r'] {
     grid-template-columns: 4fr, 4fr;
     grid-row: 100%, 100%;
     column-gap: 2%;
+    margin-bottom: 100px;
 }
 
 .reviews__div {
     background-color: white;
     grid-column: 1 / 2;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(111deg, #0a77f3c2 5%, rgba(0, 0, 0, 0) 40%), radial-gradient(farthest-corner at 30% 60%, #5f00cc7c 70%, #1d2cfd7e 70%);
+    border-radius: 15px;
 }
 
-.reserve__container {
-    grid-column: 2 / 3;
-    background-color: white;
+.reviews__div h1 {
+    color:rgb(255, 255, 255); text-shadow: 0.5px 1px 0px rgb(0, 0, 0), 0px 0px 5px red, 1px 1px 5px orange, 2px 2px 10px yellow;
+}
+
+.review__box {
+    margin: 15px auto;
+    padding-bottom: 25px;
+    width: 100%;
+    padding: 10px;
+}
+
+.review__userId {
+    /* grid-column: 1;
+    grid-row: 1;
+    gap: 0;
+    justify-self: end; */
+    color: turquoise;
+
+
+}
+
+.review__createdAt {
+    color: violet;
+    font-size: 13px;
+}
+
+.review__review {
+    /* grid-column: 1;
+    grid-row: 3; */
+    font-size: 20px;
+
+
+}
+
+.mustBeLogin {
+    color:rgb(255, 255, 255);
+    text-shadow: 0px 0px 1px rgb(0, 0, 0), 0px 0px 2px rgb(153, 0, 255), 0px 0px 5px rgb(217, 0, 255), 2px 2px 15px rgb(255, 0, 0);
 }

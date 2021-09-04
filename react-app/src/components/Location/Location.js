@@ -41,7 +41,7 @@ function Location() {
     } else {
         sessionReservation = (
             <>
-                <h2>⏰Must be Login to make a reservation⏰</h2>
+                <h2 className='mustBeLogin'>⏰ Must be Login to make a reservation ⏰</h2>
             </>
         )
     }
@@ -62,6 +62,9 @@ function Location() {
             <>
                 <div className='movie__title'>
                     <h1>{location.location?.movieName}</h1>
+                </div>
+                <div className='locationTitle__div'>
+                    {<h2>{location.location?.name}</h2>}
                 </div>
                 <div className='locationPic__div'>
                     <div className='slides'>
@@ -89,17 +92,17 @@ function Location() {
                         </div>
                     </div>
                 </div>
-                <div className='locationTitle__div'>
-                    {<h1>{location.location?.name}</h1>}
-                </div>
-                <div>
+                <div className='trip__details'>
                     <h2>Trip Details:</h2>
                 </div>
-                <div>
+                <div className='timeTravel__div'>
                     <h3>Time traveling to: {location.location?.month},{location.location?.day} {location.location?.year}</h3>
                 </div>
-                <div>
+                <div className='location__place'>
                     <h3>Location: {location.location?.city}, {location.location?.state} ({location.location?.country})</h3>
+                </div>
+                <div className='movieInfo__div'>
+                    <h2>Movie Information:</h2>
                 </div>
                 <div className='locationDes__div'>
                     <h3>{location.location?.description}</h3>
@@ -120,7 +123,7 @@ function Location() {
     } else {
         sessionReview = (
             <>
-                <h2>⏲Login to leave a comment⏲</h2>
+                <h2 className='mustBeLogin'>⏲ Login to leave a comment ⏲</h2>
             </>
         )
 
@@ -136,10 +139,12 @@ function Location() {
                         <h1>Reviews</h1>
                         {sessionReview}
                         {location.reviews?.map(review => (
-                            <div className='review_box' key={review.id}>
+                            <div className='review__box' key={review.id}>
                                 <div className='review__userId'>User: {review.userId}</div>
                                 <div className='review__createdAt'>{review.createdAt}</div>
-                                <div className='review__review'>{review.review}</div>
+                                <div className='review__reviewDiv'>
+                                    <div className='review__review'>{review.review}</div>
+                                </div>
                                 {userReviewOptions(sessionUser, review)}
                             </div>
                         ))}

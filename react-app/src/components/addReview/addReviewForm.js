@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { createReviewThunk } from '../../store/locations';
+import './addReview.css'
 
 
 const AddReviewForm = () => {
@@ -26,10 +27,12 @@ const AddReviewForm = () => {
     };
 
     return (
-        <div className='review__div'>
-            <form onSubmit={handleSubmit}>
+        <div className='review__div1'>
+            <form className='reviewForm__div' onSubmit={handleSubmit}>
                 <textarea type='text' onChange={createReview} required={true} placeholder='What did you think of your visit?' />
-                <button type='submit'>Submit</button>
+                <div className='review__button'>
+                    <button type='submit'>Submit Review</button>
+                </div>
             </form>
         </div>
     )
