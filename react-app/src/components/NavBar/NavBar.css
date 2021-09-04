@@ -146,28 +146,38 @@
 
 
 .profile__items {
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 60px 155px;
+    grid-template-rows: 30px 30px;
+    align-self: end;
 
 }
 
 .navbar__profilePic {
     grid-column: 1;
     grid-row: 1 / 3;
-    margin-left: 80px;
-    
+    /* margin-left: 80px; */
+
 }
 
 .user__profile__link {
     grid-column: 2 / 3;
     grid-row: 1;
+    align-self: center;
 }
 
 .logout__button {
     grid-column: 2 / 3 ;
     grid-row: 2;
+    align-self: center;
 }
 
 .steady {
     right: 19.5em;
+}
+
+.location__link {
+    z-index: 10;
 }

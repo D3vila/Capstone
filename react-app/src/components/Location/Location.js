@@ -51,7 +51,7 @@ function Location() {
             return (
                 <>
                     <EditReviewForm review={review} />
-                    <button onClick={(e) => handleDeleteReview(e, review.id)}>Delete</button>
+                    <button className='reviewDelete__button' onClick={(e) => handleDeleteReview(e, review.id)}>Delete</button>
                 </>
             )
         }
@@ -152,7 +152,7 @@ function Location() {
                     <div className='reserve__container'>
                         <h1>Reserve the DeLorean</h1>
                         {sessionReservation}
-                        <div>
+                        <div className='price__div'>
                             <h2>${location.location?.price}/day</h2>
                         </div>
                     </div>

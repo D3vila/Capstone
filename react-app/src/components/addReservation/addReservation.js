@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch} from 'react-redux';
 import { addReservationThunk } from '../../store/reservations';
-
+import './addReservation.css'
 
 
 const ReservationForm = ({user, location}) => {
@@ -46,20 +46,19 @@ const ReservationForm = ({user, location}) => {
     }
 
     return (
-        <div>
+        <div className='addReservation__div'>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className='startDate__div'>
                     <label htmlFor='startDate'>Enter a start date for your reservation:</label>
                     <input type='date' name='startDate' onChange={updateStartDate} required={true} value={startDate}></input>
                 </div>
-                <div>
+                <div className='endDate__div'>
                     <label htmlFor='endDate'>Enter a end date for your reservation:</label>
                     <input type='date' name='endDate' onChange={updateEndDate} required={true} value={endDate}></input>
                 </div>
-                <div>
+                <div className='addReservation__button'>
                     <button type='submit'>Reserve</button>
                 </div>
-
             </form>
 
         </div>

@@ -11,6 +11,12 @@
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/7459424/pexels-photo-7459424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
 }
 
+.errors{
+    font-family: 'IBM Plex Mono', monospace;
+    color: rgb(255, 188, 255);
+    text-transform: uppercase;
+}
+
 .Login__div {
     position: relative;
     left: 50%;

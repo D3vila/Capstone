@@ -1,0 +1,53 @@
+.addReservation__div {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.startDate__div {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.startDate__div label {
+    font-size: 18px;
+    color: rgb(255, 108, 177);
+}
+
+.endDate__div label {
+    font-size: 18px;
+    color: rgb(194, 149, 245);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 2px;
+    opacity: 0.6;
+    filter: saturate(10000%)
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1
+}
+
+.addReservation__button button{
+    font-family: 'IBM Plex Mono', monospace;
+    width: 10em;
+    background-color: rgb(60, 0, 255);
+    color: rgb(209, 255, 6);
+    /* font-weight: 600; */
+    border: 2px solid rgb(0, 238, 255);
+    padding: 3px;
+    border-radius: 15px;
+    font-size: 17px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.addReservation__button button:hover {
+    box-shadow: 0px 0px 10px rgb(106, 243, 255);
+    transition: 0.5s;
+    cursor: pointer;
+}

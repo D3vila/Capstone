@@ -73,7 +73,7 @@ const SignUpForm = () => {
         <form className='signin__form__container' onSubmit={onSignUp}>
           <div className='errors_div' >
             {errors.map((error, ind) => (
-              <div className='signup__errors' key={ind}> {error} </div>
+              <div className='errors' key={ind}> {error} </div>
             ))}
           </div>
           <div className='username__div' >
