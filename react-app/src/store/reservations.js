@@ -72,8 +72,9 @@ export const addReservationThunk = (reservation) => async (dispatch) => {
     return response
 }
 
-
+// EDIT THUNK
 export const editReservationThunk = (reservation) => async (dispatch) => {
+    // console.log('THUNK', reservation)
     const response = await fetch(`/api/reservation/${reservation.id}/`, {
         method: 'PUT',
         headers: {
@@ -81,11 +82,18 @@ export const editReservationThunk = (reservation) => async (dispatch) => {
         },
         body: JSON.stringify(reservation)
     })
+
     if (response.ok) {
         const editedReservation = await response.json();
+        console.log(editedReservation)
         dispatch(editReservation(editedReservation))
+        return editedReservation
+        // return response
     }
-    return response
+
+    // console.log("response", response)
+    // console.log("editedReservation", editedReservation)
+
 }
 /////////????????????????????????????
 export const deleteReservationThunk = (reservationId) => async (dispatch) => {
@@ -95,7 +103,7 @@ export const deleteReservationThunk = (reservationId) => async (dispatch) => {
     if (response) {
         // const removedReservation = await response.json();
         dispatch(deleteReservation(reservationId))
-        console.log('THUNK', response)
+        // console.log('THUNK', response)
         // return removedReservation;
         return response
     }
@@ -110,19 +118,19 @@ export default function reservations(state = initialState, action) {
     // if(!action) return state;
     switch (action.type) {
 
-        case GET_ALL_RESERVATIONS:{
+        case GET_ALL_RESERVATIONS: {
             const allReservations = {};
             action.reservations.reservations.forEach(reservation => {
                 allReservations[reservation.id] = reservation;
             });
-            newState = {...allReservations}
+            newState = { ...allReservations }
             return newState
         }
 
         case GET_RESERVATIONS: {
             const allReservations = {};
             action.reservations.reservations?.forEach(reservation => {
-                allReservations[reservation.id] = reservation;
+                allReservations[reservation?.id] = reservation;
             })
             return allReservations;
         }
@@ -130,24 +138,44 @@ export default function reservations(state = initialState, action) {
         case ADD_RESERVATION: {
             const newState = {
                 ...state,
-                [action.reservations?.id]: action.reservations
+                [action.reservation?.id]: action.reservation
             }
+            alert('Reservation created, go to profile page to see reservations')
             return newState;
         }
 
         case EDIT_RESERVATION: {
             const newState = {
                 ...state,
-                [action.reservations.id]: action.reservations
+                // reservation: { ...state.reservations, [action.reservations?.id]: action.reservations }
+                [action.reservation?.id]: action.reservation
+
             };
+            console.log("newState", newState)
             return newState
         }
+        // {
+
+        //     if (!state[action.reservations?.id]) {
+        //     const newState = {
+        //       ...state,
+        //       [action.reservations?.id]: action.reservations
+        //     };
+        //     return newState;
+        //   }
+        //   return {
+        //     ...state,
+        //     [action.reservations?.id]: {
+        //       ...action.reservations,
+        //     }
+        //   };
+        // }
 
         case DELETE_RESERVATION: {
             // return { ...state, [action.id]: action.id }??????????
-            newState = {...state};
+            newState = { ...state };
             delete newState[action.reservationId];
-            console.log('NEWSTATE', newState)
+            // console.log('NEWSTATE', newState)
 
             return newState;
         }

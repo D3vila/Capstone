@@ -7,11 +7,12 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    z-index: -1;
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/7459424/pexels-photo-7459424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
 }
 
 .signup__div {
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 50%;
     border: 2px solid rgb(255, 255, 255);
@@ -55,6 +56,14 @@
     border: none;
     background: none;
     outline: none;
+
+}
+
+.username__div input:autofill,
+.username__div input:autofill:hover,
+.username__div input:autofill:focus,
+.username__div input:autofill:active  {
+  box-shadow: 0 0 0 30px rgb(255, 0, 0) inset;
 }
 
 .username__div label {
@@ -197,11 +206,18 @@
     font-size: 45px;
     margin: 30px 0;
     text-align: center;
-    font-size: 16px;
-    color: rgb(0, 0, 0)
+    font-size: 18px;
+    color: rgb(243, 185, 253);
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .signup__link__member a {
     color: rgb(0, 183, 255);
     text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
 }

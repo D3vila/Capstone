@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, TextField
-from wtforms.validators import DataRequired, Email, ValidationError
+from flask_wtf.file import FileAllowed
+from wtforms import validators
+from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo
 from app.models import User
 
 
@@ -29,11 +31,16 @@ def email_format(form, field):
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired(), username_exists])
-    first_name = StringField('First Name', validators=[DataRequired()])
-    last_name = StringField('Last Name', validators=[DataRequired()])
+        'username', validators=[DataRequired('Username is required'), Length(min=3, max=9, message='Username must be between 3 and 9 characters'), username_exists])
+    first_name = StringField('First Name', validators=[DataRequired('First name is required'), Length(
+        min=2, max=40, message='First name must be between 2 and 40 characters')])
+    last_name = StringField('Last Name', validators=[DataRequired('Last name is required'), Length(
+        min=2, max=40, message='Last name must be between 2 and 40 characters')])
     email = StringField('email', validators=[
-        DataRequired(), user_exists, Email()
+        DataRequired('Email is required'), user_exists, Email(
+            message='Email is invalid'),
+        Length(max=255, message='Email must be between 1 and 255 characters')
     ])
-    password = PasswordField('password', validators=[DataRequired()])
-    profile_image = TextField('Picture URL')
+    password = PasswordField('password', validators=[DataRequired('Password is required'), Length(
+        min=6, message='Password must be at least 6 characters'), EqualTo('password', message='Passwords do not match')])
+    profile_image = TextField('profile_image', validators=[FileAllowed(['png', 'jpg', 'jpeg']), DataRequired('Photo is required')])

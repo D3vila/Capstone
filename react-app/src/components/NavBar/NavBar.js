@@ -44,9 +44,9 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div className='right__nav steady'>
-        <NavLink to='/users' exact={true} activeClassName='active' className='users__link'>
+        {/*<NavLink to='/users' exact={true} activeClassName='active' className='users__link'>
           Users
-        </NavLink>
+        </NavLink>*/}
         <NavLink to='/locations' exact={true} activeClassName='active' className='location__link'>
           Locations
         </NavLink>

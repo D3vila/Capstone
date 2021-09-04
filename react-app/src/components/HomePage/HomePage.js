@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOneLocation } from '../../store/locations';
+import Footer from '../Footer/Footer'
 import './HomePage.css';
 
 
@@ -51,8 +52,8 @@ function HomePage() {
     return (
         <>
             <div className='HomePage'>
-                <h1>Travel in movie time with the Delorean to experience movie events in real-life!</h1>
-                <h2>check out our featured location</h2>
+                <h1>TRAVEL IN MOVIE TIME WITH THE DELOREAN TO EXPERIENCE MOVIE EVENTS IN REAL LIFE!</h1>
+                <h2>Featured Movie Event:</h2>
                 <div className='timeCircuit__div'>
                     <div className='_div_spacer'> </div>
                     <div className='circuitBox box1'>
@@ -136,9 +137,9 @@ function HomePage() {
                         </div>
                         <div className='_div_'>
                             <p className='sticker__label'>AM</p>
-                            <p className='on'></p>
-                            <p className='sticker__label'>PM</p>
                             <p className='off'></p>
+                            <p className='sticker__label'>PM</p>
+                            <p className='on'></p>
                         </div>
                         <div className='_div_ padding'>
                             <p className='sticker__label'>Hour</p>
@@ -166,6 +167,7 @@ function HomePage() {
                     <h3 className='click__link'>click on location name to visit</h3>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

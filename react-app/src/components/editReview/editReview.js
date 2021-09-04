@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { editReviewThunk } from '../../store/locations';
+import './editReview.css'
 
 const EditReviewForm = (review) => {
     const sessionUser =useSelector(state => state.session.user)
@@ -8,28 +9,31 @@ const EditReviewForm = (review) => {
 
     const dispatch = useDispatch();
 
-    const [editedReview, setEditedReview] = useState();
+    const [editedReview, setEditedReview] = useState('');
 
     const createEditedReview = (e) => setEditedReview(e.target.value);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         review = review.review
         const editedNewReview = {
             id: review.id,
             userId: sessionUser.id,
             locationId: location.location.id,
-            review: editedReview + ' (edited)',
+            review: editedReview + '(edited)',
         };
-        await dispatch(editReviewThunk(editedNewReview))
+        dispatch(editReviewThunk(editedNewReview))
+        setEditedReview('')
     };
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <textarea type='text' onChange={createEditedReview} placeholder='Edit your review' />
-                <button type='submit'>Submit</button>
+        <div className='editedForm__div'>
+            <form className='reviewEditForm' onSubmit={handleSubmit}>
+                <textarea type='text' onChange={createEditedReview} required={true} placeholder='Edit your review' />
+                <div className='reviewEdit__button'>
+                    <button type='submit'>Submit Edit</button>
+                </div>
             </form>
         </div>
     )

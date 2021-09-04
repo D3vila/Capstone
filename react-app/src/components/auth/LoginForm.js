@@ -11,6 +11,11 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  const demoUserLogin = async(e) => {
+    e.preventDefault();
+    await dispatch(login('demo@aa.io', 'password'));
+  }
+
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
@@ -28,7 +33,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to={`/users/${user.id}`} />;
   }
 
   return (
@@ -38,7 +43,7 @@ const LoginForm = () => {
         <form className='login__form__container' onSubmit={onLogin}>
           <div className='error__div'>
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div className='errors' key={ind}>{error}</div>
             ))}
           </div>
           <div className='email__div'>
@@ -66,11 +71,11 @@ const LoginForm = () => {
             </div>
         </form>
         <div className='signUp__link'>
-              <p>Not a member?</p>
-              <a href='/sign-up'>SignUp</a>
+              <p>Not a member? <a href='/sign-up'>SignUp</a></p>
+
         </div>
         <div className='signUp__link'>
-              <p>Login as a <a href='/sign-up'>DemoUser</a></p>
+              <p>Login as a <button className='demo__button' onClick={demoUserLogin}>DemoUser</button></p>
 
         </div>
       </div>

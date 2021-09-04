@@ -37,6 +37,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    z-index: -1;
     background-image: url('https://wallpaperaccess.com/full/1333811.jpg');
 }
 
@@ -45,9 +46,18 @@
     color: white;
 }
 
+._div_1 p:hover {
+    filter: drop-shadow(1px 1px 8px rgb(250, 142, 2))
+            drop-shadow(-1px -1px 1px rgb(255, 255, 255))
+            drop-shadow(-1px -1px 20px rgb(255, 38, 0));
+}
+
 .timeCircuit__div {
-    height: 455px;
-    width: 710px;
+    filter: drop-shadow(1px 1px 8px rgb(250, 142, 2))
+            drop-shadow(-1px -1px 1px rgb(255, 255, 255))
+            drop-shadow(-1px -1px 20px rgb(255, 38, 0));
+    height: 480px;
+    width: 850px;
     margin: 3% auto;
     text-align: center;
     background-color: rgb(85, 84, 84);
