@@ -156,7 +156,7 @@ input[name='r'] {
 
 .reserve__container {
     grid-column: 2;
-    background: linear-gradient(111deg, #0a77f3c2 5%, rgba(0, 0, 0, 0) 40%), radial-gradient(farthest-corner at 30% 60%, #5f00cc7c 70%, #1d2cfd7e 70%);
+    background: linear-gradient(150deg, #0a77f3c2 5%, rgba(0, 0, 0, 0) 40%), radial-gradient(farthest-corner at 60% 30%, #5f00cc7c 70%, #1d2cfd7e 70%);
     border-radius: 15px;
     height: 300px;
 }
@@ -215,6 +215,7 @@ input[name='r'] {
 }
 
 .mustBeLogin {
+    text-align: center;
     color:rgb(255, 255, 255);
     text-shadow: 0px 0px 1px rgb(0, 0, 0), 0px 0px 2px rgb(153, 0, 255), 0px 0px 5px rgb(217, 0, 255), 2px 2px 15px rgb(255, 0, 0);
 }
