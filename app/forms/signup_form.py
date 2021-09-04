@@ -31,12 +31,16 @@ def email_format(form, field):
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired('Username is required'), Length(min=3, max=40, message='Username must be between 3 and 40 characters'), username_exists])
-    first_name = StringField('First Name', validators=[DataRequired('First name is required'), Length(min=2, max=40, message='First name must be between 2 and 40 characters')])
-    last_name = StringField('Last Name', validators=[DataRequired('Last name is required'), Length(min=2, max=40, message='Last name must be between 2 and 40 characters')])
+        'username', validators=[DataRequired('Username is required'), Length(min=3, max=9, message='Username must be between 3 and 9 characters'), username_exists])
+    first_name = StringField('First Name', validators=[DataRequired('First name is required'), Length(
+        min=2, max=40, message='First name must be between 2 and 40 characters')])
+    last_name = StringField('Last Name', validators=[DataRequired('Last name is required'), Length(
+        min=2, max=40, message='Last name must be between 2 and 40 characters')])
     email = StringField('email', validators=[
-        DataRequired('Email is required'), user_exists, Email(message='Email is invalid'),
+        DataRequired('Email is required'), user_exists, Email(
+            message='Email is invalid'),
         Length(max=255, message='Email must be between 1 and 255 characters')
     ])
-    password = PasswordField('password', validators=[DataRequired('Password is required'), Length(min=6, message='Password must be at least 6 characters'), EqualTo('password', message='Passwords do not match')])
-    profile_image = TextField('profile_image', validators=[FileAllowed(['png', 'jpg', 'jpeg'])])
+    password = PasswordField('password', validators=[DataRequired('Password is required'), Length(
+        min=6, message='Password must be at least 6 characters'), EqualTo('password', message='Passwords do not match')])
+    profile_image = TextField('profile_image', validators=[FileAllowed(['png', 'jpg', 'jpeg']), DataRequired('Photo is required')])

@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from app.models import Reservation, Location, Review, User, db
 from app.forms.reservation_form import ReservationForm
+from flask_login import login_required
 
 reservation_route = Blueprint('reservation', __name__)
 
@@ -40,7 +41,7 @@ def get_reservation_by_userId(userId):
     # return {'reservations': [reservation.to_dict() for reservation in reservations]}
 
 
-@reservation_route.route('/', methods=['GET', 'POST'])
+@reservation_route.route('/', methods=['POST'])
 def createReservation():
     form = ReservationForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -62,9 +63,13 @@ def createReservation():
 
 
 @reservation_route.route('/<int:id>/', methods=['PUT'])
+# @login_required
 def edit_reservation(id):
+    # reservation = Reservation.query.get(id)
+    # location = Location.query.filter(Location.id == Reservation.locationId)
     # data = request.json
     # reservation = Reservation.query.get(id)
+
     # reservation.locationId = data['locationId']
     # reservation.userId = data['userId']
     # reservation.startDate = data['startDate']
@@ -79,9 +84,11 @@ def edit_reservation(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         oldReservation = Reservation.query.get(id)
+        # location = Location.query.filter(Location.id == Reservation.locationId)
         form.populate_obj(oldReservation)
         db .session.commit()
 
+        # return {**oldReservation.to_dict(), 'location':  }
         return oldReservation.to_dict()
     return {'errors': validation_errors(form.errors)}, 401
 

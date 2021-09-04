@@ -17,12 +17,20 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
+
     e.preventDefault();
+
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, first_name, last_name, email, password, profile_image));
+
       if (data) {
         setErrors(data)
+      } else {
+        alert("Time to Go back to the FUTURE!")
       }
+    } else {
+      setErrors(['Passwords do not match'])
     }
   };
 

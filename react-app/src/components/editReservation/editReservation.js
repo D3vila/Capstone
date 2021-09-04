@@ -17,7 +17,7 @@ function EditReservationForm ({reservationId, locationId, userId, setShowModal})
     }
 
 
-    const handleEdit = async (e) => {
+    const handleEdit =  (e) => {
         e.preventDefault();
         console.log(startDate)
         const editedReservation = {
@@ -27,7 +27,7 @@ function EditReservationForm ({reservationId, locationId, userId, setShowModal})
             startDate: startDate,
             endDate: endDate,
         }
-        await dispatch(editReservationThunk(editedReservation))
+        dispatch(editReservationThunk(editedReservation))
 
         setShowModal(false)
         if (editedReservation) {

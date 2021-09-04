@@ -24,9 +24,9 @@ const addReservation = (reservation) => ({
     reservation
 })
 
-const editReservation = (reservationId) => ({
+const editReservation = (reservation) => ({
     type: EDIT_RESERVATION,
-    reservationId
+    reservation
 })
 
 const deleteReservation = (reservationId) => ({
@@ -85,8 +85,8 @@ export const editReservationThunk = (reservation) => async (dispatch) => {
 
     if (response.ok) {
         const editedReservation = await response.json();
-        // console.log(editedReservation)
-        await dispatch(editReservation(editedReservation))
+        console.log(editedReservation)
+        dispatch(editReservation(editedReservation))
         return editedReservation
         // return response
     }
@@ -138,7 +138,7 @@ export default function reservations(state = initialState, action) {
         case ADD_RESERVATION: {
             const newState = {
                 ...state,
-                [action.reservations?.id]: action.reservations
+                [action.reservation?.id]: action.reservation
             }
             alert('Reservation created, go to profile page to see reservations')
             return newState;
@@ -148,7 +148,7 @@ export default function reservations(state = initialState, action) {
             const newState = {
                 ...state,
                 // reservation: { ...state.reservations, [action.reservations?.id]: action.reservations }
-                [action.reservations?.id]: action.reservations
+                [action.reservation?.id]: action.reservation
 
             };
             console.log("newState", newState)
@@ -175,7 +175,7 @@ export default function reservations(state = initialState, action) {
             // return { ...state, [action.id]: action.id }??????????
             newState = { ...state };
             delete newState[action.reservationId];
-            console.log('NEWSTATE', newState)
+            // console.log('NEWSTATE', newState)
 
             return newState;
         }

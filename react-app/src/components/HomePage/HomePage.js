@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOneLocation } from '../../store/locations';
+import Footer from '../Footer/Footer'
 import './HomePage.css';
 
 
@@ -166,6 +167,7 @@ function HomePage() {
                     <h3 className='click__link'>click on location name to visit</h3>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
