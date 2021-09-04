@@ -1,5 +1,11 @@
 .locationPic__div {
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow:
+    0 0 10px 8px rgb(255, 255, 255),
+    0 0 15px 15px rgb(255, 31, 255),
+    0 0 20px 30px rgb(25, 255, 255);
     margin:0;
+    margin-top: 20px;
     padding: 0;
     /* background: gray; */
     width: 850px;
@@ -9,6 +15,12 @@
     top: 50%;
     left: 50%;
     border-radius: 15px;
+}
+.movie__title {
+    font-size: 25px;
+    text-transform: uppercase;
+    color:rgb(255, 255, 255); text-shadow: 0.5px 1px 0px rgb(0, 0, 0), 0px 0px 5px red, 1px 1px 5px orange, 2px 2px 10px yellow;
+    
 }
 
 .navigation {
@@ -30,7 +42,7 @@
 }
 
 .bar:hover {
-    background: rgb(0, 162, 255);
+    background: rgb(195, 0, 255);
 }
 
 input[name='r'] {
@@ -87,20 +99,20 @@ input[name='r'] {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 28px;
     text-shadow: 2px 0 0 #000,
 }
 
 .locationTitle__div h1 {
-    border: 2px solid black;
+
     width: 100%;
     /* margin-left: 25%;
     margin-right: 25%; */
-    border-radius: 20px;
+
     padding: 0.2em;
-    background: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+
+    color: rgb(255, 255, 255);
     text-shadow: 0 0 15px rgb(0, 0, 0);
 }
 

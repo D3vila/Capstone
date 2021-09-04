@@ -27,6 +27,7 @@ function Locations() {
                                 <a href={`/locations/${location.id}`} id={location.id}>
                                     <h2>{location.movieName}</h2>
                                     <h3>{location.name}</h3>
+                                    <h3>${location.price}/day</h3>
                                 </a>
                             </div>
                         </div>

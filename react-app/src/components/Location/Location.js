@@ -60,6 +60,9 @@ function Location() {
     function locationDescription() {
         return (
             <>
+                <div className='movie__title'>
+                    <h1>{location.location?.movieName}</h1>
+                </div>
                 <div className='locationPic__div'>
                     <div className='slides'>
                         <input type='radio' name='r' id='r1' defaultChecked />
@@ -67,16 +70,16 @@ function Location() {
                         <input type='radio' name='r' id='r3' />
                         <input type='radio' name='r' id='r4' />
                         <div className='pics s1'>
-                            <img src={location.location.img4} alt='locationPic' />
+                            <img src={location.location?.img4} alt='locationPic' />
                         </div>
                         <div className='pics'>
-                            <img src={location.location.img3} alt='locationPic' />
+                            <img src={location.location?.img3} alt='locationPic' />
                         </div>
                         <div className='pics'>
-                            <img src={location.location.img2} alt='locationPic' />
+                            <img src={location.location?.img2} alt='locationPic' />
                         </div>
                         <div className='pics'>
-                            <img src={location.location.img1} alt='locationPic' />
+                            <img src={location.location?.img1} alt='locationPic' />
                         </div>
                         <div className='navigation'>
                             <label htmlFor='r1' className='bar'></label>
@@ -87,11 +90,21 @@ function Location() {
                     </div>
                 </div>
                 <div className='locationTitle__div'>
-                    {<h1>{location.location.name}</h1>}
+                    {<h1>{location.location?.name}</h1>}
+                </div>
+                <div>
+                    <h2>Trip Details:</h2>
+                </div>
+                <div>
+                    <h3>Time traveling to: {location.location?.month},{location.location?.day} {location.location?.year}</h3>
+                </div>
+                <div>
+                    <h3>Location: {location.location?.city}, {location.location?.state} ({location.location?.country})</h3>
                 </div>
                 <div className='locationDes__div'>
-                    <h3>{location.location.description}</h3>
+                    <h3>{location.location?.description}</h3>
                 </div>
+
 
             </>
         )
@@ -134,6 +147,9 @@ function Location() {
                     <div className='reserve__container'>
                         <h1>Reserve the DeLorean</h1>
                         {sessionReservation}
+                        <div>
+                            <h2>${location.location?.price}/day</h2>
+                        </div>
                     </div>
                 </div>
             </div>
