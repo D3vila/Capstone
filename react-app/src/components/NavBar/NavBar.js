@@ -12,7 +12,7 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <div className='nav__links profile__items'>
-        <img src={sessionUser.profile_image} className='navbar__profilePic' alt='profilePic'/>
+        <img src={sessionUser.profile_image} className='navbar__profilePic' id='top' alt='profilePic'/>
         <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active' className='user__profile__link'>
           <div className='profile__link'>{sessionUser.username} </div>
         </NavLink>
