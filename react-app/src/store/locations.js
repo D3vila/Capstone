@@ -98,12 +98,12 @@ export const deleteReviewThunk = id => async (dispatch) => {
     if (response.ok) {
         const removedReview = await response.json();
         dispatch(deleteReview(removedReview))
-        console.log('deleteThunk', removedReview)
+        // console.log('deleteThunk', removedReview)
         // await response.json();
         // dispatch(deleteReview(id))
         return removedReview
     }
-    console.log('deleteThunk', response)
+    // console.log('deleteThunk', response)
     // return response
 }
 
@@ -155,17 +155,17 @@ export default function locations(state = initialState, action) {
 
         case DELETE_REVIEW: {
             newState = { ...state };
-            console.log('NEWSTATE', newState)
+            // console.log('NEWSTATE', newState)
             for (let i = 0; i < newState.reviews.length; i++) {
                 if (newState.reviews[i] && (newState.reviews[i].id === action.review.id)) {
                     delete newState.reviews[i];
-                    console.log('reducer', newState)
+                    // console.log('reducer', newState)
                 }
                 // alert('Review Deleted')
                 // return newState;
             }
             alert('Review Deleted')
-            console.log('REDUCER', newState)
+            // console.log('REDUCER', newState)
             return newState;
         }
 
