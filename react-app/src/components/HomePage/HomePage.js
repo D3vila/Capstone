@@ -13,7 +13,7 @@ function HomePage() {
     const [cYear, setcYear] = useState('')
     const [cHour, setcHour] = useState('')
     const [cMin, setcMin] = useState('')
-    console.log(cHour)
+    // console.log(cHour)
 
     useEffect(() => {
 

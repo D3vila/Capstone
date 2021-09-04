@@ -85,7 +85,7 @@ export const editReservationThunk = (reservation) => async (dispatch) => {
 
     if (response.ok) {
         const editedReservation = await response.json();
-        console.log(editedReservation)
+        // console.log(editedReservation)
         dispatch(editReservation(editedReservation))
         return editedReservation
         // return response
@@ -151,7 +151,7 @@ export default function reservations(state = initialState, action) {
                 [action.reservation?.id]: action.reservation
 
             };
-            console.log("newState", newState)
+            // console.log("newState", newState)
             return newState
         }
         // {

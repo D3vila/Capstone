@@ -19,7 +19,7 @@ function EditReservationForm ({reservationId, locationId, userId, setShowModal})
 
     const handleEdit =  (e) => {
         e.preventDefault();
-        console.log(startDate)
+        // console.log(startDate)
         const editedReservation = {
             id: reservationId,
             locationId: locationId,
