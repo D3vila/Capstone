@@ -43,11 +43,14 @@ function HomePage() {
         if (hour < 10) {
             hour = `0${hour}`
             setcHour(hour)
+        } else if (hour > 12) {
+            hour = '0' + `${(hour - 12)}`
+            setcHour(hour)
         } else {
           setcHour(hour)
         }
 
-        const min = new Date().getMinutes();
+        let min = new Date().getMinutes();
         if (min < 10) {
             min = `0${min}`
             setcMin(min)
