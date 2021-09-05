@@ -96,7 +96,7 @@ function Location() {
                     <h2>Trip Details:</h2>
                 </div>
                 <div className='timeTravel__div'>
-                    <h3>Time traveling to: {location.location?.month},{location.location?.day} {location.location?.year}</h3>
+                    <h3>Time traveling to: {location.location?.month}, {location.location?.day} {location.location?.year}</h3>
                 </div>
                 <div className='location__place'>
                     <h3>Location: {location.location?.city}, {location.location?.state} ({location.location?.country})</h3>

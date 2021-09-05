@@ -35,8 +35,8 @@ function EditReservationPage() {
             <div className=''>Location: {reservation?.location?.city}, {reservation?.location?.state} ({reservation?.location?.country})</div>*/}
                     <div>Reservation created on: {reservation.createdAt}</div>
                     <div>Location Id: {reservation.locationId}</div>
-                    <div className=''>Start Date: {reservation?.startDate}</div>
-                    <div className=''>End Date: {reservation?.endDate}</div>
+                    <div className=''>Start Date: {reservation?.startDate.substring(0, 17)}</div>
+                    <div className=''>End Date: {reservation?.endDate.substring(0, 17)}</div>
                     <EditReservationForm reservationId={reservationId} locationId={reservation?.locationId} userId={sessionUser.id}/>
                 </div>
             ))}

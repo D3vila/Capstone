@@ -25,8 +25,14 @@ function HomePage() {
         const d = monthNames[month.getMonth()];
         setcMonth(d)
 
-        const day = new Date().getDate();
-        setcDay(day)
+        
+        let day = new Date().getDate();
+        if (day < 10) {
+            setcDay(day = `0${day}`)
+        } else {
+          setcDay(day)
+        }
+
 
         const year = new Date().getFullYear();
         setcYear(year)
