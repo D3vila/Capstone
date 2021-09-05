@@ -25,10 +25,11 @@ function HomePage() {
         const d = monthNames[month.getMonth()];
         setcMonth(d)
 
-        
+
         let day = new Date().getDate();
         if (day < 10) {
-            setcDay(day = `0${day}`)
+            day = `0${day}`
+            setcDay(day)
         } else {
           setcDay(day)
         }
@@ -38,11 +39,22 @@ function HomePage() {
         setcYear(year)
 
         const hours = new Date()
-        const hour = hours.getHours();
-        setcHour(hour)
+        let hour = hours.getHours();
+        if (hour < 10) {
+            hour = `0${hour}`
+            setcHour(hour)
+        } else {
+          setcHour(hour)
+        }
 
         const min = new Date().getMinutes();
-        setcMin(min)
+        if (min < 10) {
+            min = `0${min}`
+            setcMin(min)
+        } else {
+          setcMin(min)
+        }
+
     }, []);
 
     const randomNumber = Math.floor(Math.random() * 15) + 1
@@ -135,7 +147,7 @@ function HomePage() {
                         </div>
                         <div className='_div_'>
                             <p className='sticker__label'>DAY</p>
-                            <p className='circuitDisplay'>5</p>
+                            <p className='circuitDisplay'>05</p>
                         </div>
                         <div className='_div_'>
                             <p className='sticker__label'>YEAR</p>
@@ -149,7 +161,7 @@ function HomePage() {
                         </div>
                         <div className='_div_ padding'>
                             <p className='sticker__label'>Hour</p>
-                            <p className='circuitDisplay'>6</p>
+                            <p className='circuitDisplay'>06</p>
                         </div>
                         <div className='_div_ padding'>
                             <p className='on time'></p>
