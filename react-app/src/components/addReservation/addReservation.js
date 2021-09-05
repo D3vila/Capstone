@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch} from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
+import { useHistory } from 'react-router';
 import { addReservationThunk } from '../../store/reservations';
 import './addReservation.css'
 
 
 const ReservationForm = ({user, location}) => {
     const dispatch = useDispatch();
+    const history = useHistory()
+    const sessionUser = useSelector(state => state.session.user)
 
     // const [errors, setErrors] = useState([])
     // const [locationId, setLocationId] = useState('')
@@ -29,7 +32,7 @@ const ReservationForm = ({user, location}) => {
         setEndDate(e.target.value)
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const addReservation = {
             // locationId: location.location.id,
@@ -38,10 +41,9 @@ const ReservationForm = ({user, location}) => {
             startDate,
             endDate
         };
-        await dispatch(addReservationThunk(addReservation))
-        // if (addReservation) {
-        //     setErrors(addReservation);
-        // }
+        dispatch(addReservationThunk(addReservation))
+        alert('Reservation Successful')
+        history.push(`/users/${sessionUser.id}`)
 
     }
 
