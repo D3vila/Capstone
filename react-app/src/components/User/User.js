@@ -17,7 +17,7 @@ function User() {
   // const profileUser = useSelector(state => state.session.user)
   const userReservation = useSelector(state => Object.values(state?.reservations))
   // const locations = useSelector((state) => Object.values(state.locations))
-  // console.log(userReservation)
+  // console.log(userReservation.length)
   // const endingDays = userReservation.map(x => x.endDate)
 
   // useEffect(()=> {
@@ -43,40 +43,22 @@ function User() {
     return null;
   }
 
-  return (
-    <>
-      <ul className='userProfile__info' key={user?.id}>
-        <li>
-          <strong>User Id</strong> {userId}
-        </li>
-        <li>
-          <strong>User Name</strong> {user?.username}
-          {/*<strong>Username</strong> {profileUser.username}*/}
-        </li>
-        <li>
-          <strong>first Name</strong> {user?.first_name}
-        </li>
-        <li>
-          <strong>Last Name</strong> {user?.last_name}
-        </li>
-        <li>
-          <img src={user?.profile_image} className='profilePic' alt='profilePic' />
-        </li>
-      </ul>
-      <div className='reservation__div'>
-        <h2>Your Reservations</h2>
+  let sessionReservation;
+  if (userReservation.length) {
+    sessionReservation = (
+      <>
         {userReservation?.map((reservation) => (
           <div className='reservation__container' key={Math.floor(Math.random() * 1000)}>
             <a href={`/locations/${reservation?.locationId}`}>
               <img className='reservation__pic' src={reservation?.location?.img2} alt='locationPic'></img>
             </a>
-            <div className=''>{reservation?.location?.movieName}</div>
-            <div className=''>Time traveling to: {reservation?.location?.month}, {reservation?.location?.day} {reservation?.location?.year}</div>
-            <div className=''>Location: {reservation?.location?.city}, {reservation?.location?.state} ({reservation?.location?.country})</div>
-            <div className=''>Start Date: {reservation?.startDate.substring(0, 17)}</div>
-            <div className=''>End Date: {reservation?.endDate.substring(0, 17)}</div>
-            <div className=''>Price: ${reservation?.location?.price}</div>
-            <div className=''>
+            <div className='movieName__res'>{reservation?.location?.movieName}</div>
+            <div className='timeTravel__res'>Time traveling to: {reservation?.location?.month}, {reservation?.location?.day} {reservation?.location?.year}</div>
+            <div className='location__res'>Location: {reservation?.location?.city}, {reservation?.location?.state} ({reservation?.location?.country})</div>
+            <div className='startDate__res'>Start Date: {reservation?.startDate.substring(0, 17)}</div>
+            <div className='endDate__res'>End Date: {reservation?.endDate.substring(0, 17)}</div>
+            <div className='price__res'>Price: ${reservation?.location?.price}</div>
+            <div className='editDelete__res'>
               <DeleteReservationModal reservationId={reservation?.id} />
               <a href={`/edit-reservation/${reservation?.id}`}>
                 <i className="fas fa-edit"></i>
@@ -86,7 +68,45 @@ function User() {
 
           </div>
         ))}
+      </>
+    )
+  } else {
+    sessionReservation = (
+      <>
+        <h1 className='noReservation'>- You Have No Reservations! -</h1>
+      </>
+    )
+  }
+
+  return (
+    <>
+      <div className='profile__container'>
+        <div className='userProfile__info' key={user?.id}>
+          <div className='profile__pic__container'>
+            <img src={user?.profile_image} className='profilePic' alt='profilePic' />
+          </div>
+          <div className='userId__container'>
+            <strong className='strong'>User Id: </strong> {userId}
+          </div>
+          <div className='userName__container'>
+            <strong className='strong'>User Name: </strong> {user?.username}
+            {/*<strong>Username</strong> {profileUser.username}*/}
+          </div>
+          <div className='firstName__container'>
+            <strong className='strong'>first Name: </strong> {user?.first_name}
+          </div>
+          <div className='lastName__container'>
+            <strong className='strong'>Last Name: </strong> {user?.last_name}
+          </div>
+        </div>
+        <div className='reservation__div'>
+          <h2 className='reservationTitle'>Your Reservations</h2>
+          {sessionReservation}
+        </div>
+        <div>
+        </div>
       </div>
+      <a className='backtoTop' href='#top'>Back to top</a>
     </>
   );
 }

@@ -158,6 +158,7 @@ function Location() {
                     </div>
                 </div>
             </div>
+            <a className='backtoTop' href='#top'>Back to top</a>
 
         </>
 

@@ -1,6 +1,56 @@
+.userProfile__info {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: 75px 75px 75px 75px;
+
+}
+
 .profilePic {
     height: 300px;
     width: 300px;
+    border-radius: 30%;
+    object-fit: cover;
+    filter: drop-shadow(1px 1px 5px rgb(231, 65, 246))
+    drop-shadow(-1px -1px 2px rgb(255, 255, 255))
+    drop-shadow(-1px -1px 10px rgb(0, 174, 255));
+}
+
+.strong {
+    font-size: 15px;
+}
+
+
+.userId__container {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    place-self: center;
+    color: violet;
+    font-size: 25px;
+
+}
+
+.userName__container {
+    grid-column: 2 / 3;
+    grid-row: 2;
+    place-self: center;
+    color: rgb(180, 115, 255);
+    font-size: 25px;
+}
+
+.firstName__container {
+    grid-column: 2 / 3;
+    grid-row: 3;
+    place-self: center;
+    color: rgb(130, 207, 238);
+    font-size: 25px;
+}
+
+.lastName__container {
+    grid-column: 2 / 3;
+    grid-row: 4;
+    place-self: center;
+    color: rgb(247, 166, 101);
+    font-size: 25px;
 }
 
 .reservation__div {
@@ -11,11 +61,45 @@
     color: white;
 }
 
-.resPic {
+/* .resPic {
     height: 200px;
     width: 300px;
-}
+    object-fit: cover;
+
+} */
 
 .reservation__pic {
     height: 200px;
+    width: 250px;
+    border-radius: 15px;
+    filter: drop-shadow(1px 1px 5px rgb(248, 248, 248))
+    drop-shadow(-1px -1px 2px rgb(255, 218, 11))
+    drop-shadow(-1px -1px 10px rgb(255, 81, 0));
+    margin-bottom: 10px;
+    /* object-fit: cover; */
+}
+
+.reservation__container {
+    margin-bottom: 25px;
+    border: 1px solid white;
+}
+
+.editDelte__res {
+    margin-bottom: 15px;
+}
+
+.noReservation {
+    color: white;
+}
+
+.reservationTitle {
+    font-size: 35px;
+    color:rgb(255, 255, 255); text-shadow: 0.5px 1px 0px rgb(0, 0, 0), 0px 0px 5px red, 1px 1px 5px orange, 2px 2px 10px yellow;
+}
+
+.profile__container {
+    display: grid;
+    grid-template-columns: 80vh 60vh 10px;
+    padding-top: 80px;
+    padding-left: 50px;
 }
