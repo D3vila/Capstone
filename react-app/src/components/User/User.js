@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getReservationsThunk } from '../../store/reservations'
 import DeleteReservationModal from '../deleteReservation';
-import EditReservationModal from '../editReservation';
+// import EditReservationModal from '../editReservation';
 
 import './User.css'
 
@@ -20,9 +20,9 @@ function User() {
   // console.log(userReservation)
   // const endingDays = userReservation.map(x => x.endDate)
 
-  useEffect(()=> {
+  // useEffect(()=> {
 
-  })
+  // })
 
   useEffect(() => {
     dispatch(getReservationsThunk(userId));
@@ -78,7 +78,10 @@ function User() {
             <div className=''>Price: ${reservation?.location?.price}</div>
             <div className=''>
               <DeleteReservationModal reservationId={reservation?.id} />
-              <EditReservationModal reservationId={reservation?.id} locationId={reservation?.locationId} userId={reservation?.userId} />
+              <a href={`/edit-reservation/${reservation?.id}`}>
+                <i className="fas fa-edit"></i>
+              </a>
+              {/*<EditReservationModal reservationId={reservation?.id} locationId={reservation?.locationId} userId={reservation?.userId} />*/}
             </div>
 
           </div>
