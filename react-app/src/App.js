@@ -11,6 +11,7 @@ import Locations from './components/LocationList/Locations'
 import Location from './components/Location/Location';
 import HomePage from './components/HomePage/HomePage';
 import { authenticate } from './store/session';
+import EditReservationPage from './components/editReservation/editReservationPage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/edit-reservation/:reservationId'>
+          <EditReservationPage/>
         </ProtectedRoute>
         <Route path='/locations' exact={true}>
           <Locations />

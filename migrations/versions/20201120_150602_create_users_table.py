@@ -49,7 +49,7 @@ def upgrade():
         sa.Column('state', sa.String(length=40), nullable=False),
         sa.Column('country', sa.String(length=40), nullable=False),
         sa.Column('month', sa.String(length=20), nullable=False),
-        sa.Column('day', sa.Integer(), nullable=False),
+        sa.Column('day', sa.String(), nullable=False),
         sa.Column('year', sa.String(), nullable=False),
         sa.Column('price', sa.Integer(), nullable=False),
         sa.Column('movieName', sa.String(), nullable=False),

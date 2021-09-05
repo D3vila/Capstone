@@ -9,7 +9,7 @@ function DeleteReservationModal({reservationId}) {
 
 	return (
         <>
-            <button className='deleteReservation__button' onClick={() => setShowModal(true)}>Delete</button>
+            <button className='deleteReservation__button' onClick={() => setShowModal(true)}><i className="fas fa-trash"></i></button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <DeleteReservation reservationId={reservationId} setShowModal={setShowModal} />

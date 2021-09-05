@@ -17,7 +17,7 @@ class Location(db.Model, UserMixin):
     state = db.Column(db.String(40), nullable=False)
     country = db.Column(db.String(40), nullable=False)
     month = db.Column(db.String(20), nullable=False)
-    day = db.Column(db.Integer, nullable=False)
+    day = db.Column(db.String, nullable=False)
     year = db.Column(db.String, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     movieName = db.Column(db.String, nullable=False)

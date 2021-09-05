@@ -140,7 +140,7 @@ export default function reservations(state = initialState, action) {
                 ...state,
                 [action.reservation?.id]: action.reservation
             }
-            alert('Reservation created, go to profile page to see reservations')
+            // alert('Reservation created, go to profile page to see reservations')
             return newState;
         }
 

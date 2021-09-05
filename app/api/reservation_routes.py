@@ -14,6 +14,12 @@ def validation_errors(validation_errors):
     return errorMessages
 
 
+@reservation_route.route('/one/<int:reservationId>/', methods=['GET'])
+def getReservationById(reservationId):
+    reservation = Reservation.query.get(reservationId)
+    if reservation:
+        return reservation.to_dict()
+    return {'message': 'Reservation not found'}, 404
 
 
 # @reservation_route.route('/', methods=['GET'])

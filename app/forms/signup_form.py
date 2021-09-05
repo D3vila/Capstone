@@ -1,8 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, TextField
-from flask_wtf.file import FileAllowed
 from wtforms import validators
-from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo
+from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo, Regexp
 from app.models import User
 
 
@@ -43,4 +42,4 @@ class SignUpForm(FlaskForm):
     ])
     password = PasswordField('password', validators=[DataRequired('Password is required'), Length(
         min=6, message='Password must be at least 6 characters'), EqualTo('password', message='Passwords do not match')])
-    profile_image = TextField('profile_image', validators=[FileAllowed(['png', 'jpg', 'jpeg']), DataRequired('Photo is required')])
+    profile_image = TextField('profile_image', validators=[DataRequired('Profile image required'), Regexp('(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png)', message='Profile image must end in jpg, jpeg, or png file')])

@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editReservationThunk } from "../../store/reservations";
+import { useHistory } from "react-router";
+// import { Redirect } from "react-router-dom";
 
 
-function EditReservationForm ({reservationId, locationId, userId, setShowModal}) {
+const EditReservationForm = ({reservationId, locationId, userId }) => {
+    // const sessionUser = useSelector(state => state.session.user)
+    // const userReservation = useSelector(state => Object.values(state?.reservations))
+    // const filteredReservation = userReservation.filter(reservationEdit => reservationEdit.id === +reservationId )
+
     const dispatch = useDispatch();
+    const history = useHistory()
+
     const [startDate, setStartDate] = useState('')
     const [endDate, setEndDate] = useState('')
 
@@ -28,11 +36,14 @@ function EditReservationForm ({reservationId, locationId, userId, setShowModal})
             endDate: endDate,
         }
         dispatch(editReservationThunk(editedReservation))
+        alert('Reservation Updated Sucessfully')
+        history.push(`/users/${userId}`)
+        // return <Redirect push to={`/users/${userId}`} />;
+        // if (data) {
 
-        setShowModal(false)
-        if (editedReservation) {
-            // alert('Reservation has been updated')
-        }
+        //     return
+        // }
+
     }
 
     return (
