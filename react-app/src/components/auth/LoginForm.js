@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import './LoginForm.css'
 
 const LoginForm = () => {
@@ -15,6 +15,7 @@ const LoginForm = () => {
   const demoUserLogin = async(e) => {
     e.preventDefault();
     await dispatch(login('demo@aa.io', 'password'));
+    alert('Roads? Where We’re Going, We Don’t Need Roads. Welcome to Delorean Traveler')
   }
 
   const onLogin = async (e) => {
@@ -22,6 +23,9 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+      setPassword('')
+    } else {
+      alert('Roads? Where We’re Going, We Don’t Need Roads. Welcome to Delorean Traveler')
     }
   };
 

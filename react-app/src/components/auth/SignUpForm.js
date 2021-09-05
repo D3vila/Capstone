@@ -26,11 +26,14 @@ const SignUpForm = () => {
 
       if (data) {
         setErrors(data)
+        setPassword('')
+        setRepeatPassword('')
       } else {
-        alert("Time to Go back to the FUTURE!")
+        alert("Wait A Minute, Doc. Are You Telling Me You Built A Time Machine...Out Of A DeLorean? Welcome to Delorean Traveler!")
       }
     } else {
       setErrors(['Passwords do not match'])
+
     }
   };
 
@@ -81,6 +84,7 @@ const SignUpForm = () => {
             <input
               type='text'
               name='username'
+              placeholder='Must be between 3 and 6 characters'
               onChange={updateUsername}
               value={username}
 
@@ -91,6 +95,7 @@ const SignUpForm = () => {
             <input
               type='text'
               name='first_name'
+              placeholder='Must be between 2 and 40 characters'
               onChange={updateFirst_name}
               value={first_name}
 
@@ -101,6 +106,7 @@ const SignUpForm = () => {
             <input
               type='text'
               name='last_name'
+              placeholder='Must be between 2 and 40 characters'
               onChange={updateLast_name}
               value={last_name}
 
@@ -121,6 +127,7 @@ const SignUpForm = () => {
             <input
               type='password'
               name='password'
+              placeholder='Must be more than 6 characters'
               onChange={updatePassword}
               value={password}
 
@@ -141,6 +148,7 @@ const SignUpForm = () => {
             <input
               type='text'
               name='profile_image'
+              placeholder='must be a png, jpg, jpeg'
               onChange={updateProfile_image}
               value={profile_image}
             ></input>
