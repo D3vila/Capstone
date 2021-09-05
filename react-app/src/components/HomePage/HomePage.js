@@ -25,8 +25,8 @@ function HomePage() {
         const d = monthNames[month.getMonth()];
         setcMonth(d)
 
-        const day = new Date().getDay();
-        setcDay(day - 2)
+        const day = new Date().getDate();
+        setcDay(day)
 
         const year = new Date().getFullYear();
         setcYear(year)
