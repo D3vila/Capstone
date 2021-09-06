@@ -141,7 +141,7 @@ function Location() {
                         {location.reviews?.map(review => (
                             <div className='review__box' key={review?.id}>
                                 <div className='review__userId'>User: {review?.userId}</div>
-                                <div className='review__createdAt'>{review?.createdAt}</div>
+                                <div className='review__createdAt'>{review?.createdAt.substring(0, 16)}</div>
                                 <div className='review__reviewDiv'>
                                     <div className='review__review'>{review?.review}</div>
                                 </div>

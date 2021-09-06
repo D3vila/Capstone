@@ -24,7 +24,7 @@ function DeleteReservation({reservationId, setShowModal}) {
     return (
         <div className='deleteRes__containerModal'>
             <div className='deleteRes__title'>
-                <p>Do you want to cancel this reservation?</p>
+                <p>Do you want to delete this reservation?</p>
             </div>
             <div className='deleteRes__buttons'>
                 <button className='deleteReservation__button' onClick={handleDelete}>Delete</button>

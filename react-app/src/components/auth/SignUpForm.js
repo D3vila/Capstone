@@ -148,7 +148,7 @@ const SignUpForm = () => {
             <input
               type='text'
               name='profile_image'
-              placeholder='must be a png, jpg, jpeg'
+              placeholder='Image URL must be a png, jpg, jpeg'
               onChange={updateProfile_image}
               value={profile_image}
             ></input>

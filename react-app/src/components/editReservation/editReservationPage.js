@@ -33,7 +33,7 @@ function EditReservationPage() {
                     <div className=''>{reservation?.location?.movieName}</div>
                     <div className=''>Time traveling to: {reservation?.location?.month}, {reservation?.location?.day} {reservation?.location?.year}</div>
                     <div className=''>Location: {reservation?.location?.city}, {reservation?.location?.state} ({reservation?.location?.country})</div>*/}
-                    <div>Reservation created on: {reservation.createdAt}</div>
+                    <div>Reservation created on: {reservation.createdAt.substring(0, 16)}</div>
                     <div className='timeCircuit__div1'>
                         <div className='_div_spacer'>
                         <div className='circuitBox1 box1'>
