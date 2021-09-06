@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { getReservationsThunk } from '../../store/reservations'
 import DeleteReservationModal from '../deleteReservation';
 // import EditReservationModal from '../editReservation';
-
 import './User.css'
 
 function User() {
@@ -57,15 +56,17 @@ function User() {
             <div className='location__res'>Location: {reservation?.location?.city}, {reservation?.location?.state} ({reservation?.location?.country})</div>
             <div className='startDate__res'>Start Date: {reservation?.startDate.substring(0, 17)}</div>
             <div className='endDate__res'>End Date: {reservation?.endDate.substring(0, 17)}</div>
-            <div className='price__res'>Price: ${reservation?.location?.price}</div>
-            <div className='editDelete__res'>
+            <div className='price__res'>Price: ${reservation?.location?.price}/day</div>
+            <div className='Delete__res'>
               <DeleteReservationModal reservationId={reservation?.id} />
+
+              {/*<EditReservationModal reservationId={reservation?.id} locationId={reservation?.locationId} userId={reservation?.userId} />*/}
+            </div>
+            <div className='edit__resButton'>
               <a href={`/edit-reservation/${reservation?.id}`}>
                 <i className="fas fa-edit"></i>
               </a>
-              {/*<EditReservationModal reservationId={reservation?.id} locationId={reservation?.locationId} userId={reservation?.userId} />*/}
             </div>
-
           </div>
         ))}
       </>
