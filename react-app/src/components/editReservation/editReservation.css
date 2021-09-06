@@ -10,3 +10,19 @@
     text-align: center;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.6;
+    filter: invert(1);
+  }
+
+  input[type='date'] {
+      background-color: rgba(0, 125, 184, 0.76);
+      border-radius: 15px;
+      padding: 10px;
+      border: 2px solid rgb(99, 207, 250);
+      color: rgb(245, 220, 1);
+      font-family: 'IBM Plex Mono', monospace;
+  }

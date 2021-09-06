@@ -79,7 +79,7 @@ function HomePage() {
                 <h1>TRAVEL IN MOVIE TIME WITH THE DELOREAN TO EXPERIENCE MOVIE EVENTS IN REAL LIFE!</h1>
                 <h2>Featured Movie Event:</h2>
                 <div className='timeCircuit__div'>
-                    <div className='_div_spacer'> </div>
+                    <div className='_div_spacer'></div>
                     <div className='circuitBox box1'>
                         <div className='_div_'>
                             <p className='sticker__label'>MONTH</p>

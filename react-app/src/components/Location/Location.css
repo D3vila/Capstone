@@ -162,7 +162,7 @@ input[name='r'] {
     grid-column: 2;
     background: linear-gradient(150deg, #0a77f3c2 5%, rgba(0, 0, 0, 0) 40%), radial-gradient(farthest-corner at 60% 30%, #5f00cc7c 70%, #1d2cfd7e 70%);
     border-radius: 15px;
-    height: 300px;
+    height: 60%;
 }
 
 .reserve__container h1 {
