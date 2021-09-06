@@ -1,135 +1,81 @@
-# Flask React Project
+# ![DeLorean](https://github.com/davidcelis/emoji/blob/master/delorean.png?raw=true) Welcome to DeLorean Traveler ![DeLorean](https://github.com/davidcelis/emoji/blob/master/delorean.png?raw=true)
 
+Delorean Traveler is an app based on Airbnb website that allows users to reserve the Delorean to travel to movie destinations in time. Users can also leave reviews on locations they have visited and have many locations to choose from. DeLorean Traveler was created using Flask, React, and Redux.
 
-This is the starter for the Flask React project.
+** A live link to the website can be found here: https://solo-project-bttf.herokuapp.com/ **
 
-## Getting started
+## ![clock](https://emojis.slackmojis.com/emojis/images/1618820290/31748/alarm_clock.gif?1618820290) Website walk-through ![clock](https://emojis.slackmojis.com/emojis/images/1618820290/31748/alarm_clock.gif?1618820290)
+### *Homepage, Sign up page, login page, and users profile page*
+![intro](https://user-images.githubusercontent.com/79862908/132204334-b2fddb6e-6404-472c-ae64-85f2768fc738.gif)
+---
+### *Time-Circuit featured location link, location page, showing CRUD functions for user reviews*
+![reviews](https://user-images.githubusercontent.com/79862908/132204646-47318910-420a-4039-80d6-10fbd6e24580.gif)
+---
+### *Location page, showing CRUD functions for reserving a location*
+![reservation](https://user-images.githubusercontent.com/79862908/132204893-628b9d09-4a64-4216-ad2d-1a1344964a03.gif)
+---
 
-1. Clone this repository (only this branch)
+## ![flash](https://emojis.slackmojis.com/emojis/images/1562618332/5929/lightning.gif?1562618332) Features ![flash](https://emojis.slackmojis.com/emojis/images/1562618332/5929/lightning.gif?1562618332)
+* Sign up with user name, first name, last name, email, password, and profile image (png, jpg, jpeg files only)
+* Log in with email and password
+* Explore all the movie locations with movie details and traveling details
+* Post your review on a location and if you decide you can change your review or delete it
+* Reserve the DeLorean to travel to a movie location in time and edit or delete your reservation
+* User can follow featured locations that is randomly selected for users view. 
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+## ![flash](https://emojis.slackmojis.com/emojis/images/1614881896/17106/electric_guitar.gif?1614881896) Future Features ![flash](https://emojis.slackmojis.com/emojis/images/1614881896/17106/electric_guitar.gif?1614881896)
+* Search Bar to find certain locations
+* Users can create a location for other users to visit
+* Total price and days will show on user's reservation profile
 
-2. Install dependencies
+## ![flash](https://emojis.slackmojis.com/emojis/images/1621151350/39399/speedometer.gif?1621151350) Technologies used to build the website ![flash](https://emojis.slackmojis.com/emojis/images/1621151350/39399/speedometer.gif?1621151350)
+### Backend
+* Flask
+* Python
+* JavaScript
+* PostgresSQL
+* SQLAlchemy
+* WTForms
+### Frontend
+* React
+* JavaScript
+* CSS3
+* HTML5
+* Heroku
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+## ![flash](https://emojis.slackmojis.com/emojis/images/1594834432/9699/docbrown.gif?1594834432) Backend review POST routes code snippet: ![flash](https://emojis.slackmojis.com/emojis/images/1594834432/9699/docbrown.gif?1594834432)
+```
+@review_route.route('/', methods=['POST'])
+def postReview():
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        new_review = Review(userId=data['userId'],
+                            locationId=data['locationId'],
+                            review=data['review'])
+        db.session.add(new_review)
+        db.session.commit()
+        return new_review.to_dict()
+    return {'errors': validation_errors(form.errors)}, 401
+```
+## ![hover](https://emojis.slackmojis.com/emojis/images/1618737024/31193/hoverboard.gif?1618737024) FrontEnd review code snippet: ![hover](https://emojis.slackmojis.com/emojis/images/1618737024/31193/hoverboard.gif?1618737024)
+```
+export const createReviewThunk = review => async (dispatch) => {
+    const response = await fetch(`/api/review/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(review)
+    })
+    if (response.ok) {
+        const newReview = await response.json()
+        dispatch(addReview(newReview))
+    }
+    return response
+}
+```
+## DeLorean Traveler created by: 
+![](https://emojis.slackmojis.com/emojis/images/1614195067/14740/pc_computer.gif?1614195067) [@D3vila](https://github.com/D3vila) ![](https://emojis.slackmojis.com/emojis/images/1614195067/14740/pc_computer.gif?1614195067)
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
-
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
-
-   ```bash
-   heroku login
-   ```
-
-6. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. Release your docker container to heroku
-
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
