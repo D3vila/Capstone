@@ -1,7 +1,9 @@
 .userProfile__info {
     display: grid;
-    grid-template-columns: 300px 300px;
-    grid-template-rows: 75px 75px 75px 75px;
+    grid-template-columns: 350px;
+    grid-template-rows: 75px 75px 75px 75px 70px 45px 45px;
+    padding-top: 40px;
+    padding-left: 60px;
 
 }
 
@@ -16,42 +18,48 @@
 }
 
 .strong {
-    font-size: 15px;
+    font-size: 20px;
 }
 
 
 .userId__container {
-    grid-column: 2 / 3;
-    grid-row: 1;
+    grid-column: 1 / 2;
+    grid-row: 7;
     place-self: center;
+    justify-self: start;
     color: violet;
     font-size: 25px;
+    padding-left: 20px;
 
 }
 
 .userName__container {
-    grid-column: 2 / 3;
-    grid-row: 2;
+    grid-column: 1 / 2;
+    grid-row: 6;
     place-self: center;
     color: rgb(180, 115, 255);
     font-size: 25px;
+    justify-self: start;
+    padding-left: 20px;
 }
 
-.firstName__container {
-    grid-column: 2 / 3;
-    grid-row: 3;
+.fullName__container {
+    grid-column: 1 / 2;
+    grid-row: 5;
     place-self: center;
     color: rgb(130, 207, 238);
     font-size: 25px;
+    justify-self: start;
+    padding-left: 20px;
 }
 
-.lastName__container {
+/* .lastName__container {
     grid-column: 2 / 3;
     grid-row: 4;
     place-self: center;
     color: rgb(247, 166, 101);
     font-size: 25px;
-}
+} */
 
 .reservation__div {
     color: white;
@@ -88,7 +96,7 @@
     border: 1px solid white;
     padding: 20px;
     box-shadow: 0px 0px 15px #54cdfd;
-    background-color: rgba(64, 224, 208, 0.233);
+    background-color: rgba(7, 131, 118, 0.233);
     border-radius: 20px;
     display:grid;
     grid-template-columns: 280px 468px 50px;
@@ -96,31 +104,43 @@
 }
 
 .movieName__res {
+    color: rgb(255, 136, 255);
+    font-weight: 800;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 }
 
 .timeTravel__res {
+    color: rgb(144, 136, 255);
+    font-weight: 600;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
 
 .location__res {
+    color: rgb(136, 201, 255);
+    font-weight: 600;
     grid-column: 2 / 3;
     grid-row: 3 / 4;
 }
 
 .startDate__res {
+    color: rgb(136, 255, 209);
+    font-weight: 600;
     grid-column: 2 / 3;
     grid-row: 4 / 5;
 }
 
 .endDate__res {
+    color: rgb(199, 255, 136);
+    font-weight: 600;
     grid-column: 2 / 3;
     grid-row: 5 / 6;
 }
 
 .price__res {
+    color: rgb(255, 203, 136);
+    font-weight: 600;
     grid-column: 2 / 3;
     grid-row: 6 / 7;
 }
@@ -160,7 +180,7 @@
 
 .profile__container {
     display: grid;
-    grid-template-columns: 70vh 90vh 5px;
+    grid-template-columns: 60vh 90vh 5px;
     padding-top: 80px;
     padding-left: 50px;
 }

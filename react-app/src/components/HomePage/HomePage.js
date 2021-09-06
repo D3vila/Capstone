@@ -43,8 +43,11 @@ function HomePage() {
         if (hour < 10) {
             hour = `0${hour}`
             setcHour(hour)
-        } else if (hour > 12) {
+        } else if (hour > 12 && hour <= 21) {
             hour = '0' + `${(hour - 12)}`
+            setcHour(hour)
+        } else if (hour > 12 && hour > 21) {
+            hour = `${(hour - 12)}`
             setcHour(hour)
         } else {
           setcHour(hour)

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editReservationThunk } from "../../store/reservations";
 import { useHistory } from "react-router";
+import './editReservation.css'
 // import { Redirect } from "react-router-dom";
 
 

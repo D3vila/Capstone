@@ -25,8 +25,8 @@ function EditReservationPage() {
 
 
     return (
-        <>
-            <h1>Edit Reservation # {reservationId}</h1>
+        <div className='reservationEditPage__div'>
+            <h1 className='reservationEdit__titlePage'>Edit Reservation # {reservationId}</h1>
             {filteredReservation?.map((reservation) => (
                 <div className='editReservation__container' key={reservationId}>
                     {/*<img className='reservation__pic' src={reservation?.location?.img3} alt='locationPic'></img>
@@ -42,7 +42,7 @@ function EditReservationPage() {
             ))}
 
 
-        </>
+        </div>
     )
 
 

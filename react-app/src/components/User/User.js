@@ -93,11 +93,8 @@ function User() {
             <strong className='strong'>User Name: </strong> {user?.username}
             {/*<strong>Username</strong> {profileUser.username}*/}
           </div>
-          <div className='firstName__container'>
-            <strong className='strong'>first Name: </strong> {user?.first_name}
-          </div>
-          <div className='lastName__container'>
-            <strong className='strong'>Last Name: </strong> {user?.last_name}
+          <div className='fullName__container'>
+            <strong className='strong'>Hi, </strong> {user?.first_name} {user?.last_name}
           </div>
         </div>
         <div className='reservation__div'>
