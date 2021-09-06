@@ -4,6 +4,7 @@ Delorean Traveler is an app based on Airbnb website that allows users to reserve
 
 ** A live link to the website can be found here: https://solo-project-bttf.herokuapp.com/ **
 
+
 ## ![clock](https://emojis.slackmojis.com/emojis/images/1618820290/31748/alarm_clock.gif?1618820290) Website walk-through ![clock](https://emojis.slackmojis.com/emojis/images/1618820290/31748/alarm_clock.gif?1618820290)
 ### *Homepage, Sign up page, login page, and users profile page*
 ![intro](https://user-images.githubusercontent.com/79862908/132204334-b2fddb6e-6404-472c-ae64-85f2768fc738.gif)
@@ -21,7 +22,7 @@ Delorean Traveler is an app based on Airbnb website that allows users to reserve
 * Explore all the movie locations with movie details and traveling details
 * Post your review on a location and if you decide you can change your review or delete it
 * Reserve the DeLorean to travel to a movie location in time and edit or delete your reservation
-* User can follow featured locations that is randomly selected for users view. 
+* User can follow featured locations that is randomly selected for users view.
 
 ## ![flash](https://emojis.slackmojis.com/emojis/images/1614881896/17106/electric_guitar.gif?1614881896) Future Features ![flash](https://emojis.slackmojis.com/emojis/images/1614881896/17106/electric_guitar.gif?1614881896)
 * Search Bar to find certain locations
@@ -76,6 +77,5 @@ export const createReviewThunk = review => async (dispatch) => {
     return response
 }
 ```
-## DeLorean Traveler created by: 
+## DeLorean Traveler created by:
 ![](https://emojis.slackmojis.com/emojis/images/1614195067/14740/pc_computer.gif?1614195067) [@D3vila](https://github.com/D3vila) ![](https://emojis.slackmojis.com/emojis/images/1614195067/14740/pc_computer.gif?1614195067)
-
