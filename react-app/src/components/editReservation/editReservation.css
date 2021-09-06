@@ -18,11 +18,56 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
   }
 
-  input[type='date'] {
-      background-color: rgba(0, 125, 184, 0.76);
-      border-radius: 15px;
-      padding: 10px;
-      border: 2px solid rgb(99, 207, 250);
-      color: rgb(245, 220, 1);
-      font-family: 'IBM Plex Mono', monospace;
-  }
+input[type='date'] {
+    background-color: rgba(0, 125, 184, 0.76);
+    border-radius: 15px;
+    padding: 10px;
+    border: 2px solid rgb(99, 207, 250);
+    color: rgb(245, 220, 1);
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.timeCircuit__div1 {
+    filter: drop-shadow(1px 1px 8px rgb(60, 250, 2))
+            drop-shadow(-1px -1px 1px rgb(255, 255, 255))
+            drop-shadow(-1px -1px 20px rgb(0, 225, 255));
+    height: 365px;
+    width: 600px;
+    margin: 3% auto;
+    text-align: center;
+    background-color: rgb(85, 84, 84);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+}
+
+.circuitBox1 {
+    background-color: rgb(95, 95, 95);
+    margin: 15px;
+    height: 25%;
+    box-shadow:  0 0 20px black;
+    border-radius: 4px;
+}
+
+._div_2 p{
+    display: inline-block;
+    margin: 10px;
+}
+
+.large__label1 {
+    margin-top: -25px;
+    padding-top: 5px;
+    background-color: rgb(0, 0, 0);
+    width: 27%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reservationEdit__div {
+
+}
+
+.resFormTitle__1 {
+    font-size: 25px;
+    margin-bottom: 25px;
+}

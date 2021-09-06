@@ -51,15 +51,15 @@ const EditReservationForm = ({reservationId, locationId, userId }) => {
         <>
             <div className='reservationEdit__div'>
                 <form onSubmit={handleEdit} className='reservationEdit__form'>
-                    <div>
+                    <div className='resEdit__form__startDate'>
                         <label htmlFor='startDate'>Enter a start date for your reservation:</label>
                         <input type='date' name='startDate' onChange={updateStartDate} required={true} value={startDate}></input>
                     </div>
-                    <div>
+                    <div className='resEdit__form__endDate'>
                         <label htmlFor='endDate'>Enter a end date for your reservation:</label>
                         <input type='date' name='endDate' onChange={updateEndDate} required={true} value={endDate}></input>
                     </div>
-                    <div>
+                    <div className='resEdit__form__button'>
                         <button type='submit'>Update Reservation</button>
                     </div>
                 </form>
