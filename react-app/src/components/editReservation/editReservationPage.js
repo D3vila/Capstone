@@ -69,6 +69,7 @@ function EditReservationPage() {
                             <div className='_div_2'>
                                 <p className='large__label'>Location Id: {reservation.locationId}</p>
                                 <p className='large__label'>User Id: {reservation.userId}</p>
+                                <p className='large__label'>Res Id: {reservation.id}</p>
                             </div>
 
                                 {/*<div className=''>Start Date: {reservation?.startDate.substring(0, 17)}</div>

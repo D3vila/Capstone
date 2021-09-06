@@ -6,7 +6,7 @@ import './editReservation.css'
 // import { Redirect } from "react-router-dom";
 
 
-const EditReservationForm = ({reservationId, locationId, userId }) => {
+const EditReservationForm = ({ reservationId, locationId, userId }) => {
     // const sessionUser = useSelector(state => state.session.user)
     // const userReservation = useSelector(state => Object.values(state?.reservations))
     // const filteredReservation = userReservation.filter(reservationEdit => reservationEdit.id === +reservationId )
@@ -26,7 +26,7 @@ const EditReservationForm = ({reservationId, locationId, userId }) => {
     }
 
 
-    const handleEdit =  (e) => {
+    const handleEdit = (e) => {
         e.preventDefault();
         // console.log(startDate)
         const editedReservation = {
@@ -63,7 +63,10 @@ const EditReservationForm = ({reservationId, locationId, userId }) => {
                         <button type='submit'>Update Reservation</button>
                     </div>
                 </form>
-            </div>
+                <a href={`/users/${userId}`}>
+                <button className='resEdit__form__cancel'>Cancel</button>
+            </a>
+        </div>
         </>
     )
 
