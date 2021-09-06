@@ -30,7 +30,7 @@ const EditReviewForm = (review) => {
     return (
         <div className='editedForm__div'>
             <form className='reviewEditForm' onSubmit={handleSubmit}>
-                <textarea type='text' onChange={createEditedReview} required={true} placeholder='Edit your review' />
+                <textarea type='text' onChange={createEditedReview} value={editedReview} required={true} placeholder='Edit your review' />
                 <div className='reviewEdit__button'>
                     <button type='submit'>Submit Edit</button>
                 </div>

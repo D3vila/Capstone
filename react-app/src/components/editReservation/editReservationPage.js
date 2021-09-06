@@ -25,24 +25,65 @@ function EditReservationPage() {
 
 
     return (
-        <>
-            <h1>Edit Reservation # {reservationId}</h1>
+        <div className='reservationEditPage__div'>
+            <h1 className='reservationEdit__titlePage'>Edit Reservation # {reservationId}</h1>
             {filteredReservation?.map((reservation) => (
                 <div className='editReservation__container' key={reservationId}>
                     {/*<img className='reservation__pic' src={reservation?.location?.img3} alt='locationPic'></img>
                     <div className=''>{reservation?.location?.movieName}</div>
                     <div className=''>Time traveling to: {reservation?.location?.month}, {reservation?.location?.day} {reservation?.location?.year}</div>
-            <div className=''>Location: {reservation?.location?.city}, {reservation?.location?.state} ({reservation?.location?.country})</div>*/}
+                    <div className=''>Location: {reservation?.location?.city}, {reservation?.location?.state} ({reservation?.location?.country})</div>*/}
                     <div>Reservation created on: {reservation.createdAt}</div>
-                    <div>Location Id: {reservation.locationId}</div>
-                    <div className=''>Start Date: {reservation?.startDate.substring(0, 17)}</div>
-                    <div className=''>End Date: {reservation?.endDate.substring(0, 17)}</div>
+                    <div className='timeCircuit__div1'>
+                        <div className='_div_spacer'>
+                        <div className='circuitBox1 box1'>
+                            <div className='_div_'>
+                                <p className='sticker__label'>MONTH</p>
+                                <p className='circuitDisplay'>{reservation?.startDate.substring(7, 11)}</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>DAY</p>
+                                <p className='circuitDisplay'>{reservation?.startDate.substring(5, 7)}</p>
+                            </div>
+                            <div className='_div_'>
+                                <p className='sticker__label'>Year</p>
+                                <p className='circuitDisplay'>{reservation?.startDate.substring(12, 16)}</p>
+                            </div>
+                            <p className='large__label1'>Start date</p>
+
+                            <div className='ciruitBox1 box2'>
+                                <div className='_div_'>
+                                    <p className='sticker__label'>MONTH</p>
+                                    <p className='circuitDisplay'>{reservation?.endDate.substring(7, 11)}</p>
+                                </div>
+                                <div className='_div_'>
+                                    <p className='sticker__label'>DAY</p>
+                                    <p className='circuitDisplay'>{reservation?.endDate.substring(5, 7)}</p>
+                                </div>
+                                <div className='_div_'>
+                                    <p className='sticker__label'>Year</p>
+                                    <p className='circuitDisplay'>{reservation?.endDate.substring(12, 16)}</p>
+                                </div>
+                                <p className='large__label1'>End DATE</p>
+                            </div>
+                            <div className='_div_2'>
+                                <p className='large__label'>Location Id: {reservation.locationId}</p>
+                                <p className='large__label'>User Id: {reservation.userId}</p>
+                                <p className='large__label'>Res Id: {reservation.id}</p>
+                            </div>
+
+                                {/*<div className=''>Start Date: {reservation?.startDate.substring(0, 17)}</div>
+                                <div className=''>End Date: {reservation?.endDate.substring(0, 17)}</div>*/}
+                        </div>
+                        </div>
+                    </div>
+                    <div className='resFormTitle__1'>Select a new date for your reservation below</div>
                     <EditReservationForm reservationId={reservationId} locationId={reservation?.locationId} userId={sessionUser.id}/>
                 </div>
             ))}
 
 
-        </>
+        </div>
     )
 
 

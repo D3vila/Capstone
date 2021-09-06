@@ -1,3 +1,171 @@
 .editReservation__container {
     color: white;
 }
+
+.reservationEdit__titlePage {
+    color: white;
+    filter: drop-shadow(1px 1px 5px rgb(248, 248, 248))
+    drop-shadow(-1px -1px 2px rgb(255, 218, 11))
+    drop-shadow(-1px -1px 10px rgb(255, 81, 0));
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.reservationEditPage__div {
+    text-align: center;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.6;
+    filter: invert(1);
+  }
+
+input[type='date'] {
+    background-color: rgba(0, 125, 184, 0.76);
+    border-radius: 15px;
+    padding: 10px;
+    border: 2px solid rgb(99, 207, 250);
+    color: rgb(245, 220, 1);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.timeCircuit__div1 {
+    filter: drop-shadow(1px 1px 8px rgb(60, 250, 2))
+            drop-shadow(-1px -1px 1px rgb(255, 255, 255))
+            drop-shadow(-1px -1px 20px rgb(0, 225, 255));
+    height: 365px;
+    width: 690px;
+    margin: 3% auto;
+    text-align: center;
+    background-color: rgb(85, 84, 84);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+}
+
+.circuitBox1 {
+    background-color: rgb(95, 95, 95);
+    margin: 15px;
+    height: 25%;
+    box-shadow:  0 0 20px black;
+    border-radius: 4px;
+}
+
+._div_2 p{
+    display: inline-block;
+    margin: 10px;
+}
+
+.large__label1 {
+    margin-top: -25px;
+    padding-top: 5px;
+    background-color: rgb(0, 0, 0);
+    width: 27%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reservationEdit__div {
+    margin-bottom: 200px;
+}
+
+.resFormTitle__1 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    filter: drop-shadow(1px 1px 1px rgb(255, 157, 0))
+    drop-shadow(-1px -1px 1px rgb(255, 218, 11))
+    drop-shadow(-1px -1px 1px rgb(255, 0, 0));
+}
+
+.resEdit__form__startDate {
+    margin-bottom: 20px;
+}
+
+.resEdit__form__startDate label {
+    color: rgb(255, 68, 0);
+    font-weight: 600;
+    font-size: 20px;
+    text-shadow: 2px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.resEdit__form__startDate input {
+    background-color: rgba(0, 0, 0, 0.774);
+    border-radius: 15px;
+    padding: 10px;
+    height: 10px;
+    border: 2px solid rgb(128, 128, 128);
+    color: rgb(255, 68, 0);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.resEdit__form__startDate input:focus {
+    outline:none !important;
+}
+
+.resEdit__form__endDate {
+    margin-bottom: 20px;
+}
+
+.resEdit__form__endDate label {
+    color: rgb(43, 226, 73);
+    font-weight: 600;
+    font-size: 20px;
+    text-shadow: 2px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.resEdit__form__endDate input {
+    background-color: rgba(0, 0, 0, 0.774);
+    border-radius: 15px;
+    padding: 10px;
+    height: 10px;
+    border: 2px solid rgb(151, 151, 151);
+    color: rgb(43, 226, 73);
+    font-family: 'Orbitron', sans-serif;
+
+}
+
+.resEdit__form__button button {
+    font-family: 'IBM Plex Mono', monospace;
+    width: 15em;
+    background-color: rgb(60, 0, 255);
+    color: rgb(209, 255, 6);
+    /* font-weight: 600; */
+    border: 2px solid rgb(0, 238, 255);
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 17px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.resEdit__form__button button:hover {
+    box-shadow: 0px 0px 10px rgb(106, 243, 255);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.resEdit__form__cancel {
+    font-family: 'IBM Plex Mono', monospace;
+    width: 15em;
+    background-color: rgb(60, 0, 255);
+    color: rgb(209, 255, 6);
+    /* font-weight: 600; */
+    border: 2px solid rgb(0, 238, 255);
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 17px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.resEdit__form__cancel:hover {
+    box-shadow: 0px 0px 10px rgb(106, 243, 255);
+    transition: 0.5s;
+    cursor: pointer;
+}

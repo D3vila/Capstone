@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteReservationThunk } from '../../store/reservations';
+import './DeleteReservation.css'
 
 
 function DeleteReservation({reservationId, setShowModal}) {
@@ -21,11 +22,11 @@ function DeleteReservation({reservationId, setShowModal}) {
     });
 
     return (
-        <div>
-            <div>
+        <div className='deleteRes__containerModal'>
+            <div className='deleteRes__title'>
                 <p>Do you want to cancel this reservation?</p>
             </div>
-            <div>
+            <div className='deleteRes__buttons'>
                 <button className='deleteReservation__button' onClick={handleDelete}>Delete</button>
                 <button className='cancelDelete__button' onClick={handleCancel}>Cancel</button>
             </div>

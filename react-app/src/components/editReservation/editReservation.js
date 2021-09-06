@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editReservationThunk } from "../../store/reservations";
 import { useHistory } from "react-router";
+import './editReservation.css'
 // import { Redirect } from "react-router-dom";
 
 
-const EditReservationForm = ({reservationId, locationId, userId }) => {
+const EditReservationForm = ({ reservationId, locationId, userId }) => {
     // const sessionUser = useSelector(state => state.session.user)
     // const userReservation = useSelector(state => Object.values(state?.reservations))
     // const filteredReservation = userReservation.filter(reservationEdit => reservationEdit.id === +reservationId )
@@ -25,7 +26,7 @@ const EditReservationForm = ({reservationId, locationId, userId }) => {
     }
 
 
-    const handleEdit =  (e) => {
+    const handleEdit = (e) => {
         e.preventDefault();
         // console.log(startDate)
         const editedReservation = {
@@ -50,19 +51,22 @@ const EditReservationForm = ({reservationId, locationId, userId }) => {
         <>
             <div className='reservationEdit__div'>
                 <form onSubmit={handleEdit} className='reservationEdit__form'>
-                    <div>
-                        <label htmlFor='startDate'>Enter a start date for your reservation:</label>
+                    <div className='resEdit__form__startDate'>
+                        <label htmlFor='startDate'>Enter a start date for your reservation: </label>
                         <input type='date' name='startDate' onChange={updateStartDate} required={true} value={startDate}></input>
                     </div>
-                    <div>
-                        <label htmlFor='endDate'>Enter a end date for your reservation:</label>
+                    <div className='resEdit__form__endDate'>
+                        <label htmlFor='endDate'>Enter a end date for your reservation: </label>
                         <input type='date' name='endDate' onChange={updateEndDate} required={true} value={endDate}></input>
                     </div>
-                    <div>
+                    <div className='resEdit__form__button'>
                         <button type='submit'>Update Reservation</button>
                     </div>
                 </form>
-            </div>
+                <a href={`/users/${userId}`}>
+                <button className='resEdit__form__cancel'>Cancel</button>
+            </a>
+        </div>
         </>
     )
 

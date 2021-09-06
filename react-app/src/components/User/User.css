@@ -1,7 +1,65 @@
+.userProfile__info {
+    display: grid;
+    grid-template-columns: 350px;
+    grid-template-rows: 75px 75px 75px 75px 70px 45px 45px;
+    padding-top: 40px;
+    padding-left: 60px;
+
+}
+
 .profilePic {
     height: 300px;
     width: 300px;
+    border-radius: 30%;
+    object-fit: cover;
+    filter: drop-shadow(1px 1px 5px rgb(231, 65, 246))
+    drop-shadow(-1px -1px 2px rgb(255, 255, 255))
+    drop-shadow(-1px -1px 10px rgb(0, 174, 255));
 }
+
+.strong {
+    font-size: 20px;
+}
+
+
+.userId__container {
+    grid-column: 1 / 2;
+    grid-row: 7;
+    place-self: center;
+    justify-self: start;
+    color: violet;
+    font-size: 25px;
+    padding-left: 20px;
+
+}
+
+.userName__container {
+    grid-column: 1 / 2;
+    grid-row: 6;
+    place-self: center;
+    color: rgb(180, 115, 255);
+    font-size: 25px;
+    justify-self: start;
+    padding-left: 20px;
+}
+
+.fullName__container {
+    grid-column: 1 / 2;
+    grid-row: 5;
+    place-self: center;
+    color: rgb(130, 207, 238);
+    font-size: 25px;
+    justify-self: start;
+    padding-left: 20px;
+}
+
+/* .lastName__container {
+    grid-column: 2 / 3;
+    grid-row: 4;
+    place-self: center;
+    color: rgb(247, 166, 101);
+    font-size: 25px;
+} */
 
 .reservation__div {
     color: white;
@@ -11,11 +69,118 @@
     color: white;
 }
 
-.resPic {
+.reservation__div h2 {
+    text-align: center;
+}
+
+/* .resPic {
     height: 200px;
     width: 300px;
-}
+    object-fit: cover;
+
+} */
 
 .reservation__pic {
     height: 200px;
+    width: 250px;
+    border-radius: 15px;
+    filter: drop-shadow(1px 1px 5px rgb(248, 248, 248))
+    drop-shadow(-1px -1px 2px rgb(255, 218, 11))
+    drop-shadow(-1px -1px 10px rgb(255, 81, 0));
+    margin-bottom: 10px;
+    /* object-fit: cover; */
+}
+
+.reservation__container {
+    margin-bottom: 25px;
+    border: 1px solid white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px #54cdfd;
+    background-color: rgba(7, 131, 118, 0.233);
+    border-radius: 20px;
+    display:grid;
+    grid-template-columns: 280px 468px 50px;
+    grid-template-rows: 45px 35px 35px 35px 35px 35px;
+}
+
+.movieName__res {
+    color: rgb(255, 136, 255);
+    font-weight: 800;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.timeTravel__res {
+    color: rgb(144, 136, 255);
+    font-weight: 600;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.location__res {
+    color: rgb(136, 201, 255);
+    font-weight: 600;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.startDate__res {
+    color: rgb(136, 255, 209);
+    font-weight: 600;
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+}
+
+.endDate__res {
+    color: rgb(199, 255, 136);
+    font-weight: 600;
+    grid-column: 2 / 3;
+    grid-row: 5 / 6;
+}
+
+.price__res {
+    color: rgb(255, 203, 136);
+    font-weight: 600;
+    grid-column: 2 / 3;
+    grid-row: 6 / 7;
+}
+
+.Delte__res {
+    /* margin-bottom: 15px; */
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+.edit__resButton {
+    grid-column: 3 / 4;
+    grid-row: 6 / 7;
+}
+
+.fa-edit {
+    font-size: 30px;
+    text-decoration: none;
+    color: rgb(250, 156, 102);
+}
+
+.fa-edit:hover {
+    filter: drop-shadow(1px 1px 5px rgb(248, 248, 248))
+    drop-shadow(-1px -1px 2px rgb(255, 218, 11))
+    drop-shadow(-1px -1px 10px rgb(255, 81, 0));
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.noReservation {
+    color: white;
+}
+
+.reservationTitle {
+    font-size: 35px;
+    color:rgb(255, 255, 255); text-shadow: 0.5px 1px 0px rgb(0, 0, 0), 0px 0px 5px red, 1px 1px 5px orange, 2px 2px 10px yellow;
+}
+
+.profile__container {
+    display: grid;
+    grid-template-columns: 60vh 90vh 5px;
+    padding-top: 80px;
+    padding-left: 50px;
 }

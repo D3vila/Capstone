@@ -1,0 +1,52 @@
+.deleteRes__containerModal {
+    text-align: center;
+    padding: 20px;
+    height: 100px;
+    background-color: none;
+    background: linear-gradient(111deg, #0a77f3c2 5%, rgba(0, 0, 0, 0) 40%), radial-gradient(farthest-corner at 30% 60%, #5f00cc7c 70%, #1e2dffa2 70%);
+}
+
+.deleteRes__title p {
+    color: rgb(255, 194, 80);
+    font-weight: 800;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.deleteRes__buttons button {
+    font-family: 'IBM Plex Mono', monospace;
+    width: 10em;
+    background-color: rgb(60, 0, 255);
+    color: rgb(209, 255, 6);
+    /* font-weight: 600; */
+    border: 2px solid rgb(0, 238, 255);
+    padding: 3px;
+    border-radius: 15px;
+    font-size: 17px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.deleteRes__buttons button:hover {
+    box-shadow: 0px 0px 15px rgb(106, 243, 255);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.deleteReservation__button1 {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.fa-trash {
+    font-size: 30px;
+    color: rgb(213, 125, 235);
+}
+
+.fa-trash:hover {
+    filter: drop-shadow(1px 1px 5px rgb(248, 248, 248))
+    drop-shadow(-1px -1px 2px rgb(255, 11, 11))
+    drop-shadow(-1px -1px 10px rgb(60, 0, 255));
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    cursor: pointer;
+}

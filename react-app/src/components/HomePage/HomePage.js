@@ -40,14 +40,24 @@ function HomePage() {
 
         const hours = new Date()
         let hour = hours.getHours();
-        if (hour < 10) {
+        if (hour < 10 && hour > 0) {
             hour = `0${hour}`
             setcHour(hour)
-        } else {
+        } else if (hour > 12 && hour <= 21) {
+            hour = '0' + `${(hour - 12)}`
+            setcHour(hour)
+        } else if (hour > 12 && hour > 21) {
+            hour = `${(hour - 12)}`
+            setcHour(hour)
+        } else if (hour === 0) {
+            hour = '12'
+            setcHour(hour)
+        }
+        else {
           setcHour(hour)
         }
 
-        const min = new Date().getMinutes();
+        let min = new Date().getMinutes();
         if (min < 10) {
             min = `0${min}`
             setcMin(min)
@@ -73,7 +83,7 @@ function HomePage() {
                 <h1>TRAVEL IN MOVIE TIME WITH THE DELOREAN TO EXPERIENCE MOVIE EVENTS IN REAL LIFE!</h1>
                 <h2>Featured Movie Event:</h2>
                 <div className='timeCircuit__div'>
-                    <div className='_div_spacer'> </div>
+                    <div className='_div_spacer'></div>
                     <div className='circuitBox box1'>
                         <div className='_div_'>
                             <p className='sticker__label'>MONTH</p>
