@@ -14,7 +14,7 @@ const AddReviewForm = () => {
     const [review, setReview] = useState('');
     const createReview = (e) => setReview(e.target.value);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         const addReview = {
@@ -22,14 +22,14 @@ const AddReviewForm = () => {
             locationId: location.location.id,
             review
         };
-        await dispatch(createReviewThunk(addReview))
+        dispatch(createReviewThunk(addReview))
         setReview('');
     };
 
     return (
         <div className='review__div1'>
             <form className='reviewForm__div' onSubmit={handleSubmit}>
-                <textarea type='text' onChange={createReview} required={true} placeholder='What did you think of your visit?' />
+                <textarea type='text' onChange={createReview} required={true} value={review} placeholder='What did you think of your visit?' />
                 <div className='review__button'>
                     <button type='submit'>Submit Review</button>
                 </div>
