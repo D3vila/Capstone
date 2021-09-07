@@ -67,7 +67,7 @@ function HomePage() {
 
     }, []);
 
-    const randomNumber = Math.floor(Math.random() * 15) + 1
+    const randomNumber = Math.floor(Math.random() * 5) + 1
 
     const dispatch = useDispatch()
 

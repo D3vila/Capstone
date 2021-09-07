@@ -7,6 +7,8 @@
 
 }
 
+
+
 .profilePic {
     height: 300px;
     width: 300px;
@@ -171,6 +173,7 @@
 
 .noReservation {
     color: white;
+    text-align: center;
 }
 
 .reservationTitle {
