@@ -81,7 +81,7 @@ function HomePage() {
         <>
             <div className='HomePage'>
                 <h1>TRAVEL IN MOVIE TIME WITH THE DELOREAN TO EXPERIENCE MOVIE EVENTS IN REAL LIFE!</h1>
-                <h2>Featured Movie Event:</h2>
+                <h2>Random Featured Movie Event:</h2>
                 <div className='timeCircuit__div'>
                     <div className='_div_spacer'></div>
                     <div className='circuitBox box1'>
@@ -192,7 +192,7 @@ function HomePage() {
                     </a>
                 </div>
                 <div>
-                    <h3 className='click__link'>click on location name to visit</h3>
+                    <h3 className='click__link'>click on location information to visit</h3>
                 </div>
             </div>
             <Footer />
