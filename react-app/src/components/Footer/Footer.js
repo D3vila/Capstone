@@ -17,7 +17,7 @@ const Footer = () => {
                     <i className="fas fa-laptop-code"></i>
                 </a>
                 <div className='creator__div'>
-                    <h2>Constructed by Antonio Davila-Olivares in a week-long solo project</h2>
+                    <h2>Constructed by Antonio Davila-Olivares in a two week-long solo project</h2>
                 </div>
             </div>
         </>

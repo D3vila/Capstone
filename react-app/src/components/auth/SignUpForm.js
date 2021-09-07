@@ -84,7 +84,7 @@ const SignUpForm = () => {
             <input
               type='text'
               name='username'
-              placeholder='Must be between 3 and 6 characters'
+              placeholder='Must be between 3 and 9 characters'
               onChange={updateUsername}
               value={username}
 
@@ -148,7 +148,7 @@ const SignUpForm = () => {
             <input
               type='text'
               name='profile_image'
-              placeholder='Image URL must be a png, jpg, jpeg'
+              placeholder='Image URL must end with .png, .jpg, .jpeg'
               onChange={updateProfile_image}
               value={profile_image}
             ></input>
