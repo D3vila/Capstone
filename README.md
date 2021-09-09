@@ -1,6 +1,6 @@
 # ![DeLorean](https://github.com/davidcelis/emoji/blob/master/delorean.png?raw=true) Welcome to DeLorean Traveler ![DeLorean](https://github.com/davidcelis/emoji/blob/master/delorean.png?raw=true)
 
-Delorean Traveler is an app based on Airbnb website that allows users to reserve the Delorean to travel to movie destinations in time. Users can also leave reviews on locations they have visited and have many locations to choose from. DeLorean Traveler was created using Flask, React, and Redux.
+Delorean Traveler is an app based on Airbnb website that allows users to reserve the Delorean to travel to movie destinations in time. Users can also leave reviews on locations they have visited and have many locations to choose from. DeLorean Traveler was created with a Python and Flask/SQLAlchemy backend that interacts with a PostgreSQL database and a React/Redux frontend.
 
 ** A live link to the website can be found here: https://solo-project-bttf.herokuapp.com/ **
 
@@ -33,15 +33,18 @@ Delorean Traveler is an app based on Airbnb website that allows users to reserve
 ### Backend
 * Flask
 * Python
-* JavaScript
 * PostgresSQL
 * SQLAlchemy
 * WTForms
 ### Frontend
 * React
+* Node.js
+* React
+* Redux
 * JavaScript
-* CSS3
+* Pure CSS
 * HTML5
+### Hosting
 * Heroku
 
 ## ![flash](https://emojis.slackmojis.com/emojis/images/1594834432/9699/docbrown.gif?1594834432) Backend review POST routes code snippet: ![flash](https://emojis.slackmojis.com/emojis/images/1594834432/9699/docbrown.gif?1594834432)
