@@ -2,10 +2,15 @@
     text-align: center;
     padding: 20px;
     height: 100px;
-    background-color: none;
-    background: linear-gradient(111deg, #0a77f3c2 5%, rgba(0, 0, 0, 0) 40%), radial-gradient(farthest-corner at 30% 60%, #5f00cc7c 70%, #1e2dffa2 70%);
+    border-radius: 20px;
+    /* background-color: none; */
+    /* background: linear-gradient(111deg, #0a77f3c2 5%, rgba(0, 0, 0, 0) 40%), radial-gradient(farthest-corner at 30% 60%, #5f00cc7c 70%, #1e2dffa2 70%); */
 }
 
+#modal-content {
+    border-radius: 20px;
+    background: linear-gradient(111deg, #0a77f3c2 5%, rgba(0, 0, 0, 0) 40%), radial-gradient(farthest-corner at 30% 60%, #5f00cc7c 70%, #1e2dffa2 70%);
+}
 .deleteRes__title p {
     color: rgb(255, 194, 80);
     font-weight: 800;
