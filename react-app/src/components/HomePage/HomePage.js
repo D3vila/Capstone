@@ -13,6 +13,7 @@ function HomePage() {
     const [cYear, setcYear] = useState('')
     const [cHour, setcHour] = useState('')
     const [cMin, setcMin] = useState('')
+    const [lightHour, setLightHour] = useState('')
     // console.log(cHour)
 
     useEffect(() => {
@@ -57,6 +58,10 @@ function HomePage() {
           setcHour(hour)
         }
 
+        const lightHours = new Date().getHours();
+        setLightHour(lightHours)
+
+
         let min = new Date().getMinutes();
         if (min < 10) {
             min = `0${min}`
@@ -64,6 +69,7 @@ function HomePage() {
         } else {
           setcMin(min)
         }
+
 
     }, []);
 
@@ -75,7 +81,27 @@ function HomePage() {
         dispatch(getOneLocation(randomNumber))
     }, [dispatch, randomNumber]);
 
-
+    function onOff (time) {
+        if (time > 11) {
+            return (
+                <div className='_div_'>
+                    <p className='sticker__label'>AM</p>
+                    <p className='off'></p>
+                    <p className='sticker__label'>PM</p>
+                    <p className='on'></p>
+                </div>
+            )
+        } else {
+            return (
+                <div className='_div_'>
+                    <p className='sticker__label'>AM</p>
+                    <p className='on'></p>
+                    <p className='sticker__label'>PM</p>
+                    <p className='off'></p>
+                </div>
+            )
+        }
+    }
 
     return (
         <>
@@ -130,12 +156,7 @@ function HomePage() {
                             <p className='sticker__label'>YEAR</p>
                             <p className='circuitDisplay'>{cYear}</p>
                         </div>
-                        <div className='_div_'>
-                            <p className='sticker__label'>AM</p>
-                            <p className='on'></p>
-                            <p className='sticker__label'>PM</p>
-                            <p className='off'></p>
-                        </div>
+                        {onOff(lightHour)}
                         <div className='_div_ padding'>
                             <p className='sticker__label'>Hour</p>
                             <p className='circuitDisplay'>{cHour}</p>
