@@ -1,12 +1,28 @@
 .locations__container {
-    width: 1700px;
+    width: 100%;
     margin: 70px auto 100px;
+    margin-left: 100px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-
 }
+.movieNameHeader {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background: rgba(50, 225, 255, 0.308);
+    border-radius: 50%;
+}
+
+.movieNameHeader h2 {
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+
 
 .locations__title {
     text-decoration: none;
@@ -28,8 +44,6 @@
 
 }
 
-
-
 .locations__container .box {
     position:relative;
     width: 380px;
@@ -50,13 +64,16 @@
 .imgBox {
     position: relative;
     overflow: hidden;
-
-
 }
 
 .box .imgBox img {
     max-width: 100%;
     height: 300px;
+}
+
+.outerBox {
+    margin-bottom: 50px;
+    margin-right: 10px;
 }
 
 .box:hover .imgBox img {
@@ -95,20 +112,21 @@
     margin: 0;
     padding: 0;
     color: rgb(255, 255, 255);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     text-decoration: none;
 }
 
-.content a h2 {
-    text-shadow: 2px 2px #000000;
+.content h3 {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     color: rgb(255, 255, 255);
 }
 
-.content a h3 {
+/* .content h3 {
     text-shadow: -1px 1px 2px rgb(255, 238, 0),
 				  1px 1px 2px rgb(233, 0, 0),
 				  1px -1px 0 rgb(207, 4, 4),
 				  -1px -1px 0 rgb(177, 1, 1);
-}
+} */
 
 .backtoTop{
     bottom: 0;
