@@ -23,7 +23,7 @@ function Locations() {
                             <h2>{location?.movieName}</h2>
                         </div>
                         <div className='box' key={Math.floor(Math.random() * 10000)}>
-                            <a href={`/locations/${location.id}`}>
+                            <a href={`/locations/${location?.id}`}>
                                 <div className='imgBox'>
                                     <img src={location?.img1} className='splash__img' alt='locationPic'/>
                                 </div>
