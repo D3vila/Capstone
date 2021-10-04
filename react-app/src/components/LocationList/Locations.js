@@ -18,18 +18,24 @@ function Locations() {
             <h1 className='locations__title'>Travel to any movie location and time you want experience</h1>
             <div className='locations__container'>
                 {locations.map(location => (
-                    <div className='box' key={Math.floor(Math.random() * 10000)}>
-                        <div className='imgBox'>
-                            <img src={location?.img1} className='splash__img' alt='locationPic'/>
+                    <div className='outerBox' key={Math.floor(Math.random() * 10000)}>
+                        <div className='movieNameHeader'>
+                            <h2>{location?.movieName}</h2>
                         </div>
-                        <div className='details'>
-                            <div className='content'>
-                                <a href={`/locations/${location.id}`}>
-                                    <h2>{location?.movieName}</h2>
-                                    <h3>{location?.name}</h3>
-                                    <h3>${location?.price}/day</h3>
-                                </a>
-                            </div>
+                        <div className='box' key={Math.floor(Math.random() * 10000)}>
+                            <a href={`/locations/${location?.id}`}>
+                                <div className='imgBox'>
+                                    <img src={location?.img1} className='splash__img' alt='locationPic'/>
+                                </div>
+                                <div className='details'>
+                                    <div className='content'>
+                                        <h3>{location?.name}</h3>
+                                        <h3>{location?.city}, {location?.state}</h3>
+                                        <h3></h3>
+                                        <h3>${location?.price}/day</h3>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 ))}
