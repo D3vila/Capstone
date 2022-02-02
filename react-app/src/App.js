@@ -53,6 +53,11 @@ function App() {
         <Route path='/' exact={true} >
           <HomePage/>
         </Route>
+        <Route>
+          <div>
+            <h1>Page Not Found! Sorry!</h1>
+          </div>
+        </Route>
       </Switch>
 
     </BrowserRouter>
