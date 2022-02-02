@@ -13,7 +13,7 @@ export default function PageNotFound() {
                 <h2>PAGE NOT FOUND</h2>
                 <h3>BACK TO HOME?</h3>
                 <a href="/" className="yes">YES</a>
-                <a href="https://www.youtube.com/watch?v=G3AfIvJBcGo">MAYBE</a>
+                <a href="/">MAYBE</a>
                 </div>
             </section>
         </div>

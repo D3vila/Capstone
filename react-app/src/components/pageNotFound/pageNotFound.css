@@ -23,12 +23,18 @@ section.notFound {
 }
 
 section.notFound h1 {
-    color: red;
+    color: rgb(255, 187, 0);
     font-size: 100px;
+    filter: drop-shadow(1px 1px 3px rgb(255, 29, 29))
+            drop-shadow(-1px -1px 2px rgb(255, 255, 255))
+            drop-shadow(-1px -1px 7px rgb(0, 162, 255));
 }
 
 section.notFound h2 {
     font-size: 50px;
+    filter: drop-shadow(1px 1px 3px rgb(231, 65, 246))
+            drop-shadow(-1px -1px 2px rgb(255, 255, 255))
+            drop-shadow(-1px -1px 7px rgb(0, 174, 255));
 }
 
 section.notFound h1, h2, h3 {
@@ -39,12 +45,21 @@ div.text {
     height: 50vh;
 }
 
+section img {
+    filter: drop-shadow(1px 1px 3px rgb(231, 65, 246))
+            drop-shadow(-1px -1px 2px rgb(255, 255, 255))
+            drop-shadow(-1px -1px 7px rgb(0, 174, 255));
+}
+
+
+
 div.text a {
     text-decoration: none;
     margin-right: 20px;
     margin-left: 20px;
     color: rgb(231, 65, 246);
 }
+
 
 div.text a:hover {
     color: rgb(0, 174, 255);
