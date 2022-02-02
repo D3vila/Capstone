@@ -10,6 +10,7 @@ import User from './components/User/User';
 import Locations from './components/LocationList/Locations'
 import Location from './components/Location/Location';
 import HomePage from './components/HomePage/HomePage';
+import PageNotFound from './components/pageNotFound/pageNotFound';
 import { authenticate } from './store/session';
 import EditReservationPage from './components/editReservation/editReservationPage'
 
@@ -52,6 +53,9 @@ function App() {
         </Route>
         <Route path='/' exact={true} >
           <HomePage/>
+        </Route>
+        <Route>
+          <PageNotFound />
         </Route>
       </Switch>
 
